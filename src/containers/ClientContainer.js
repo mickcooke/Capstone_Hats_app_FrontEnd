@@ -3,14 +3,14 @@ import JobList from '../components/JobList.js'
 import { BrowserRouter as Router, Routes, Route, useParams}  from 'react-router-dom'
 import ClientList from '../components/ClientList.js'
 
-const ClientContainer = () => {
+const ClientContainer = ({clients}) => {
   return (
     <>
     <p>Client container</p>
-    <ClientList/>
-    <Routes>  
-      <Route path="/jobs/:id" element={<JobList/>}/>
-    </Routes>
+    <ClientList clients={clients}/>
+    {/* <Routes>  
+      <Route path="/:id" element={<JobList clients={clients}/>}/>
+    </Routes> */}
     </>
   )
 }

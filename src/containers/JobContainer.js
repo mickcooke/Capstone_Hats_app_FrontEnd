@@ -2,7 +2,7 @@ import React from 'react'
 import JobList from '../components/JobList'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
-const JobContainer = () => {
+const JobContainer = ({jobs}) => {
 
 const JobDetailWrapper = () => {
   return (
@@ -13,10 +13,10 @@ const JobDetailWrapper = () => {
   return (
     <>
     <p>JobContainer</p>
-    <Routes>
-      <Route path="/" element = {<JobList/>}/>
+    <JobList jobs={jobs}/>
+    {/* <Routes>
       <Route path="/:id" element = {<JobDetailWrapper/>}/>
-    </Routes>
+    </Routes> */}
     </>
   )
 }
