@@ -3,6 +3,8 @@ import JobList from '../components/JobList.js'
 import { BrowserRouter as Router, Routes, Route, useParams}  from 'react-router-dom'
 import ClientList from '../components/ClientList.js'
 import Header from '../components/Header.js'
+import UpdateClientForm from '../components/UpdateClientForm.js'
+import ClientForm from '../components/ClientForm.js'
 
 
 const ClientContainer = ({clients}) => {
@@ -19,10 +21,13 @@ const text = `${filteredClients[0].hat.name} > Clients`
   return (
     <>
     <Header text={text}/>
-    <ClientList clients={filteredClients}/>
-    {/* <Routes>  
-      <Route path="/:id" element={<JobList clients={clients}/>}/>
-    </Routes> */}
+
+    
+    <Routes>  
+    <Route path="/:id" element={<ClientList clients={filteredClients}/>}/>
+    <Route path="/new" element={<ClientForm/>}/>
+      <Route path="/edit/:id" element={<UpdateClientForm/>}/>
+    </Routes>
     </>
   )
 }

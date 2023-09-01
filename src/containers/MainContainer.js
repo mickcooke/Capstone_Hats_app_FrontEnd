@@ -8,6 +8,7 @@ import NavBar from '../components/NavBar.js'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Request from '../helpers/request.js'
 import JobDetailContainer from './JobDetailContainer.js'
+import SettingsContainer from './SettingsContainer.js'
 
 const MainContainer = () => {
 
@@ -53,6 +54,7 @@ const getData = () => {
         <Route path="/jobs/*" element={<JobContainer jobs={jobs}/>}/>
         <Route path="/jobs/detail/*" element={<JobDetailContainer jobs={jobs}/>}/>
         <Route path="/money/*" element={<MoneyContainer />}/>
+        <Route path="/settings/*" element={<SettingsContainer />}/>
         <Route path="/insights/*" element={<InsightsContainer />}/>
       </Routes>
 

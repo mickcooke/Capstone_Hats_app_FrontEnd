@@ -1,6 +1,7 @@
 import React from "react";
 import ClientCard from "./ClientCard";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+
 
 const ClientList = ({ clients }) => {
   const hatId = useParams();
@@ -10,7 +11,7 @@ const ClientList = ({ clients }) => {
   }
 
  
-
+  const url = "/clients/new"
 
   const clientElements = clients.map((client, index) => {
     return (
@@ -22,7 +23,10 @@ const ClientList = ({ clients }) => {
     );
   });
 
-  return <div>{clientElements}</div>;
+  return <div>
+    {clientElements}
+    <Link to={url}>Create New Hat</Link>
+    </div>;
 };
 
 export default ClientList;

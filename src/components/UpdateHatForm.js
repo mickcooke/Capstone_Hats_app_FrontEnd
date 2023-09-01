@@ -2,7 +2,9 @@ import React from 'react'
 
 const UpdateHatForm = () => {
   return (
-    <div>UpdateHatForm</div>
+    <div>
+      <p>UpdateHatForm</p>
+      </div>
   )
 }
 

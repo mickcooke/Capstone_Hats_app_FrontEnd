@@ -9,11 +9,15 @@ const HatCard = ({hat}) => {
   }
 
   const url = `/clients/${hat.id}`;
+  const editUrl = `/hats/edit/${hat.id}`;
 
   return (
     <div>
       <Link to={url}>
         <p>{hat.name}</p>
+      </Link>
+      <Link to={editUrl}>
+        <p>Edit Hat</p>
       </Link>
     </div>
   );

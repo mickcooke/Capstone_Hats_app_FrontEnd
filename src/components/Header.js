@@ -4,6 +4,7 @@ const Header = ({text}) => {
   return (
       <>
       <p>{text}</p>
+      <hr/>
       </>
   )
 }
