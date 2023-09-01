@@ -7,7 +7,7 @@ import InsightsContainer from './InsightsContainer.js'
 import NavBar from '../components/NavBar.js'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Request from '../helpers/request.js'
-import JobDetail from '../components/JobDetail.js'
+import JobDetailContainer from './JobDetailContainer.js'
 
 const MainContainer = () => {
 
@@ -35,18 +35,6 @@ const getData = () => {
   })
 }
 
-// const findClientsByHatId = (id) => {
-//   let foundClientsArray = clients.filter((client) => {
-//     return client.hats.id === parseInt(id);
-//   })
-//   return foundClientsArray
-// }
-
-// const ClientListWrapper = () => {
-//   const{id} = useParams();
-//   let foundClients = findClientsByHatId(id)
-//   return <ClientList clients={foundClients}/>
-// }
 
   if(hats.length === 0 || jobs.length === 0 || clients.length === 0){
     return(
@@ -63,7 +51,7 @@ const getData = () => {
         <Route path="/hats/*" element={<HatContainer hats={hats} jobs={jobs} clients={clients} />}/>
         <Route path="/clients/*" element={<ClientContainer clients={clients}/>}/>
         <Route path="/jobs/*" element={<JobContainer jobs={jobs}/>}/>
-        <Route path="/jobs/detail/*" element={<JobDetail jobs={jobs}/>}/>
+        <Route path="/jobs/detail/*" element={<JobDetailContainer jobs={jobs}/>}/>
         <Route path="/money/*" element={<MoneyContainer />}/>
         <Route path="/insights/*" element={<InsightsContainer />}/>
       </Routes>

@@ -1,24 +1,21 @@
-import React from 'react'
-import JobList from '../components/JobList'
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import React from "react";
+import JobList from "../components/JobList";
+import { useParams } from "react-router-dom";
+import Header from "../components/Header";
 
-const JobContainer = ({jobs}) => {
+const JobContainer = ({ jobs }) => {
+  const clientId = useParams();
 
-const JobDetailWrapper = () => {
-  return (
-    <p>JobDetailWrapper</p>
-  )
-}
+  const filteredJobs = jobs.filter((job) => job.client.id == clientId["*"]);
+
+  const text = `${filteredJobs[0].client.hat.name} > ${filteredJobs[0].client.firstName} > Jobs`;
 
   return (
     <>
-    <p>JobContainer</p>
-    <JobList jobs={jobs}/>
-    {/* <Routes>
-      <Route path="/:id" element = {<JobDetailWrapper/>}/>
-    </Routes> */}
+      <Header text={text} />
+      <JobList jobs={filteredJobs} />
     </>
-  )
-}
+  );
+};
 
-export default JobContainer
+export default JobContainer;

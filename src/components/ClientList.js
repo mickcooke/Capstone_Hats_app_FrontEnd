@@ -9,12 +9,10 @@ const ClientList = ({ clients }) => {
     return <p>Loading...</p>;
   }
 
-  const filteredClients = clients.filter(
-    (client) => client.hat.id == hatId["*"]
-  );
+ 
 
 
-  const clientElements = filteredClients.map((client, index) => {
+  const clientElements = clients.map((client, index) => {
     return (
       <li key={index}>
         <div>

@@ -7,13 +7,19 @@ import Header from '../components/Header.js'
 
 const ClientContainer = ({clients}) => {
 
+  const hatId = useParams();
 
-// const text = `${hat.name} > Clients`
+  const filteredClients = clients.filter(
+    (client) => client.hat.id == hatId["*"]
+  );
+
+
+const text = `${filteredClients[0].hat.name} > Clients`
 
   return (
     <>
-    <Header/>
-    <ClientList clients={clients}/>
+    <Header text={text}/>
+    <ClientList clients={filteredClients}/>
     {/* <Routes>  
       <Route path="/:id" element={<JobList clients={clients}/>}/>
     </Routes> */}
