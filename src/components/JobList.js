@@ -1,29 +1,27 @@
-import React from 'react'
-import JobCard from './JobCard'
+import React from "react";
+import JobCard from "./JobCard";
+import { useParams } from "react-router-dom";
 
-const JobList = ({jobs}) => {
-  if(jobs.length === 0){
-    return(
-      <p>Loading...</p>
-    )
+const JobList = ({ jobs }) => {
+  const clientId = useParams();
+
+  if (jobs.length === 0) {
+    return <p>Loading...</p>;
   }
 
-  const jobElements = jobs.map((job, index) => {
-    return(
+  const filteredJobs = jobs.filter((job) => job.client.id == clientId["*"]);
+
+  const jobElements = filteredJobs.map((job, index) => {
+    return (
       <li key={index}>
         <div>
-          <JobCard job={job}/>
+          <JobCard job={job} />
         </div>
       </li>
-    )
-  })
+    );
+  });
 
+  return <div>{jobElements}</div>;
+};
 
-  return (
-    <div>
-     {jobElements}
-    </div>
-  )
-}
-
-export default JobList
+export default JobList;

@@ -63,7 +63,7 @@ const getData = () => {
         <Route path="/hats/*" element={<HatContainer hats={hats} jobs={jobs} clients={clients} />}/>
         <Route path="/clients/*" element={<ClientContainer clients={clients}/>}/>
         <Route path="/jobs/*" element={<JobContainer jobs={jobs}/>}/>
-        <Route path="/jobs/detail/:id" element={<JobDetail jobs={jobs}/>}/>
+        <Route path="/jobs/detail/*" element={<JobDetail jobs={jobs}/>}/>
         <Route path="/money/*" element={<MoneyContainer />}/>
         <Route path="/insights/*" element={<InsightsContainer />}/>
       </Routes>
