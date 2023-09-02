@@ -3,7 +3,7 @@ import React from 'react'
 const HatForm = () => {
   return (
     <div>
-      <p>HAT FORM</p>
+      <p>NEW HAT FORM</p>
     </div>
   )
 }

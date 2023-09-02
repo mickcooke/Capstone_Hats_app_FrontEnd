@@ -9,6 +9,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Request from '../helpers/request.js'
 import JobDetailContainer from './JobDetailContainer.js'
 import SettingsContainer from './SettingsContainer.js'
+import ClientUpdateFormContainer from './ClientUpdateFormContainer.js'
 
 const MainContainer = () => {
 
@@ -51,6 +52,7 @@ const getData = () => {
       <Routes>
         <Route path="/hats/*" element={<HatContainer hats={hats} jobs={jobs} clients={clients} />}/>
         <Route path="/clients/*" element={<ClientContainer clients={clients}/>}/>
+        <Route path="/clients/edit/*" element={<ClientUpdateFormContainer clients={clients}/>}/>
         <Route path="/jobs/*" element={<JobContainer jobs={jobs}/>}/>
         <Route path="/jobs/detail/*" element={<JobDetailContainer jobs={jobs}/>}/>
         <Route path="/money/*" element={<MoneyContainer />}/>
