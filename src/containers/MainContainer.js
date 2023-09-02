@@ -10,6 +10,9 @@ import Request from '../helpers/request.js'
 import JobDetailContainer from './JobDetailContainer.js'
 import SettingsContainer from './SettingsContainer.js'
 import ClientUpdateFormContainer from './ClientUpdateFormContainer.js'
+import ClientFormContainer from './CientFormContainer.js'
+import JobFormContainer from './JobFormContainer.js'
+import JobUpdateFormContainer from './JobUpdateFormContainer.js'
 
 const MainContainer = () => {
 
@@ -50,14 +53,24 @@ const getData = () => {
     <Router>
       <>
       <Routes>
+
         <Route path="/hats/*" element={<HatContainer hats={hats} jobs={jobs} clients={clients} />}/>
+
+
         <Route path="/clients/*" element={<ClientContainer clients={clients}/>}/>
         <Route path="/clients/edit/*" element={<ClientUpdateFormContainer clients={clients}/>}/>
+        <Route path="/clients/new" element={<ClientFormContainer clients={clients}/>}/>
+
         <Route path="/jobs/*" element={<JobContainer jobs={jobs}/>}/>
+        <Route path="/jobs/edit/*" element={<JobUpdateFormContainer jobs={jobs}/>}/>
         <Route path="/jobs/detail/*" element={<JobDetailContainer jobs={jobs}/>}/>
+        <Route path="/jobs/new" element={<JobFormContainer/>}/>
+
+
         <Route path="/money/*" element={<MoneyContainer />}/>
         <Route path="/settings/*" element={<SettingsContainer />}/>
         <Route path="/insights/*" element={<InsightsContainer />}/>
+        
       </Routes>
 
       <NavBar/>

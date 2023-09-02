@@ -1,8 +1,8 @@
 import React from 'react'
 
-const UpdateJobForm = () => {
+const UpdateJobForm = ({job}) => {
   return (
-    <div>UpdateJobForm</div>
+    <div>{job.name}</div>
   )
 }
 
