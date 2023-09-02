@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, useParams}  from 'react-router-
 import ClientList from '../components/ClientList.js'
 import Header from '../components/Header.js'
 import HatForm from '../components/HatForm.js'
-import UpdateHatForm from '../components/UpdateHatForm.js'
+import UpdateHatForm from '../components/HatUpdateForm.js'
 
 
 const HatContainer = ({hats, jobs, clients}) => {

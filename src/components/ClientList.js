@@ -25,7 +25,7 @@ const ClientList = ({ clients }) => {
 
   return <div>
     {clientElements}
-    <Link to={url}>Create New Hat</Link>
+    <Link to={url}>Create New Client</Link>
     </div>;
 };
 
