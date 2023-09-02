@@ -68,13 +68,14 @@ const getData = () => {
 
 
         <Route path="/money/*" element={<MoneyContainer />}/>
+
         <Route path="/settings/*" element={<SettingsContainer />}/>
+        
         <Route path="/insights/*" element={<InsightsContainer />}/>
         
       </Routes>
 
       <NavBar/>
-      {/* clients={clients} hats={hats} jobs={jobs} */}
       </>
     </Router>
   )

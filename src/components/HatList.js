@@ -14,20 +14,26 @@ const url = "/hats/new"
 
 const hatElements = hats.map((hat, index) => {
   return(
-    <li key={index}>
+    <div key={index}>
       <div>
         <HatCard hat={hat}/>
       </div>
-    </li>
+    </div>
    
   )
 })
 
   return (
-    <div>
-      {hatElements}
-      <Link to={url}>Create New Hat</Link>
+    <>
+    <div className='App'>
+<Link to={url}>Create New Hat</Link>
     </div>
+    <div className="Item-container">
+      {hatElements}
+      
+    </div>
+    </>
+    
   )
 }
 
