@@ -67,9 +67,9 @@ const getData = () => {
         <Route path="/jobs/new" element={<JobFormContainer/>}/>
 
 
-        <Route path="/money/*" element={<MoneyContainer />}/>
+        <Route path="/money/*" element={<MoneyContainer jobs={jobs}/>}/>
         <Route path="/settings/*" element={<SettingsContainer />}/>
-        <Route path="/insights/*" element={<InsightsContainer />}/>
+        <Route path="/insights/*" element={<InsightsContainer jobs={jobs}/>}/>
         
       </Routes>
 
