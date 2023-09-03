@@ -1,5 +1,5 @@
 import React from 'react'
-import Chart from "chart.js/auto";
+import {Chart} from "chart.js/auto";
 import { Doughnut } from "react-chartjs-2";
 import './MoneyContainer.css'
 
@@ -10,9 +10,9 @@ const data = {
   datasets: [
     {
       backgroundColor: chartProperties.colors,
-      borderColor: "rgb(0,0,255)",
+      borderColor: "#fcfcfc",
       data: chartProperties.data,
-      borderWidth: 0,
+      borderWidth: 1,
       cutout: "90%",
       rotation: 30
     }

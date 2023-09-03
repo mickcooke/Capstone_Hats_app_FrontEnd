@@ -29,7 +29,7 @@ const MoneyContainer = ({jobs}) => {
         "address2": "Glasgow",
         "postcode": "G44 3AZ",
         "country": "UK",
-        "hourlyRate": 20,
+        "hourlyRate": 80,
         "hat": {
           "id": 1,
           "name": "Plumber",
@@ -58,28 +58,28 @@ const MoneyContainer = ({jobs}) => {
       "completed": true,
       "paid": false,
       "client": {
-        "id": 2,
-        "firstName": "Sarah",
-        "lastName": "Johnson",
-        "emailAddress": "sarah@example.com",
-        "address1": "123 Main Street",
-        "address2": "New York",
-        "postcode": "10001",
-        "country": "USA",
-        "hourlyRate": 60,
+        "id": 1,
+        "firstName": "Mick",
+        "lastName": "Cooke",
+        "emailAddress": "mick@gmail.com",
+        "address1": "21A Rhannan Road",
+        "address2": "Glasgow",
+        "postcode": "G44 3AZ",
+        "country": "UK",
+        "hourlyRate": 20,
         "hat": {
-          "id": 2,
+          "id": 1,
           "name": "Plumber",
-          "iconName": "hat2",
+          "iconName": "hat1",
           "user": {
-            "id": 2,
-            "firstName": "John",
-            "lastName": "Doe",
-            "emailAddress": "john@example.com",
-            "address1": "456 Elm Avenue",
-            "address2": "Los Angeles",
-            "postcode": "90001",
-            "country": "USA"
+            "id": 1,
+            "firstName": "Mario",
+            "lastName": "Bro Merge Test",
+            "emailAddress": "email@asfas.com",
+            "address1": "address 1",
+            "address2": "address line 2",
+            "postcode": "g68 3BB",
+            "country": "Scotland"
           }
         }
       }
@@ -202,32 +202,32 @@ const MoneyContainer = ({jobs}) => {
       "notes": "Custom cabinets",
       "started": "2023-04-25T11:00:00",
       "ended": "2023-04-25T14:30:00",
-      "timeTaken": 80,
+      "timeTaken": 280,
       "completed": true,
       "paid": false,
       "client": {
-        "id": 6,
-        "firstName": "Alex",
-        "lastName": "Wilson",
-        "emailAddress": "alex@example.com",
-        "address1": "789 Pine Avenue",
-        "address2": "Chicago",
-        "postcode": "60601",
-        "country": "USA",
-        "hourlyRate": 65,
+        "id": 1,
+        "firstName": "Mick",
+        "lastName": "Cooke",
+        "emailAddress": "mick@gmail.com",
+        "address1": "21A Rhannan Road",
+        "address2": "Glasgow",
+        "postcode": "G44 3AZ",
+        "country": "UK",
+        "hourlyRate": 20,
         "hat": {
-          "id": 6,
-          "name": "Carpenter",
-          "iconName": "hat6",
+          "id": 1,
+          "name": "Plumber",
+          "iconName": "hat1",
           "user": {
-            "id": 6,
-            "firstName": "Daniel",
-            "lastName": "Smith",
-            "emailAddress": "daniel@example.com",
-            "address1": "101 Elm Street",
-            "address2": "Miami",
-            "postcode": "33101",
-            "country": "USA"
+            "id": 1,
+            "firstName": "Mario",
+            "lastName": "Bro Merge Test",
+            "emailAddress": "email@asfas.com",
+            "address1": "address 1",
+            "address2": "address line 2",
+            "postcode": "g68 3BB",
+            "country": "Scotland"
           }
         }
       }
@@ -456,18 +456,11 @@ const MoneyContainer = ({jobs}) => {
     }
   ]
   
-  // changing the data to give a fake timeTaken property for testing purposes
-  let jobsCopy = [...jobs]
-  jobsCopy[0].timeTaken = 120
-  jobsCopy[1].timeTaken = 600
-  jobsCopy[2].timeTaken = 180
-
-
+  
   // owed an paid chart loops
   let totalEarned = 0
   let totalPaid = 0
-  
-
+ 
   dummyJobs.forEach((job) =>{
 totalEarned += Math.floor(((job.timeTaken / 60) * job.client.hourlyRate)*100)/100
 if(job.paid){
@@ -476,9 +469,10 @@ if(job.paid){
 })
 
 let totalOwed = Math.floor((totalEarned - totalPaid)*100)/100
-// owed and paid chart properties
+
+// Total income chart properties
 let owedAndPaidChart = {
-  data: [(totalEarned - totalPaid), totalPaid],
+  data: [totalOwed, totalPaid],
   labels: ["Unpaid", "Paid"],
   header: "You have earned",
   headerValue: `£${totalEarned}`,
@@ -514,6 +508,36 @@ let totalByHatChart = {
   subheaderValue: `£${totalEarnedByHat[highestPaidHat]}`,
   footer: "Your lowest paying hat was:",
   footerValue: `${lowestPaidHat}`,
+  colors: ["#93E0E4","#30CCD6","#4291ff"]
+}
+
+// total by client loops
+let totalEarnedByClient = {}
+dummyJobs.forEach((job) => {
+  if(!totalEarnedByClient[job.client.firstName + " " + job.client.lastName]){
+    totalEarnedByClient[job.client.firstName + " " +job.client.lastName] = 0
+  }
+  totalEarnedByClient[job.client.firstName + " " + job.client.lastName] += Math.floor((job.timeTaken / 60) * job.client.hourlyRate)*100/100
+})
+
+let totalByClientData = []
+Object.keys(totalEarnedByClient).map(function(property){
+  totalByClientData.push(totalEarnedByClient[property])
+})
+
+let highestPayingClient = Object.keys(totalEarnedByClient).reduce(function(a, b){ return totalEarnedByClient[a] > totalEarnedByClient[b] ? a : b });
+
+let lowestPayingClient = Object.keys(totalEarnedByClient).reduce(function(a, b){ return totalEarnedByClient[a] < totalEarnedByClient[b] ? a : b });
+
+let totalByClientChart = {
+  data: totalByClientData,
+  labels: Object.keys(totalEarnedByClient),
+  header: "Your highest paying client this month was:",
+  headerValue: highestPayingClient,
+  subheader: "They payed you:",
+  subheaderValue: `£${totalEarnedByClient[highestPayingClient]}`,
+  footer: "Your lowest paying client was:",
+  footerValue: `${lowestPayingClient}`,
   colors: ["#93E0E4","#30CCD6","#4291ff"]
 }
 
@@ -555,7 +579,7 @@ let totalByJobChart = {
     <Routes>
       <Route path="/total" element={<MoneyEarnedChart chartProperties={owedAndPaidChart}/>}/>
       <Route path="/incomebyhat" element={<MoneyEarnedChart chartProperties={totalByHatChart}/>}/>
-      <Route path="/incomebyclient" element={<MoneyEarnedChart chartProperties={totalByHatChart}/>}/>
+      <Route path="/incomebyclient" element={<MoneyEarnedChart chartProperties={totalByClientChart}/>}/>
       <Route path="/incomebyjob" element={<MoneyEarnedChart chartProperties={totalByJobChart}/>}/>
     </Routes>
     </>
