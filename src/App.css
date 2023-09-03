@@ -47,7 +47,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  row-gap: 10px;
+  row-gap: 0px;
   padding: 2px;
   /* border: solid black; */
 }
@@ -59,15 +59,32 @@ footer {
   padding: 40px;
 }
 
-.hat-box {
-  width: 240px;
-  height: 50px;
-  padding: 40px;
-  border: none;
+.hat-card-wrap {
+  width: 300px;
+  height: 130px;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.hat-card {
+  width: 300px;
+  height: 100px;
+  padding: 10px;
+  margin-top: -10px;
+  margin-left: -10px;
   border-radius: 10px;
   background-color: #93eef3;
   display: grid;
-  grid-template-columns: 25% 80%;
+  grid-template-columns: 30% 70%;
+}
+
+.card-edit-button{
+  text-align:right;
+  position: absolute;
+  bottom: 10; 
+  right: 0;
+  color: black;
 }
 
 /* .content {
@@ -83,10 +100,6 @@ footer {
   justify-content: space-around;
 }
 
-.hat-icon {
-  width: 50px;
-}
-
 .pound-icon {
   width: 20px;
 }
@@ -97,6 +110,11 @@ footer {
 
 .hat-icon {
   width: 40px;
+}
+
+.hat-image {
+  width: 75px;
+  margin-top:10px;
 }
 
 .create-icon {
@@ -122,3 +140,11 @@ footer {
   margin-top: 20px ;
   margin-left: 10px;
 }
+
+.hat-name-text {
+  font-size: 1.5em;
+  font-weight: medium;
+  color: black;
+  margin-top: 0px;
+}
+
