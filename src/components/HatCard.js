@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const HatCard = ({ hat, hatIcons }) => {
+const HatCard = ({ hat, hatIcons, hatCardColours }) => {
   if (!hat) {
     return <p>Loading...</p>;
   }
@@ -14,6 +14,10 @@ const HatCard = ({ hat, hatIcons }) => {
 
   const hatIconIndex = hat.id - 1;
   const hatCode = hatIcons[hatIconIndex];
+
+  const hatCardColourIndex = hat.id - 1;
+  const hatCardColourCode = hatCardColours[hatCardColourIndex];
+
 
   const calculateOngoingJobs = () => {
     const clients = hat.clients;

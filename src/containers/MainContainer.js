@@ -14,6 +14,7 @@ import ClientFormContainer from './CientFormContainer.js'
 import JobFormContainer from './JobFormContainer.js'
 import JobUpdateFormContainer from './JobUpdateFormContainer.js'
 import HatIcons from '../styling_codes/HatIcons.js'
+import HatCardColours from '../styling_codes/HatCardColours.js'
 
 const MainContainer = () => {
 
@@ -22,10 +23,12 @@ const MainContainer = () => {
   const [jobs, setJobs] = useState([]);
   const [activeJob, setActiveJob] = useState({});
   const [hatIcons, setHatIcons] = useState([]);
+  const [hatCardColours, setHatCardColours] = useState([]);
 
 useEffect(() => {
   getData();
   setHatIcons(HatIcons);
+  setHatCardColours(HatCardColours);
 }, [])
 
 const getData = () => {
@@ -56,7 +59,7 @@ const getData = () => {
       <>
       <Routes>
 
-        <Route path="/hats/*" element={<HatContainer hats={hats} jobs={jobs} clients={clients} hatIcons={hatIcons}/>}/>
+        <Route path="/hats/*" element={<HatContainer hats={hats} jobs={jobs} clients={clients} hatIcons={hatIcons} hatCardColours={hatCardColours}/>}/>
 
 
         <Route path="/clients/*" element={<ClientContainer clients={clients}/>}/>
