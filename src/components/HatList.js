@@ -2,7 +2,7 @@ import React from "react";
 import HatCard from "./HatCard";
 import { Link } from "react-router-dom";
 
-const HatList = ({ hats, jobs }) => {
+const HatList = ({ hats, jobs, hatIcons }) => {
   if (hats.length === 0) {
     return <p>Loading...</p>;
   }
@@ -13,7 +13,7 @@ const HatList = ({ hats, jobs }) => {
     return (
       <div key={index}>
         <div>
-          <HatCard hat={hat} />
+          <HatCard hat={hat} hatIcons={hatIcons}/>
         </div>
       </div>
     );

@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const HatCard = ({ hat }) => {
-  
+const HatCard = ({ hat, hatIcons }) => {
   if (!hat) {
     return <p>Loading...</p>;
   }
@@ -12,6 +11,9 @@ const HatCard = ({ hat }) => {
 
   let numberOfOngoingJobs = 0;
   let numberOfUnpaidJobs = 0;
+
+  const hatIconIndex = hat.id - 1;
+  const hatCode = hatIcons[hatIconIndex];
 
   const calculateOngoingJobs = () => {
     const clients = hat.clients;
@@ -74,7 +76,7 @@ const HatCard = ({ hat }) => {
           <div className="hat-card">
             <div className="card-image-box">
               <img
-                src={require("../assets/images/trilby.png")}
+                src={require(`../assets/images/${hatCode}`)}
                 className="hat-image"
                 alt="hat"
               />
