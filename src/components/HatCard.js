@@ -12,7 +12,7 @@ const HatCard = ({hat}) => {
   const editUrl = `/hats/edit/${hat.id}`;
 
   return (
-    <div className="Item-box-2">
+    <div className="hat-box">
 
 <div className="leftie">
 <img src={require("../assets/images/trilby.png")} className="hat-icon"/>

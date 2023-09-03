@@ -4,7 +4,7 @@ const Header = ({text}) => {
   return (
       <>
       <div className='App'>
-      <p>{text}</p>
+      <p className='header-text'>{text}</p>
       </div>
       <hr/>
       </>
