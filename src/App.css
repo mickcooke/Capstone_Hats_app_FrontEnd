@@ -79,11 +79,63 @@ footer {
   grid-template-columns: 30% 70%;
 }
 
-.card-edit-button{
-  text-align:right;
+.card-image-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hat-image {
+  width: 95px;
+}
+
+.card-text-box {
+  /* border: solid black; */
+  position: relative;
+  text-align: center;
+  align-items: center;
+}
+
+.hat-name-text {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: black;
+  margin-top: 0px;
+}
+
+.card-edit-button {
+  text-align: right;
   position: absolute;
-  bottom: 10; 
+  bottom: 10;
   right: 0;
+  color: black;
+}
+
+.ongoing-job-card {
+  width: 100px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 9px;
+  background-color: #30ccd6;
+  margin: auto;
+  margin-top: -10px;
+  text-align: center;
+}
+
+.unpaid-job-card {
+  width: 100px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 9px;
+  background-color:#FF0303;
+  margin: auto;
+  margin-top: -5px;
+  position: relative;
+}
+
+.ongoing-job-text {
+  font-size: 0.8em;
+  font-weight: regular;
   color: black;
 }
 
@@ -112,11 +164,6 @@ footer {
   width: 40px;
 }
 
-.hat-image {
-  width: 75px;
-  margin-top:10px;
-}
-
 .create-icon {
   width: 40px;
 }
@@ -137,14 +184,6 @@ footer {
 }
 
 .back-button {
-  margin-top: 20px ;
+  margin-top: 20px;
   margin-left: 10px;
 }
-
-.hat-name-text {
-  font-size: 1.5em;
-  font-weight: medium;
-  color: black;
-  margin-top: 0px;
-}
-
