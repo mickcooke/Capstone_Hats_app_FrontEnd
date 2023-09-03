@@ -3,22 +3,31 @@ import Chart from "chart.js/auto";
 import { Doughnut } from "react-chartjs-2";
 import './MoneyContainer.css'
 
-const MoneyEarnedChart = ({owedAndPaidData}) => {
+const MoneyEarnedChart = ({chartProperties}) => {
     
-const labels = ["Unpaid", "Paid"];
 const data = {
-  labels: labels,
+  labels: chartProperties.labels,
   datasets: [
     {
-      backgroundColor: ["#93E0E4","#30CCD6"],
+      backgroundColor: chartProperties.colors,
       borderColor: "rgb(0,0,255)",
-      data: owedAndPaidData,
+      data: chartProperties.data,
       borderWidth: 0,
       cutout: "90%",
       rotation: 30
-    },
-  ],
+    }
+  ]
 }
+const options = {
+    plugins: {
+        tooltip:{
+            // enabled: false
+        },
+        legend: {
+            display: false,
+        }
+    }
+};
 
     if(data.length === 0){
         return "loading..."
@@ -27,19 +36,16 @@ const data = {
   return (
     <div>
         <div className='doughnut-container'>
-            
-            <Doughnut data={data} />
-
+            <Doughnut data={data} options={options}/>
             <div className='doughnut-middle-text'>
-                <p>You have earned </p>
-                <h1>£{owedAndPaidData[0] + owedAndPaidData[1]}</h1>
-                <p>You are owed </p>
-                <h2>£{owedAndPaidData[0]}</h2>
+                <p>{chartProperties.header}</p>
+                <h1>{chartProperties.headerValue}</h1>
+                <p>{chartProperties.subheader}</p>
+                <h2>{chartProperties.subheaderValue}</h2>
             </div>
-
             <div className='doughnut-footer-text'>
-                <p>You have been paid</p>
-                <h2>£{owedAndPaidData[1]}</h2>
+                <p>{chartProperties.footer}</p>
+                <h2>{chartProperties.footerValue}</h2>
             </div>
 
         </div>
