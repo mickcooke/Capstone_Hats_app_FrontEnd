@@ -1,28 +1,28 @@
-import React from 'react'
+import React from "react";
 
 const NavBar = () => {
   return (
+    <>
     <footer>
-      <hr/>
-      <ul>
-        <li>
-          <a href="/hats">Hats</a>
-        </li>
-        
-        <li>
-          <a href="/money">Money</a>
-        </li>
+      <hr />
+      <div className="Nav-bar">
+        <div className="Nav-container">
+          <div>
+            <a href="/hats"><img src={require("../assets/images/hat.png")} className="hat-icon"/></a>
+          </div>
 
-        <li>
-          <a href="/settings">Settings</a>
-        </li>
-    
-      
-      </ul>
+          <div>
+            <a href="/money"><img src={require("../assets/images/pound.png")} className="pound-icon"/></a>
+          </div>
 
+          <div>
+            <a href="/settings"><img src={require("../assets/images/cog.png")} className="cog-icon"/></a>
+          </div>
+        </div>
+      </div>
+      </footer>
+    </>
+  );
+};
 
-    </footer>
-  )
-}
-
-export default NavBar
+export default NavBar;
