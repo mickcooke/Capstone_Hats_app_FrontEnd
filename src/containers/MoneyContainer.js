@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/Header.js'
 import MoneyEarnedChart from '../components/MoneyEarnedChart.js'
 import {Routes, Route, Link, NavLink} from 'react-router-dom';
-import ClientForm from '../components/ClientForm.js';
 import '../components/MoneyContainer.css'
 
 const MoneyContainer = ({jobs}) => {
 
-  const text = "Money in your hat"
+  const[jobsFilteredByDate, setJobsFilteredByDate] = useState([])
+
+  useEffect(() => {
+    setJobsFilteredByDate(dummyJobs)
+  },[])
+
+const text = "Money in your hat"
 
  const dummyJobs = [
     {
@@ -16,7 +21,7 @@ const MoneyContainer = ({jobs}) => {
       "description": "Getting the shite out",
       "notes": "Lots of shite",
       "started": "2021-02-15T10:15:00",
-      "ended": "2021-02-15T11:15:00",
+      "ended": "2023-09-15T11:15:00",
       "timeTaken": 120,
       "completed": false,
       "paid": false,
@@ -53,7 +58,7 @@ const MoneyContainer = ({jobs}) => {
       "description": "Repairing a dripping faucet",
       "notes": "Requires replacement parts",
       "started": "2022-05-20T14:30:00",
-      "ended": "2022-05-20T16:00:00",
+      "ended": "2023-09-20T16:00:00",
       "timeTaken": 120,
       "completed": true,
       "paid": false,
@@ -90,7 +95,7 @@ const MoneyContainer = ({jobs}) => {
       "description": "Mounting and wiring a ceiling fan",
       "notes": "Customer provided fan",
       "started": "2023-03-10T09:00:00",
-      "ended": "2023-03-10T11:00:00",
+      "ended": "2023-09-10T11:00:00",
       "timeTaken":60,
       "completed": true,
       "paid": false,
@@ -164,7 +169,7 @@ const MoneyContainer = ({jobs}) => {
       "description": "Fixing a leak in the roof",
       "notes": "Emergency repair",
       "started": "2022-08-15T08:00:00",
-      "ended": "2022-08-15T10:45:00",
+      "ended": "2022-09-15T10:45:00",
       "timeTaken": 40,
       "completed": true,
       "paid": true,
@@ -455,13 +460,48 @@ const MoneyContainer = ({jobs}) => {
       }
     }
   ]
-  
-  
+
+  if(jobsFilteredByDate.length === 0){
+    return(
+      <p>Loading...</p>
+    )
+  }
+
+  function filterByMonth(){
+    let jobsThisMonth = []
+    const date = new Date();
+    jobsThisMonth = dummyJobs.filter(a => {
+      let endDateTime = a.ended
+      let jobEndDate = new Date(endDateTime.split("T"))
+      return (jobEndDate.getMonth() == date.getMonth() && jobEndDate.getFullYear() == date.getFullYear());
+    });
+  setJobsFilteredByDate(jobsThisMonth)
+}
+
+function filterByYear(){
+  let jobsThisYear = []
+  const date = new Date();
+  jobsThisYear = dummyJobs.filter(a => {
+    let endDateTime = a.ended
+    let jobEndDate = new Date(endDateTime.split("T"))
+    return (jobEndDate.getFullYear() == date.getFullYear());
+  });
+setJobsFilteredByDate(jobsThisYear)
+}
+
+function getAllJobs(){
+setJobsFilteredByDate(dummyJobs)
+}
+
+
+
+
+
   // owed an paid chart loops
   let totalEarned = 0
   let totalPaid = 0
  
-  dummyJobs.forEach((job) =>{
+  jobsFilteredByDate.forEach((job) =>{
 totalEarned += Math.floor(((job.timeTaken / 60) * job.client.hourlyRate)*100)/100
 if(job.paid){
   totalPaid += Math.floor(((job.timeTaken / 60) * job.client.hourlyRate)*100)/100
@@ -485,7 +525,8 @@ let owedAndPaidChart = {
 
 // total earned by hat loops
 let totalEarnedByHat = {}
-dummyJobs.forEach((job) => {
+
+jobsFilteredByDate.forEach((job) => {
   if(!totalEarnedByHat[job.client.hat.name]){
     totalEarnedByHat[job.client.hat.name] = 0
   }
@@ -513,7 +554,7 @@ let totalByHatChart = {
 
 // total by client loops
 let totalEarnedByClient = {}
-dummyJobs.forEach((job) => {
+jobsFilteredByDate.forEach((job) => {
   if(!totalEarnedByClient[job.client.firstName + " " + job.client.lastName]){
     totalEarnedByClient[job.client.firstName + " " +job.client.lastName] = 0
   }
@@ -542,22 +583,22 @@ let totalByClientChart = {
 }
 
 // total by job loops
-const highestPayingJob = dummyJobs.reduce(
+const highestPayingJob = jobsFilteredByDate.reduce(
   (prev, current) => {
     return prev.timeTaken * prev.client.hourlyRate > current.timeTaken * current.client.hourlyRate ? prev : current
   }
 );
 const highestPayingJobEarnings = Math.floor(((highestPayingJob.timeTaken / 60) * highestPayingJob.client.hourlyRate)*100)/100
 
-const lowestPayingJob = dummyJobs.reduce(
+const lowestPayingJob = jobsFilteredByDate.reduce(
   (prev, current) => {
     return prev.timeTaken * prev.client.hourlyRate < current.timeTaken * current.client.hourlyRate ? prev : current
   }
 );
 
 let totalByJobChart = {
-  data: dummyJobs.map(job => (job.timeTaken / 60) * job.client.hourlyRate),
-  labels: dummyJobs.map(a => a.name),
+  data: jobsFilteredByDate.map(job => (job.timeTaken / 60) * job.client.hourlyRate),
+  labels: jobsFilteredByDate.map(a => a.name),
   header: "Your highest paying job this month was:",
   headerValue: `${highestPayingJob.name}`,
   subheader: "It earned you:",
@@ -565,6 +606,12 @@ let totalByJobChart = {
   footer: "Your lowest paying job was:",
   footerValue: `${lowestPayingJob.name}`,
   colors: ["#93E0E4","#30CCD6","#4291ff"]
+}
+
+if(jobsFilteredByDate.length === 0){
+  return(
+    <p>Loading...</p>
+  )
 }
 
   return (
@@ -575,6 +622,9 @@ let totalByJobChart = {
     <NavLink activeStyle  className="link" to="/money/incomebyhat">Income by hat</NavLink>
     <NavLink activeStyle className="link" to="/money/incomebyclient">Income by client</NavLink>
     <NavLink activeStyle className="link" to="/money/incomebyjob">Income by job</NavLink>
+    <button onClick={getAllJobs}>Get All</button>
+    <button onClick={filterByMonth}>By Month</button>
+    <button onClick={filterByYear}>By Year</button>
     </div>
     <Routes>
       <Route path="/total" element={<MoneyEarnedChart chartProperties={owedAndPaidChart}/>}/>
@@ -585,5 +635,6 @@ let totalByJobChart = {
     </>
   )
 }
+
 
 export default MoneyContainer
