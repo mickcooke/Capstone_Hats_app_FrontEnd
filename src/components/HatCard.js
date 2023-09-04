@@ -1,10 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const HatCard = ({ hat, hatIcons, hatCardColours }) => {
   if (!hat) {
     return <p>Loading...</p>;
   }
+
+  const hatCardColourIndex = hat.id - 1;
+  const hatCardColourCode = hatCardColours[hatCardColourIndex];
+
+  const HatCardStyle = styled.div`
+    width: 300px;
+    height: 100px;
+    padding: 10px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 10px;
+    background-color: ${hatCardColourCode};
+    display: grid;
+    grid-template-columns: 30% 70%;
+  `;
 
   const url = `/clients/${hat.id}`;
   const editUrl = `/hats/edit/${hat.id}`;
@@ -14,10 +30,6 @@ const HatCard = ({ hat, hatIcons, hatCardColours }) => {
 
   const hatIconIndex = hat.id - 1;
   const hatCode = hatIcons[hatIconIndex];
-
-  const hatCardColourIndex = hat.id - 1;
-  const hatCardColourCode = hatCardColours[hatCardColourIndex];
-
 
   const calculateOngoingJobs = () => {
     const clients = hat.clients;
@@ -77,7 +89,7 @@ const HatCard = ({ hat, hatIcons, hatCardColours }) => {
     <>
       <div className="hat-card-wrap">
         <Link to={url}>
-          <div className="hat-card">
+          <HatCardStyle>
             <div className="card-image-box">
               <img
                 src={require(`../assets/images/${hatCode}`)}
@@ -120,7 +132,7 @@ const HatCard = ({ hat, hatIcons, hatCardColours }) => {
                 </div>
               )}
             </div>
-          </div>
+          </HatCardStyle>
         </Link>
         <Link to={editUrl}>
           <div className="card-edit-button">edit</div>
