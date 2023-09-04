@@ -13,6 +13,8 @@ import ClientUpdateFormContainer from './ClientUpdateFormContainer.js'
 import ClientFormContainer from './CientFormContainer.js'
 import JobFormContainer from './JobFormContainer.js'
 import JobUpdateFormContainer from './JobUpdateFormContainer.js'
+import HatIcons from '../styling_codes/HatIcons.js'
+import HatCardColours from '../styling_codes/HatCardColours.js'
 
 const MainContainer = () => {
 
@@ -20,9 +22,13 @@ const MainContainer = () => {
   const [clients, setClients] = useState([]);
   const [jobs, setJobs] = useState([]);
   const [activeJob, setActiveJob] = useState({});
+  const [hatIcons, setHatIcons] = useState([]);
+  const [hatCardColours, setHatCardColours] = useState([]);
 
 useEffect(() => {
   getData();
+  setHatIcons(HatIcons);
+  setHatCardColours(HatCardColours);
 }, [])
 
 const getData = () => {
@@ -36,7 +42,6 @@ const getData = () => {
     setHats(data[0])
     setClients(data[1])
     setJobs(data[2])
-  
   })
 }
 
@@ -54,7 +59,7 @@ const getData = () => {
       <>
       <Routes>
 
-        <Route path="/hats/*" element={<HatContainer hats={hats} jobs={jobs} clients={clients} />}/>
+        <Route path="/hats/*" element={<HatContainer hats={hats} jobs={jobs} clients={clients} hatIcons={hatIcons} hatCardColours={hatCardColours}/>}/>
 
 
         <Route path="/clients/*" element={<ClientContainer clients={clients}/>}/>
@@ -68,13 +73,14 @@ const getData = () => {
 
 
         <Route path="/money/*" element={<MoneyContainer />}/>
+
         <Route path="/settings/*" element={<SettingsContainer />}/>
+        
         <Route path="/insights/*" element={<InsightsContainer />}/>
         
       </Routes>
 
       <NavBar/>
-      {/* clients={clients} hats={hats} jobs={jobs} */}
       </>
     </Router>
   )
