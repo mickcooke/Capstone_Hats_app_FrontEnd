@@ -15,6 +15,7 @@ import JobFormContainer from './JobFormContainer.js'
 import JobUpdateFormContainer from './JobUpdateFormContainer.js'
 import HatIcons from '../styling_codes/HatIcons.js'
 import HatCardColours from '../styling_codes/HatCardColours.js'
+import ClientCardColours from '../styling_codes/ClientCardColours.js'
 
 const MainContainer = () => {
 
@@ -24,11 +25,13 @@ const MainContainer = () => {
   const [activeJob, setActiveJob] = useState({});
   const [hatIcons, setHatIcons] = useState([]);
   const [hatCardColours, setHatCardColours] = useState([]);
+  const [clientCardColours, setClientCardColours] = useState([]);
 
 useEffect(() => {
   getData();
   setHatIcons(HatIcons);
   setHatCardColours(HatCardColours);
+  setClientCardColours(ClientCardColours);
 }, [])
 
 const getData = () => {
@@ -62,11 +65,11 @@ const getData = () => {
         <Route path="/hats/*" element={<HatContainer hats={hats} jobs={jobs} clients={clients} hatIcons={hatIcons} hatCardColours={hatCardColours}/>}/>
 
 
-        <Route path="/clients/*" element={<ClientContainer clients={clients}/>}/>
+        <Route path="/clients/*" element={<ClientContainer clients={clients} clientCardColours={clientCardColours} hatIcons={hatIcons}/>}/>
         <Route path="/clients/edit/*" element={<ClientUpdateFormContainer clients={clients}/>}/>
         <Route path="/clients/new" element={<ClientFormContainer clients={clients}/>}/>
 
-        <Route path="/jobs/*" element={<JobContainer jobs={jobs}/>}/>
+        <Route path="/jobs/*" element={<JobContainer jobs={jobs} hatIcons={hatIcons} clientCardColours={clientCardColours}/>}/>
         <Route path="/jobs/edit/*" element={<JobUpdateFormContainer jobs={jobs}/>}/>
         <Route path="/jobs/detail/*" element={<JobDetailContainer jobs={jobs}/>}/>
         <Route path="/jobs/new" element={<JobFormContainer/>}/>

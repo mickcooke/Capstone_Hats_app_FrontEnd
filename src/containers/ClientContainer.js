@@ -7,7 +7,7 @@ import UpdateClientForm from '../components/ClientUpdateForm.js'
 import ClientForm from '../components/ClientForm.js'
 
 
-const ClientContainer = ({clients}) => {
+const ClientContainer = ({clients, clientCardColours, hatIcons}) => {
 
   const hatId = useParams();
 
@@ -29,7 +29,7 @@ const text = `${filteredClients[0].hat.name} > Clients`
 
     
     <Routes>  
-    <Route path="/:id" element={<ClientList clients={filteredClients}/>}/>
+    <Route path="/:id" element={<ClientList clients={filteredClients} clientCardColours={clientCardColours} hatIcons={hatIcons}/>}/>
     {/* <Route path="/new" element={<ClientForm/>}/> */}
       {/* <Route path="/edit/:id" element={<UpdateClientForm clients={filteredClients}/>} /> */}
     </Routes>
