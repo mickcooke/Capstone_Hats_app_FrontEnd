@@ -20,7 +20,6 @@ const ClientForm = ({hatId}) => {
         setNewClient(copyClient)
   }
 
-
   return (
     <form>
         <input type="text" placeholder="First Name" name="firstName" onChange={ handleChange } />

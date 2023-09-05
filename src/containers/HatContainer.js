@@ -28,7 +28,6 @@ if(hats.length === 0) return (
 
       <Routes>
         <Route path="/" element={<HatList hats={hats} jobs={jobs} hatIcons={hatIcons} hatCardColours={hatCardColours}/>} />
-
         <Route path="/new" element={<HatForm />} />
         <Route path="/edit/:id" element={<HatUpdateForm hats={hats}/>} />
 

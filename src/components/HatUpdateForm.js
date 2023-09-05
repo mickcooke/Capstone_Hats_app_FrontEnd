@@ -1,14 +1,29 @@
 import React, {useState} from 'react'
 import { useParams } from 'react-router-dom';
 
+
 const UpdateHatForm = ({hat}) => {
+
 
 const [newHat, setNewHat] = useState({
     name: "",
   })
 
+  
+
 const hatId = useParams();
- console.log(hatId)
+
+//  const findHatById = (id) => {
+//   return hats.find((hat) => {
+//     return hat.id === id;
+//   })
+// }
+
+const hat = hats.filter(hat => hat.id === hatId);
+
+// var bird = birdsObj.filter(bird => bird.id === id);
+
+console.log(hat)
 
   const handleChange = (event) => {
     const propertyName = event.target.name;
