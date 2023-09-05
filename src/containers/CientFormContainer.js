@@ -4,7 +4,7 @@ import Header from '../components/Header'
 
 const CientFormContainer = () => {
 
-    const text = "Add new client"
+    const text = "Add New Client"
 
   return (
     <div>

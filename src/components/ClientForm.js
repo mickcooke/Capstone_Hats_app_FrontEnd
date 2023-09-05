@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const ClientForm = () => {
+const ClientForm = ({hatId}) => {
 
   const [newClient, setNewClient] = useState({
     firstName: "",

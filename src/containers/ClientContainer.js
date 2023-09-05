@@ -10,6 +10,14 @@ import ClientForm from '../components/ClientForm.js'
 const ClientContainer = ({clients, clientCardColours, hatIcons}) => {
 
   const hatId = useParams();
+  const newClientText = "Add a client"
+
+  if(clients.length === 0) return (
+    <>
+    <Header text={newClientText} />
+      {<ClientForm hatId={hatId}/>}
+      </>
+    )
 
   const filteredClients = clients.filter(
     (client) => client.hat.id == hatId["*"]
@@ -20,7 +28,10 @@ const text = `${filteredClients[0].hat.name} > Clients`
 
 
 
+
 // const text = "baws"
+
+
 
 
   return (
