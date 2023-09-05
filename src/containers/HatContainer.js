@@ -9,7 +9,7 @@ import {
 import ClientList from "../components/ClientList.js";
 import Header from "../components/Header.js";
 import HatForm from "../components/HatForm.js";
-import UpdateHatForm from "../components/HatUpdateForm.js";
+import HatUpdateForm from "../components/HatUpdateForm.js";
 
 const HatContainer = ({ hats, jobs, clients, hatIcons, hatCardColours }) => {
   const text = "Choose your hat";
@@ -21,7 +21,7 @@ const HatContainer = ({ hats, jobs, clients, hatIcons, hatCardColours }) => {
       <Routes>
         <Route path="/" element={<HatList hats={hats} jobs={jobs} hatIcons={hatIcons} hatCardColours={hatCardColours}/>} />
         <Route path="/new" element={<HatForm />} />
-        <Route path="/edit/:id" element={<UpdateHatForm />} />
+        <Route path="/edit/:id" element={<HatUpdateForm hats={hats}/>} />
       </Routes>
     </>
   );

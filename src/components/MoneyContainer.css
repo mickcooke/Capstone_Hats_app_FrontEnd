@@ -8,7 +8,8 @@
 
 .doughnut-container{
     position: relative;
-    width: 400px;
+    width: 90%;
+    /* height: 100%; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -16,13 +17,14 @@
     padding: 20px;
 }
 
-.link{
+.link, button{
     padding: 10px;
     text-decoration: none;
     background-color: #93E0E4;
     border-radius: 20px;
     margin: 3px;
     display: inline-flex;
+    border-style: none;
 }
 
 .link-container{
@@ -37,3 +39,7 @@
     
 }
 
+.money{
+    display: grid;
+    
+}
