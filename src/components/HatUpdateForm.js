@@ -6,23 +6,11 @@ const UpdateHatForm = ({hat}) => {
 
 
 const [newHat, setNewHat] = useState({
-    name: "",
+    name: hat.name,
+    iconName: hat.iconName
   })
 
   
-
-const hatId = useParams();
-
-//  const findHatById = (id) => {
-//   return hats.find((hat) => {
-//     return hat.id === id;
-//   })
-// }
-
-const hat = hats.filter(hat => hat.id === hatId);
-
-// var bird = birdsObj.filter(bird => bird.id === id);
-
 console.log(hat)
 
   const handleChange = (event) => {
