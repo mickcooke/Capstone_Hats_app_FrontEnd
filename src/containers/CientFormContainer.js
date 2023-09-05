@@ -2,14 +2,14 @@ import React from 'react'
 import ClientForm from '../components/ClientForm'
 import Header from '../components/Header'
 
-const CientFormContainer = () => {
+const CientFormContainer = ({hats, clients}) => {
 
     const text = "Add New Client"
 
   return (
     <div>
         <Header text={text}/>
-        <ClientForm/>
+        <ClientForm hats={hats} clients={clients}/>
     </div>
   )
 }

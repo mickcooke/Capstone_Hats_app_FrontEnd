@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const ClientForm = ({hatId}) => {
+const ClientForm = ({hatId, hats, clients}) => {
 
   const [newClient, setNewClient] = useState({
     firstName: "",
@@ -18,6 +18,7 @@ const ClientForm = ({hatId}) => {
         const copyClient = {...newClient}
         copyClient[propertyName] = event.target.value
         setNewClient(copyClient)
+        
   }
 
   return (
