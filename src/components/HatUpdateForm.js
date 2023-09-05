@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useParams } from 'react-router-dom';
 
-const UpdateHatForm = () => {
+const UpdateHatForm = ({hat}) => {
 
 const [newHat, setNewHat] = useState({
     name: "",
@@ -19,6 +19,7 @@ const hatId = useParams();
 
   return (
     <div>
+      <p>Edit Hat</p>
       <form>
         <input type="text" placeholder="Hat Name" name="name" onChange={ handleChange }/>
         <select>

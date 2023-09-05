@@ -12,7 +12,7 @@ import HatForm from "../components/HatForm.js";
 import HatUpdateForm from "../components/HatUpdateForm.js";
 
 const HatContainer = ({ hats, jobs, clients, hatIcons, hatCardColours, user }) => {
-  const text = "Choose your hat";
+  const text = "Your Hats";
   const newHatText = "Add a hat";
 
 if(hats.length === 0) return (
