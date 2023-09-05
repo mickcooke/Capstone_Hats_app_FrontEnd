@@ -12,7 +12,7 @@ const NavBar = () => {
           </div>
 
           <div>
-            <a href="/money"><img src={require("../assets/images/pound.png")} className="pound-icon"/></a>
+            <a href="/money/total"><img src={require("../assets/images/pound.png")} className="pound-icon"/></a>
           </div>
 
           <div>

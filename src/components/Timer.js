@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Timer.css";
 
 
-const Timer = () => {
+const Timer = ({job}) => {
   // state to store time
   const [time, setTime] = useState(0);
 
@@ -25,7 +25,9 @@ const Timer = () => {
   const calculateTotalTime = (start, end) => {
     if (start && end) {
       const timeDifference = (end - start) / 60000; // Convert milliseconds to minutes
+      job.timeTaken = timeDifference
       console.log(`Total time difference (minutes): ${timeDifference}`);
+      console.log(job)
     }
   };
 
@@ -51,7 +53,7 @@ const Timer = () => {
   const seconds = Math.floor((time % 6000) / 100);
 
   // Milliseconds calculation
-  const milliseconds = time % 100;
+  // const milliseconds = time % 100;
 
   // Method to start and stop timer
   const startAndStop = () => {
@@ -66,8 +68,8 @@ const Timer = () => {
     <div className="stopwatch-container">
       <p className="stopwatch-time">
         {hours}:{minutes.toString().padStart(2, "0")}:
-        {seconds.toString().padStart(2, "0")}:
-        {milliseconds.toString().padStart(2, "0")}
+        {seconds.toString().padStart(2, "0")}
+        {/* {milliseconds.toString().padStart(2, "0")} */}
       </p>
       <div className="stopwatch-buttons">
         <button className="stopwatch-button" onClick={() => {

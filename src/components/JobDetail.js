@@ -13,9 +13,7 @@ const JobDetail = ({job}) => {
         <p>{job.name}</p>
         <p>{job.description}</p>
         <p>{job.notes}</p>
-        <Timer />
-
-    
+        <Timer job={job}/>
     </div>
   )
 }
