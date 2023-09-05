@@ -52,11 +52,11 @@ const getData = () => {
 }
 
 
-  if(hats.length === 0 || jobs.length === 0 || clients.length === 0){
-    return(
-      null
-    )
-  }
+  // if(hats.length === 0){
+  //   return(
+  //     null
+  //   )
+  // }
 
 
   
