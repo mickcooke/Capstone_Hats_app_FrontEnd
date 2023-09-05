@@ -89,10 +89,21 @@ footer {
   width: 95px;
 }
 
+.job-hat-image {
+  width: 65px;
+}
+
 .card-text-box {
   /* border: solid black; */
   position: relative;
   text-align: center;
+  align-items: center;
+}
+
+.job-card-text-box {
+  /* border: solid black; */
+  position: relative;
+  text-align: left;
   align-items: center;
 }
 
@@ -101,6 +112,30 @@ footer {
   font-weight: bold;
   color: black;
   margin-top: 0px;
+}
+.job-name-text {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: black;
+  margin-top: 0px;
+}
+
+.job-description-text {
+  font-size: 0.8em;
+  color: black;
+  margin-top: -20px;
+}
+
+.job-started-text {
+  font-size: 0.7em;
+  color: black;
+  margin-top: -10px;
+}
+
+.job-active-text {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: red;
 }
 
 .card-edit-button {
