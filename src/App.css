@@ -146,6 +146,14 @@ footer {
   color: black;
 }
 
+.card-details-button {
+  text-align: left;
+  position: absolute;
+  bottom: 10;
+  left: 5;
+  color: black;
+}
+
 .ongoing-job-card {
   width: 100px;
   height: 20px;
