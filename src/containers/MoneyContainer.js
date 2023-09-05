@@ -7,6 +7,7 @@ import '../components/MoneyContainer.css'
 const MoneyContainer = ({jobs}) => {
 
   const[jobsFilteredByDate, setJobsFilteredByDate] = useState([])
+  const[filterView, setFilterView] = useState("")
 
   useEffect(() => {
     setJobsFilteredByDate(dummyJobs)
@@ -476,6 +477,7 @@ const text = "Money in your hat"
       return (jobEndDate.getMonth() == date.getMonth() && jobEndDate.getFullYear() == date.getFullYear());
     });
   setJobsFilteredByDate(jobsThisMonth)
+  setFilterView("month")
 }
 
 function filterByYear(){
@@ -487,10 +489,12 @@ function filterByYear(){
     return (jobEndDate.getFullYear() == date.getFullYear());
   });
 setJobsFilteredByDate(jobsThisYear)
+setFilterView("year")
 }
 
 function getAllJobs(){
 setJobsFilteredByDate(dummyJobs)
+setFilterView("all")
 }
 
 
@@ -617,14 +621,12 @@ if(jobsFilteredByDate.length === 0){
   return (
     <>
     <Header text={text}/>
+<div className='money'>
     <div className='links-container'>
-    <NavLink activeStyle className="link" to="/money/total">Total Income</NavLink>
-    <NavLink activeStyle  className="link" to="/money/incomebyhat">Income by hat</NavLink>
-    <NavLink activeStyle className="link" to="/money/incomebyclient">Income by client</NavLink>
-    <NavLink activeStyle className="link" to="/money/incomebyjob">Income by job</NavLink>
-    <button onClick={getAllJobs}>Get All</button>
-    <button onClick={filterByMonth}>By Month</button>
-    <button onClick={filterByYear}>By Year</button>
+      <NavLink activeStyle className="link" to="/money/total">Owed and paid</NavLink>
+      <NavLink activeStyle  className="link" to="/money/incomebyhat">Income by hat</NavLink>
+      <NavLink activeStyle className="link" to="/money/incomebyclient">Income by client</NavLink>
+      <NavLink activeStyle className="link" to="/money/incomebyjob">Income by job</NavLink>
     </div>
     <Routes>
       <Route path="/total" element={<MoneyEarnedChart chartProperties={owedAndPaidChart}/>}/>
@@ -632,6 +634,13 @@ if(jobsFilteredByDate.length === 0){
       <Route path="/incomebyclient" element={<MoneyEarnedChart chartProperties={totalByClientChart}/>}/>
       <Route path="/incomebyjob" element={<MoneyEarnedChart chartProperties={totalByJobChart}/>}/>
     </Routes>
+
+    <div className='links-container'>
+      <button className={filterView == "all" ? "active" : "not-active"} onClick={getAllJobs}>All time</button>
+      <button className={filterView == "month" ? "active" : "not-active"} onClick={filterByMonth}>This Month</button>
+      <button className={filterView == "year" ? "active" : "not-active"} onClick={filterByYear}>This Year</button>
+    </div>
+</div>
     </>
   )
 }
