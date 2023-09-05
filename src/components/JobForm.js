@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const JobForm = () => {
+const JobForm = ({clientId}) => {
   const [newJob, setNewJob] = useState({
     name: "",
     description: "",
