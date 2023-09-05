@@ -11,7 +11,7 @@ import Header from "../components/Header.js";
 import HatForm from "../components/HatForm.js";
 import UpdateHatForm from "../components/HatUpdateForm.js";
 
-const HatContainer = ({ hats, jobs, clients, hatIcons, hatCardColours }) => {
+const HatContainer = ({ hats, jobs, clients, hatIcons, hatCardColours, user }) => {
   const text = "Choose your hat";
 
   return (
@@ -20,7 +20,7 @@ const HatContainer = ({ hats, jobs, clients, hatIcons, hatCardColours }) => {
 
       <Routes>
         <Route path="/" element={<HatList hats={hats} jobs={jobs} hatIcons={hatIcons} hatCardColours={hatCardColours}/>} />
-        <Route path="/new" element={<HatForm />} />
+        <Route path="/new" element={<HatForm user={user}/>} />
         <Route path="/edit/:id" element={<UpdateHatForm />} />
       </Routes>
     </>

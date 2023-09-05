@@ -19,6 +19,7 @@ import ClientCardColours from '../styling_codes/ClientCardColours.js'
 
 const MainContainer = () => {
 
+  const [user, setUser] = useState({});
   const [hats, setHats] = useState([]);
   const [clients, setClients] = useState([]);
   const [jobs, setJobs] = useState([]);
@@ -36,15 +37,17 @@ useEffect(() => {
 
 const getData = () => {
   const request = new Request()
+  const usersPromise = request.get("http://localhost:8080/api/users")
   const hatsPromise = request.get("http://localhost:8080/api/hats")
   const clientsPromise = request.get("http://localhost:8080/api/clients")
   const jobsPromise = request.get("http://localhost:8080/api/jobs")
   // console.log(hatsPromise)
-  Promise.all([hatsPromise, clientsPromise, jobsPromise])
+  Promise.all([usersPromise, hatsPromise, clientsPromise, jobsPromise])
   .then((data) => {
-    setHats(data[0])
-    setClients(data[1])
-    setJobs(data[2])
+    setUser(data[0][0])
+    setHats(data[1])
+    setClients(data[2])
+    setJobs(data[3])
   })
 }
 
@@ -62,7 +65,7 @@ const getData = () => {
       <>
       <Routes>
 
-        <Route path="/hats/*" element={<HatContainer hats={hats} jobs={jobs} clients={clients} hatIcons={hatIcons} hatCardColours={hatCardColours}/>}/>
+        <Route path="/hats/*" element={<HatContainer hats={hats} jobs={jobs} clients={clients} hatIcons={hatIcons} hatCardColours={hatCardColours} user={user}/>}/>
 
 
         <Route path="/clients/*" element={<ClientContainer clients={clients} clientCardColours={clientCardColours} hatIcons={hatIcons}/>}/>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const HatForm = () => {
+const HatForm = ({user}) => {
   return (
     <div>
       <p>NEW HAT FORM</p>
