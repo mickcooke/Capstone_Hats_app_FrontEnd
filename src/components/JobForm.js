@@ -27,11 +27,11 @@ const JobForm = () => {
 
   return (
     <form>
-        <input type="text" placeholder="Job name" name="name" onChange={ handleChange }/>
+        Job Name: <input type="text" placeholder="Job name" name="name" onChange={ handleChange }/>
 
-        <input type="text" placeholder="Description" name="description" onChange={ handleChange }/>
+        Description: <input type="text" placeholder="Description" name="description" onChange={ handleChange }/>
 
-        <input type="text" placeholder="Notes" name="notes" onChange={ handleChange }/>
+        Notes: <input type="text" placeholder="Notes" name="notes" onChange={ handleChange }/>
         
 
         <LocalizationProvider dateAdapter={AdapterDayjs}>

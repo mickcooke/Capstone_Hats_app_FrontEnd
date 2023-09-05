@@ -25,11 +25,11 @@ const UpdateJobForm = ({job}) => {
 
   return (
     <form>
-    <input type="text" defaultValue={job.name} placeholder="Job name" name="name" onChange={ handleChange }/>
+    Job Name: <input type="text" defaultValue={job.name} placeholder="Job name" name="name" onChange={ handleChange }/>
 
-    <input type="text" defaultValue={job.description}  placeholder="Description" name="description" onChange={ handleChange }/>
+    Description: <input type="text" defaultValue={job.description}  placeholder="Description" name="description" onChange={ handleChange }/>
 
-    <input type="text" defaultValue={job.notes} placeholder="Notes" name="notes" onChange={ handleChange }/>
+    Notes: <input type="text" defaultValue={job.notes} placeholder="Notes" name="notes" onChange={ handleChange }/>
 
     <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DateTimePicker label="Start Date" onChange={ handleChange } />
@@ -38,10 +38,6 @@ const UpdateJobForm = ({job}) => {
     <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DateTimePicker label="End Date" onChange={ handleChange } />
     </LocalizationProvider>
-    
-    {/* <input type="text" defaultValue={job.started} placeholder="Started" name="Started" onChange={ handleChange }/>
-    
-    <input type="text" defaultValue={job.ended} placeholder="Ended" name="Ended" onChange={ handleChange }/> */}
 
     Active: <input type="checkbox" placeholder="Active" name="Active" />
         
