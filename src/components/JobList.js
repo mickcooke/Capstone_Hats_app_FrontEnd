@@ -1,5 +1,6 @@
 import React from "react";
 import JobCard from "./JobCard";
+import Timer from "./Timer"
 import { useParams, Link } from "react-router-dom";
 
 
@@ -19,6 +20,7 @@ const JobList = ({ jobs, hatIcons, clientCardColours }) => {
       <li key={index}>
         <div>
           <JobCard job={job} clientCardColours={clientCardColours} hatIcons={hatIcons}/>
+          <Timer job={job}/>
         </div>
       </li>
     );
