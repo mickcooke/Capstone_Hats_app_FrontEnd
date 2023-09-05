@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import Request from '../helpers/request';
 
 const JobForm = () => {
   const [newJob, setNewJob] = useState({
@@ -14,16 +15,29 @@ const JobForm = () => {
         setNewJob(copyJob)
   }
 
+  // const handlePost = (newJob) => {
+  //   const request = new Request();
+  //   request.post('/api/jobs', job).then(() => {
+  //     window.location = '/jobs';
+  //   })
+  // }
+//  console.log(job)
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // handlePost(newJob);
+  }
+
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Job name" name="name" onChange={ handleChange }/>
 
         <input type="text" placeholder="Description" name="description" onChange={ handleChange }/>
 
         <input type="text" placeholder="Notes" name="notes" onChange={ handleChange }/>
         
-        <button type="submit">Save</button>
+        <button type="submit">Create</button>
       </form>
   )
 }

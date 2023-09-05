@@ -9,6 +9,12 @@ const goBack = () => {
   navigate(-1);
 }
 
+if(!text){
+  return(
+    <p>loading</p>
+  )
+}
+
   return (
       <>
       <div className='back-button'>

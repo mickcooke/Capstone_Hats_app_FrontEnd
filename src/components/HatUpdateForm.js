@@ -6,22 +6,9 @@ const UpdateHatForm = ({hat}) => {
 
 
 const [newHat, setNewHat] = useState({
-    name: "",
+    name: hat.name,
+    iconName: hat.iconName
   })
-
-  
-
-const hatId = useParams();
-
-//  const findHatById = (id) => {
-//   return hats.find((hat) => {
-//     return hat.id === id;
-//   })
-// }
-
-const hat = hats.filter(hat => hat.id === hatId);
-
-// var bird = birdsObj.filter(bird => bird.id === id);
 
 console.log(hat)
 
@@ -31,19 +18,18 @@ console.log(hat)
         copyHat[propertyName] = event.target.value
         setNewHat(copyHat)
   }
+  
+ 
+
 
   return (
     <div>
       <p>Edit Hat</p>
-      <form>
-        <input type="text" placeholder="Hat Name" name="name" onChange={ handleChange }/>
-        <select>
-          {/* <option><img src={HatIconsNew.mortar_board}></img></option> */}
-          {/* <option><img src={HatIconsNew.mortar_board}></img></option> */}
-        </select>
-                
-                <button type="submit" >Save</button>
-      </form>
+      {/* <form> */}
+        <input type="text" defaultValue={hat.name} placeholder="Hat Name" name="name" 
+        onChange={ handleChange }
+        />
+      
     </div>
   )
 }

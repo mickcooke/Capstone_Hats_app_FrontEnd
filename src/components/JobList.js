@@ -1,13 +1,21 @@
 import React from "react";
 import JobCard from "./JobCard";
 import Timer from "./Timer"
-import { useParams, Link } from "react-router-dom";
+// import { useParams, Link } from "react-router-dom";
+import { useParams , Routes, Route, Link } from "react-router-dom";
+import JobFormContainer from "../containers/JobFormContainer";
 
 
-const JobList = ({ jobs, hatIcons, clientCardColours }) => {
+const JobList = ({ jobs, hatIcons, clientCardColours, clientIdString }) => {
   
+let clientId = useParams();
 
-  const url = "/jobs/new"
+console.log(clientId["*"])
+  
+// const url = `/jobs/new/${clientId}`
+  
+  const url = '/jobs/new/' + clientIdString
+  console.log(url)
 
   if (jobs.length === 0) {
     return <p>Loading...</p>;
