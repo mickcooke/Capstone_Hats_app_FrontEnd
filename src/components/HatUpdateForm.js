@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import { useParams } from 'react-router-dom';
 
 
 const UpdateHatForm = ({hat}) => {
@@ -9,6 +8,7 @@ const [newHat, setNewHat] = useState({
     name: hat.name,
     iconName: hat.iconName
   })
+
 
 console.log(hat)
 
