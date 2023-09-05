@@ -3,7 +3,7 @@ import ClientCard from "./ClientCard";
 import { useParams, Link } from "react-router-dom";
 
 
-const ClientList = ({ clients }) => {
+const ClientList = ({ clients, hatIcons, clientCardColours }) => {
   const hatId = useParams();
 
   if (clients.length === 0) {
@@ -17,16 +17,25 @@ const ClientList = ({ clients }) => {
     return (
       <li key={index}>
         <div>
-          <ClientCard client={client} />
+          <ClientCard client={client} clientCardColours={clientCardColours} hatIcons={hatIcons}/>
         </div>
       </li>
     );
   });
 
-  return <div>
-    {clientElements}
-    <Link to={url}>Create New Client</Link>
-    </div>;
+  return (
+    <>
+      <div className="App">
+        <Link to={url}>
+          <img
+            src={require("../assets/images/create-icon.png")}
+            className="create-icon"
+          />
+        </Link>
+      </div>
+      <div className="Item-container">{clientElements}</div>
+    </>
+  );
 };
 
 export default ClientList;

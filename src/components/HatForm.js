@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import HatIconsNew from '../styling_codes/HatIconsNew'
 
+
 const HatForm = () => {
 
   const [newHat, setNewHat] = useState({
@@ -15,6 +16,7 @@ const HatForm = () => {
   }
 
 console.log(HatIconsNew.mortar_board)
+
 
   return (
     <div>
