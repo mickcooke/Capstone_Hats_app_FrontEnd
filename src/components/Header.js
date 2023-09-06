@@ -1,5 +1,6 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
+import './Header.css'
 
 
 const Header = ({text}) => {
@@ -17,14 +18,14 @@ if(!text){
 
   return (
       <>
-      <div className='back-button'>
-      <img src={require("../assets/images/back-arrow.png")} className="back-arrow-icon" onClick={goBack}/>
+      <header className='header'>
+      <div className='back-button' onClick={goBack}>
+     <i class="fa-solid fa-arrow-left" style={{color: "#ffffff"}}></i>
       </div>
-      <div className='App'>
-        
+    
       <p className='header-text'>{text}</p>
-      </div>
-      <hr/>
+    
+      </header>
       </>
   )
 }
