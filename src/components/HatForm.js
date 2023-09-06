@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import HatIconsNew from '../styling_codes/HatIconsNew'
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 
 const HatForm = () => {
 
   const [newHat, setNewHat] = useState({
     name: "",
+    iconName: "",
   })
 
   const handleChange = (event) => {
@@ -22,10 +25,11 @@ console.log(HatIconsNew.mortar_board)
     <div>
       <form>
         <input type="text" placeholder="Hat Name" name="name" onChange={ handleChange }/>
-        <select>
+        
+        {/* <select name="hat">
           <option><img src={HatIconsNew.mortar_board}></img></option>
           <option><img src={HatIconsNew.mortar_board}></img></option>
-        </select>
+        </select> */}
                 
                 <button type="submit" >Save</button>
       </form>

@@ -10,8 +10,6 @@ const [newHat, setNewHat] = useState({
   })
 
 
-console.log(hat)
-
   const handleChange = (event) => {
     const propertyName = event.target.name;
         const copyHat = {...newHat}

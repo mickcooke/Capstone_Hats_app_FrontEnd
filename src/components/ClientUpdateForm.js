@@ -26,22 +26,22 @@ const UpdateClientForm = ({client}) => {
 
   return (
     <form>
-        <input type="text" defaultValue={client.firstName} name="firstName" onChange={ handleChange }/>
+        First Name: <input type="text" defaultValue={client.firstName} name="firstName" onChange={ handleChange }/>
 
-        <input type="text" defaultValue={client.lastName} name="lastName" onChange={ handleChange } />
+        Last Name: <input type="text" defaultValue={client.lastName} name="lastName" onChange={ handleChange } />
 
-        <input type="email" defaultValue={client.emailAddress} name="emailAddress" onChange={ handleChange } />
+        E-mail: <input type="email" defaultValue={client.emailAddress} name="emailAddress" onChange={ handleChange } />
 
-        <input type="text" defaultValue={client.address1}  name="address1" onChange={ handleChange } />
+        Address: <input type="text" defaultValue={client.address1}  name="address1" onChange={ handleChange } />
 
-        <input type="text" defaultValue={client.address2} name="address2" onChange={ handleChange } />
+        Address: <input type="text" defaultValue={client.address2} name="address2" onChange={ handleChange } />
 
 
-        <input type="text" defaultValue={client.postcode}  name="postcode" onChange={ handleChange } />
+        Postcode: <input type="text" defaultValue={client.postcode}  name="postcode" onChange={ handleChange } />
 
-        <input type="text" defaultValue={client.country} name="country" onChange={ handleChange } />
+        Country: <input type="text" defaultValue={client.country} name="country" onChange={ handleChange } />
         
-        <input type="number" defaultValue={client.hourlyRate} name="hourlyRate" onChange={ handleChange } />
+        Hourly Rate: £<input type="number" defaultValue={client.hourlyRate} name="hourlyRate" onChange={ handleChange } />
                 
                 <button type="submit">Update</button>
       </form>
