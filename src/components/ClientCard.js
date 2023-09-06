@@ -11,82 +11,128 @@ const ClientCard = ({ client, hatIcons, clientCardColours }) => {
   const clientCardColourCode = clientCardColours[clientCardColourIndex];
 
   const ClientCardStyle = styled.div`
-  width: 300px;
-  height: 100px;
-  padding: 10px;
-  margin-top: -10px;
-  margin-left: -10px;
-  border-radius: 10px;
-  background-color: ${clientCardColourCode};
-  display: grid;
-  grid-template-columns: 30% 70%;
-`;
+    width: 300px;
+    height: 100px;
+    padding: 10px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 10px;
+    background-color: ${clientCardColourCode};
+    display: grid;
+    grid-template-columns: 30% 70%;
+  `;
 
   const url = `/jobs/${client.id}`;
   const editUrl = `/clients/edit/${client.id}`;
+  const detailsUrl = `/clients/detail/${client.id}`;
+
+  let numberOfOngoingJobs = 0;
+  let numberOfUnpaidJobs = 0;
 
   const hatIconIndex = client.hat.id - 1;
   const hatCode = hatIcons[hatIconIndex];
 
+  const calculateOngoingJobs = () => {
+    const allClientJobs = client.jobs;
+
+    for (const job of allClientJobs) {
+      if (job.completed === false) {
+        numberOfOngoingJobs += 1;
+      }
+    }
+  };
+
+  calculateOngoingJobs();
+
+  const calculateUnpaidJobs = () => {
+    const allClientJobs = client.jobs;
+
+    for (const job of allClientJobs) {
+      if (job.completed === true && job.paid === false) {
+        numberOfUnpaidJobs += 1;
+      }
+    }
+  };
+
+  calculateUnpaidJobs();
+
+  const noOngoingJobs = () => {
+    return numberOfOngoingJobs === 0;
+  };
+
+  const ongoingJob = () => {
+    return numberOfOngoingJobs === 1;
+  };
+
+  const noUnpaidJobs = () => {
+    return numberOfUnpaidJobs === 0;
+  };
+
+  const unpaidJob = () => {
+    return numberOfUnpaidJobs === 1;
+  };
+
   return (
     <>
-    <div className="hat-card-wrap">
-      <Link to={url}>
-        <ClientCardStyle>
-          <div className="card-image-box">
-            <img
-              src={require(`../assets/images/${hatCode}`)}
-              className="hat-image"
-              alt="hat"
-            />
-          </div>
-          <div className="card-text-box">
-            <p className="hat-name-text">{client.firstName} {client.lastName} </p>
+      <div className="hat-card-wrap">
+        <Link to={url}>
+          <ClientCardStyle>
+            <div className="card-image-box">
+              <img
+                src={require(`../assets/images/${hatCode}`)}
+                className="hat-image"
+                alt="hat"
+              />
+            </div>
+            <div className="card-text-box">
+              <p className="hat-name-text">
+                {client.firstName} {client.lastName}{" "}
+              </p>
 
-            {/* {noOngoingJobs() ? (
-              <p></p>
-            ) : ongoingJob() ? (
-              <div className="ongoing-job-card">
-                <p className="ongoing-job-text">
-                  {numberOfOngoingJobs} ongoing job
-                </p>
-              </div>
-            ) : (
-              <div className="ongoing-job-card">
-                <p className="ongoing-job-text">
-                  {numberOfOngoingJobs} ongoing jobs
-                </p>
-              </div>
-            )}
+              {noOngoingJobs() ? (
+                <p></p>
+              ) : ongoingJob() ? (
+                <div className="ongoing-job-card">
+                  <p className="ongoing-job-text">
+                    {numberOfOngoingJobs} ongoing job
+                  </p>
+                </div>
+              ) : (
+                <div className="ongoing-job-card">
+                  <p className="ongoing-job-text">
+                    {numberOfOngoingJobs} ongoing jobs
+                  </p>
+                </div>
+              )}
 
-            {noUnpaidJobs() ? (
-              <p></p>
-            ) : unpaidJob() ? (
-              <div className="unpaid-job-card">
-                <p className="ongoing-job-text">
-                  {numberOfUnpaidJobs} unpaid job
-                </p>
-              </div>
-            ) : (
-              <div className="unpaid-job-card">
-                <p className="ongoing-job-text">
-                  {numberOfUnpaidJobs} unpaid jobs
-                </p>
-              </div>
-            )} */}
+              {noUnpaidJobs() ? (
+                <p></p>
+              ) : unpaidJob() ? (
+                <div className="unpaid-job-card">
+                  <p className="ongoing-job-text">
+                    {numberOfUnpaidJobs} unpaid job
+                  </p>
+                </div>
+              ) : (
+                <div className="unpaid-job-card">
+                  <p className="ongoing-job-text">
+                    {numberOfUnpaidJobs} unpaid jobs
+                  </p>
+                </div>
+              )}
+            </div>
+          </ClientCardStyle>
+        </Link>
 
+        <Link to={detailsUrl}>
+          <div className="card-details-button">details</div>
+        </Link>
 
-          </div>
-        </ClientCardStyle>
-      </Link>
-      <Link to={editUrl}>
-        <div className="card-edit-button">edit</div>
-      </Link>
-    </div>
-  </>
-
-
-
+        <Link to={editUrl}>
+          <div className="card-edit-button">edit</div>
+        </Link>
+      </div>
+    </>
 
     // <div>
     //   <Link to={url}>
