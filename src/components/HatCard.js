@@ -23,6 +23,7 @@ const HatCard = ({ hat, hatIcons, hatCardColours }) => {
   `;
 
   const url = `/clients/${hat.id}`;
+  const newClientFormUrl = `/clients/new/${hat.id}`
   const editUrl = `/hats/edit/${hat.id}`;
 
   let numberOfOngoingJobs = 0;
@@ -88,7 +89,11 @@ const HatCard = ({ hat, hatIcons, hatCardColours }) => {
   return (
     <>
       <div className="hat-card-wrap">
-        <Link to={url}>
+       
+       
+            {/* <Link to={hat.clients.length === 0 ? {newClientFormUrl} : {url}}> */}
+      <Link to={url}>
+        
           <HatCardStyle>
             <div className="card-image-box">
               <img

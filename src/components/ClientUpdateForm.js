@@ -25,7 +25,8 @@ const UpdateClientForm = ({client}) => {
   }
 
   return (
-    <form>
+    <>
+    <form> 
         First Name: <input type="text" defaultValue={client.firstName} name="firstName" onChange={ handleChange }/>
 
         Last Name: <input type="text" defaultValue={client.lastName} name="lastName" onChange={ handleChange } />
@@ -45,6 +46,9 @@ const UpdateClientForm = ({client}) => {
                 
                 <button type="submit">Update</button>
       </form>
+
+{/* <button onClick={handleDelete}>Delete</button> */}
+</>
   )
 }
 export default UpdateClientForm

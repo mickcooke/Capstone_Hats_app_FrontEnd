@@ -4,11 +4,12 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
 
-const HatForm = () => {
+const HatForm = ({user, onCreate}) => {
 
   const [newHat, setNewHat] = useState({
     name: "",
     iconName: "",
+    user: user
   })
 
   const handleChange = (event) => {
@@ -18,12 +19,17 @@ const HatForm = () => {
         setNewHat(copyHat)
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onCreate(newHat);
+  };
+
 console.log(HatIconsNew.mortar_board)
 
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Hat Name" name="name" onChange={ handleChange }/>
         
         {/* <select name="hat">
