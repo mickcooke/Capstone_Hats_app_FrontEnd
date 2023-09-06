@@ -18,6 +18,7 @@ import HatCardColours from '../styling_codes/HatCardColours.js'
 import ClientCardColours from '../styling_codes/ClientCardColours.js'
 import HatFormContainer from './HatFormContainer.js'
 import HatUpdateFormContainer from './HatUpdateFormContainer.js'
+import ClientDetailContainer from './ClientDetailContainer.js'
 
 const MainContainer = () => {
 
@@ -77,6 +78,8 @@ const getData = () => {
         <Route path="/clients/*" element={<ClientContainer clients={clients} clientCardColours={clientCardColours} hatIcons={hatIcons}/>}/>
         <Route path="/clients/edit/*" element={<ClientUpdateFormContainer clients={clients}/>}/>
         <Route path="/clients/new/*" element={<ClientFormContainer hats={hats} clients={clients}/>}/>
+        <Route path="/clients/detail/*" element={<ClientDetailContainer clients={clients}/>}/>
+
 
         <Route path="/jobs/*" element={<JobContainer jobs={jobs} hatIcons={hatIcons} clientCardColours={clientCardColours}/>}/>
         <Route path="/jobs/edit/*" element={<JobUpdateFormContainer jobs={jobs}/>}/>
