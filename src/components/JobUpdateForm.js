@@ -2,8 +2,10 @@ import React, {useState} from 'react'
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import {useNavigate} from 'react-router-dom';
 
-const UpdateJobForm = ({job}) => {
+
+const UpdateJobForm = ({job, handleDelete}) => {
 
     const [newJob, setNewJob] = useState({
       name: job.name,
@@ -15,6 +17,8 @@ const UpdateJobForm = ({job}) => {
       completed: job.completed,
       paid: job.paid
     })
+
+
   
     const handleChange = (event) => {
       const propertyName = event.target.name;
@@ -23,7 +27,13 @@ const UpdateJobForm = ({job}) => {
           setNewJob(copyJob)
     }
 
+    const onDelete = () => {
+      handleDelete(job.id)
+    }
+
+
   return (
+    <>
     <form>
     Job Name: <input type="text" defaultValue={job.name} placeholder="Job name" name="name" onChange={ handleChange }/>
 
@@ -47,6 +57,10 @@ const UpdateJobForm = ({job}) => {
     
     <button type="submit">Save</button>
   </form>
+     <button onClick = {() => {
+       onDelete();
+     }}>Delete Job</button>
+     </>
   )
 }
 
