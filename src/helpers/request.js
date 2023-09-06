@@ -14,9 +14,10 @@ class Request {
     return fetch(url, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        body: JSON.stringify(payload),
+        "Content-Type": "application/json"
+        
       },
+      body: JSON.stringify(payload)
     });
   }
   update(url, payload) {

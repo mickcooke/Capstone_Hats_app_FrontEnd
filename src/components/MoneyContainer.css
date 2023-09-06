@@ -17,7 +17,7 @@
     padding: 20px;
 }
 
-.link, button{
+.insights-link, button{
     padding: 10px;
     text-decoration: none;
     background-color: #93E0E4;
@@ -25,9 +25,10 @@
     margin: 3px;
     display: inline-flex;
     border-style: none;
+    height: auto;
 }
 
-.link-container{
+.insights-links-container{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -43,3 +44,5 @@
     display: grid;
     
 }
+
+

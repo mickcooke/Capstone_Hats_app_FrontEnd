@@ -622,11 +622,11 @@ if(jobsFilteredByDate.length === 0){
     <>
     <Header text={text}/>
 <div className='money'>
-    <div className='links-container'>
-      <NavLink activeStyle className="link" to="/money/total">Owed and paid</NavLink>
-      <NavLink activeStyle  className="link" to="/money/incomebyhat">Income by hat</NavLink>
-      <NavLink activeStyle className="link" to="/money/incomebyclient">Income by client</NavLink>
-      <NavLink activeStyle className="link" to="/money/incomebyjob">Income by job</NavLink>
+    <div className='insights-links-container'>
+      <NavLink activeStyle className="insights-link" to="/money/total">Owed and paid</NavLink>
+      <NavLink activeStyle  className="insights-link" to="/money/incomebyhat">Income by hat</NavLink>
+      <NavLink activeStyle className="insights-link" to="/money/incomebyclient">Income by client</NavLink>
+      <NavLink activeStyle className="insights-link" to="/money/incomebyjob">Income by job</NavLink>
     </div>
     <Routes>
       <Route path="/total" element={<MoneyEarnedChart chartProperties={owedAndPaidChart}/>}/>
