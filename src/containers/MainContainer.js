@@ -61,7 +61,29 @@ const getData = () => {
   //   )
   // }
 
+  const handlePostClient = (client) => {
+    const request = new Request();
+    request.post("http://localhost:8080/api/clients", client).then(() => {
+      // window.location = `/clients/${client.hat.id}`
+      // window.location = `/clients/1`
+      // console.log(request)
+    })
+    // getData()
+    
+  }
 
+  const handlePost = () => {
+    return null
+  }
+
+
+  // const findHatById = (id) => {
+  //   return hats.find((hat) => {
+  //     return hat.id === parseInt(id)
+  //   })
+  // }
+
+ 
   
   return (
     <Router>
@@ -72,19 +94,20 @@ const getData = () => {
 
         <Route path="/hats/edit/*" element={<HatUpdateFormContainer hats={hats}/>}/>
 
-        <Route path="/hats/new" element={<HatFormContainer user={user}/>}/>
+        <Route path="/hats/new" element={<HatFormContainer user={user} onCreate={handlePost}/>}/>
 
 
         <Route path="/clients/*" element={<ClientContainer clients={clients} clientCardColours={clientCardColours} hatIcons={hatIcons}/>}/>
         <Route path="/clients/edit/*" element={<ClientUpdateFormContainer clients={clients}/>}/>
-        <Route path="/clients/new/*" element={<ClientFormContainer hats={hats} clients={clients}/>}/>
+        <Route path="/clients/new/*" element={<ClientFormContainer hats={hats} clients={clients} onCreate={handlePostClient} />}/>
         <Route path="/clients/detail/*" element={<ClientDetailContainer clients={clients}/>}/>
+
 
 
         <Route path="/jobs/*" element={<JobContainer jobs={jobs} hatIcons={hatIcons} clientCardColours={clientCardColours}/>}/>
         <Route path="/jobs/edit/*" element={<JobUpdateFormContainer jobs={jobs}/>}/>
         <Route path="/jobs/detail/*" element={<JobDetailContainer jobs={jobs}/>}/>
-        <Route path="/jobs/new/*" element={<JobFormContainer jobs={jobs}/>}/>
+        <Route path="/jobs/new/*" element={<JobFormContainer jobs={jobs} onCreate={handlePost}/>}/>
 
 
 

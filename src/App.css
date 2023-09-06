@@ -25,23 +25,6 @@ body {
   width: 100%;
 } */
 
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 8px;
-  text-align: center;
-}
-
-.Nav-bar {
-  display: flex;
-  justify-content: space-around;
-  margin: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
 .Item-container {
   list-style: none;
   display: flex;
@@ -113,6 +96,7 @@ footer {
   color: black;
   margin-top: 0px;
 }
+
 .job-name-text {
   font-size: 1.2em;
   font-weight: bold;
@@ -189,31 +173,13 @@ footer {
   background-color: yellow;
 } */
 
-.Nav-container {
-  width: 500px;
-  display: flex;
-  justify-content: space-around;
-}
-
-.pound-icon {
-  width: 20px;
-}
-
-.cog-icon {
-  width: 30px;
-}
-
-.hat-icon {
-  width: 40px;
-}
-
 .create-icon {
   width: 40px;
-}
+} */
 
-.back-arrow-icon {
-  width: 20px;
-}
+
+
+
 
 .leftie {
   align-items: start;
@@ -226,7 +192,4 @@ footer {
   margin-top: -25px;
 }
 
-.back-button {
-  margin-top: 20px;
-  margin-left: 10px;
-}
+

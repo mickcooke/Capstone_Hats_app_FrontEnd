@@ -1,22 +1,27 @@
 import React from "react";
+import './NavBar.css'
+import cog from '../assets/icons/cog.svg'
+import moneyBag from '../assets/icons/money-bag.svg'
+import topHat from '../assets/icons/top-hat.svg'
+import wallet from '../assets/icons/wallet.svg'
+
 
 const NavBar = () => {
   return (
     <>
     <footer>
-      <hr />
       <div className="Nav-bar">
         <div className="Nav-container">
           <div>
-            <a href="/hats"><img src={require("../assets/images/hat.png")} className="hat-icon"/></a>
+            <a href="/hats"><i style={{color: "#ffffff"}} class="fa-brands fa-redhat"></i></a>
           </div>
 
           <div>
-            <a href="/money/total"><img src={require("../assets/images/pound.png")} className="pound-icon"/></a>
+            <a href="/money/total"><i style={{color: "#ffffff"}} class="fa fa-sack-dollar" aria-hidden="true"></i></a>
           </div>
 
           <div>
-            <a href="/settings"><img src={require("../assets/images/cog.png")} className="cog-icon"/></a>
+            <a href="/settings"><i style={{color: "#ffffff"}}class="fa fa-cog" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>

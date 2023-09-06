@@ -1,0 +1,31 @@
+footer{
+    background: #145365;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px;
+      text-align: center;   
+}
+
+a{
+    height: 100px;
+}
+
+p{
+  text-align: center;
+}
+
+.Nav-container {
+    width: 500px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .Nav-bar {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
