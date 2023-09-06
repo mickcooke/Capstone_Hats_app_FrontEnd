@@ -10,7 +10,7 @@ import Request from "../helpers/request.js";
 import JobDetailContainer from "./JobDetailContainer.js";
 import SettingsContainer from "./SettingsContainer.js";
 import ClientUpdateFormContainer from "./ClientUpdateFormContainer.js";
-import ClientFormContainer from "./CientFormContainer.js";
+import ClientFormContainer from "./ClientFormContainer.js";
 import JobFormContainer from "./JobFormContainer.js";
 import JobUpdateFormContainer from "./JobUpdateFormContainer.js";
 import HatIcons from "../styling_codes/HatIcons.js";
