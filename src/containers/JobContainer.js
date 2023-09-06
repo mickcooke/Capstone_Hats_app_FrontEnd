@@ -21,7 +21,7 @@ const JobContainer = ({ jobs, clientCardColours, hatIcons }) => {
     );
   }
 
-  const text = `${filteredJobs[0].client.hat.name} > ${filteredJobs[0].client.firstName} > Jobs`;
+  const text = `${filteredJobs[0].client.hat.name} > ${filteredJobs[0].client.firstName} ${filteredJobs[0].client.lastName} > Jobs`;
 
  
 

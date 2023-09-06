@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 
 const ClientFormContainer = ({hats, clients, onCreate}) => {
     const  hatIdObject = useParams()
-    const text = "Add New Client"
+    
 
 
     
@@ -26,6 +26,7 @@ const ClientFormContainer = ({hats, clients, onCreate}) => {
   }
   const foundHat = findHatById(hatId)
 
+  const text = `Add New ${foundHat.name} Client`
   return (
     <div>
         <Header text={text}/>

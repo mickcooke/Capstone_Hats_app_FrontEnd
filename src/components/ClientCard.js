@@ -22,7 +22,15 @@ const ClientCard = ({ client, hatIcons, clientCardColours }) => {
     grid-template-columns: 30% 70%;
   `;
 
-  const url = `/jobs/${client.id}`;
+  const getUrl = () => {
+    if (client.jobs.length === 0) {
+      return `/jobs/new/${client.id}`;
+    } else {
+      return `/jobs/${client.id}`;
+    }
+  };
+
+  const url = getUrl();
   const editUrl = `/clients/edit/${client.id}`;
   const detailsUrl = `/clients/detail/${client.id}`;
 
