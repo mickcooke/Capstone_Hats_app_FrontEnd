@@ -3,7 +3,7 @@ import React from 'react'
 const OngoingJob = ({job}) => {
   return (
    <>
-   <p>{job.name}</p>
+   <p><b>{job.name}</b></p>
    <span>{job.hat}</span>
   
    <span>{job.client.hat.name} job for </span>
