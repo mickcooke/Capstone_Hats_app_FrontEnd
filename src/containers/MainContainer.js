@@ -19,6 +19,7 @@ import ClientCardColours from "../styling_codes/ClientCardColours.js";
 import HatFormContainer from "./HatFormContainer.js";
 import HatUpdateFormContainer from "./HatUpdateFormContainer.js";
 import ClientDetailContainer from "./ClientDetailContainer.js";
+import AboutContainer from "./AboutContainer.js";
 
 const MainContainer = () => {
   const [user, setUser] = useState({});
@@ -225,6 +226,8 @@ const MainContainer = () => {
           <Route path="/settings/*" element={<SettingsContainer />} />
 
           <Route path="/insights/*" element={<InsightsContainer />} />
+
+          <Route path="/about/*" element={<AboutContainer />} />
         </Routes>
 
         <NavBar />
