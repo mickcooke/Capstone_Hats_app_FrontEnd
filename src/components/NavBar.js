@@ -21,7 +21,7 @@ const NavBar = () => {
           </div>
 
           <div>
-            <a href="/settings"><h2><i style={{color: "#ffffff"}}class="fa fa-cog" aria-hidden="true"></i></h2></a>
+            <a href="/about"><h2><i style={{color: "#ffffff"}}class="fa fa-cog" aria-hidden="true"></i></h2></a>
           </div>
         </div>
       </div>
