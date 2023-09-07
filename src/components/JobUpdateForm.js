@@ -49,15 +49,15 @@ const UpdateJobForm = ({job, handleDelete, onUpdate}) => {
 
     Notes: <input type="text" defaultValue={job.notes} placeholder="Notes" name="notes" onChange={ handleChange }/>
 
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
+    {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DateTimePicker label="Start Date" onChange={ handleChange } />
     </LocalizationProvider>
 
     <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DateTimePicker label="End Date" onChange={ handleChange } />
-    </LocalizationProvider>
+    </LocalizationProvider> */}
 
-    Active: <input type="checkbox" placeholder="Active" name="Active" />
+    Active: <input type="checkbox" placeholder="Active" name="Active" defaultValue={job.active}/>
         
     Completed: <input type="checkbox" name="Completed" />
         
