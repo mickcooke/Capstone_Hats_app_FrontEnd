@@ -1,8 +1,14 @@
 import React from 'react'
 
-const OngoingJob = () => {
+const OngoingJob = ({job}) => {
   return (
-    <div>OngoingJob</div>
+   <>
+   <p>{job.name}</p>
+   <span>{job.hat}</span>
+  
+   <span>{job.client.hat.name} job for </span>
+   <span>{job.client.firstName} {job.client.lastName}  </span>
+   </>
   )
 }
 

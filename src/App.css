@@ -36,6 +36,14 @@ body {
   /* border: solid black; */
 }
 
+.ongoingJobs-container {
+  width:90%;
+  margin:auto;
+  /* border: solid black;
+  border-width: 1px; */
+  box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.5);
+}
+
 .Item-box {
   width: 160px;
   height: 420px;
