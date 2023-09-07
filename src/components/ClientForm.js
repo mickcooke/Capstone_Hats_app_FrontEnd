@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import './ClientForm.css'
 
 const ClientForm = ({ hats, clients, onCreate, foundHat }) => {
   const [newClient, setNewClient] = useState({
@@ -27,7 +28,7 @@ const ClientForm = ({ hats, clients, onCreate, foundHat }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       First Name:{" "}
       <input
         type="text"
@@ -84,7 +85,7 @@ const ClientForm = ({ hats, clients, onCreate, foundHat }) => {
         name="hourlyRate"
         onChange={handleChange}
       />
-      <button type="submit">Save</button>
+      <div className="button"><button type="submit">Save</button></div>
     </form>
   );
 };

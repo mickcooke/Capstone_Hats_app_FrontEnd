@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import './HatUpdateForm.css'
+
 
 const UpdateHatForm = ({ hat, handleDelete, user, onUpdate }) => {
   const [updatedHat, setUpdatedHat] = useState({
@@ -34,7 +36,7 @@ const UpdateHatForm = ({ hat, handleDelete, user, onUpdate }) => {
     <>
       <div>
         <p>Edit Hat</p>
-        <form onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
           <input
             type="text"
             defaultValue={hat.name}
@@ -42,7 +44,7 @@ const UpdateHatForm = ({ hat, handleDelete, user, onUpdate }) => {
             name="name"
             onChange={handleChange}
           />
-          <button type="submit">Save</button>
+          <div className="button"><button type="submit">Save</button></div>
         </form>
       </div>
     </>

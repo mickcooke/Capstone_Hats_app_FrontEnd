@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './ClientUpdateForm.css'
 
 const UpdateClientForm = ({client, onUpdate, handleDelete}) => {
 
@@ -40,7 +41,7 @@ const UpdateClientForm = ({client, onUpdate, handleDelete}) => {
 
   return (
     <>
-    <form onSubmit={handleSubmit}> 
+    <form className='form' onSubmit={handleSubmit}> 
         First Name: <input type="text" defaultValue={client.firstName} name="firstName" onChange={ handleChange }/>
 
         Last Name: <input type="text" defaultValue={client.lastName} name="lastName" onChange={ handleChange } />
@@ -58,7 +59,7 @@ const UpdateClientForm = ({client, onUpdate, handleDelete}) => {
         
         Hourly Rate: £<input type="number" defaultValue={client.hourlyRate} name="hourlyRate" onChange={ handleChange } />
                 
-                <button type="submit">Update</button>
+                <div className='button'><button type="submit">Update</button></div>
       </form>
 
 {/* <button onClick={handleDelete}>Delete</button> */}

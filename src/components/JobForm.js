@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import './JobForm.css'
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -34,7 +34,7 @@ const JobForm = ({ clientId, onCreate, foundClient }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       Job Name:{" "}
       <input
         type="text"
@@ -66,8 +66,9 @@ const JobForm = ({ clientId, onCreate, foundClient }) => {
         Completed: <input type="checkbox" name="Completed" />
         
         Paid: <input type="checkbox" name="Paid" /> */}
-      <button type="submit">Create</button>
+      <div className="submit"><button type="submit">Create</button></div>
     </form>
+    
   );
 };
 
