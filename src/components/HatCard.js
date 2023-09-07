@@ -20,10 +20,19 @@ const HatCard = ({ hat, hatIcons, hatCardColours }) => {
     background-color: ${hatCardColourCode};
     display: grid;
     grid-template-columns: 30% 70%;
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.5);
   `;
 
-  const url = `/clients/${hat.id}`;
-  const newClientFormUrl = `/clients/new/${hat.id}`
+  const getUrl = () => {
+    if (hat.clients.length === 0) {
+      return `/clients/new/${hat.id}`;
+    } else {
+      return `/clients/${hat.id}`;
+    }
+  };
+
+  const url = getUrl();
+  const newClientFormUrl = `/clients/new/${hat.id}`;
   const editUrl = `/hats/edit/${hat.id}`;
 
   let numberOfOngoingJobs = 0;
@@ -89,11 +98,7 @@ const HatCard = ({ hat, hatIcons, hatCardColours }) => {
   return (
     <>
       <div className="hat-card-wrap">
-       
-       
-            {/* <Link to={hat.clients.length === 0 ? {newClientFormUrl} : {url}}> */}
-      <Link to={url}>
-        
+        <Link to={url}>
           <HatCardStyle>
             <div className="card-image-box">
               <img

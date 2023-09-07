@@ -3,6 +3,8 @@ import Header from '../components/Header.js'
 import MoneyEarnedChart from '../components/MoneyEarnedChart.js'
 import {Routes, Route, Link, NavLink} from 'react-router-dom';
 import '../components/MoneyContainer.css'
+import useSound from 'use-sound';
+import Kerching from '../assets/sounds/Kerching.mp3'
 
 const MoneyContainer = ({jobs}) => {
 
@@ -12,6 +14,9 @@ const MoneyContainer = ({jobs}) => {
   useEffect(() => {
     setJobsFilteredByDate(dummyJobs)
   },[])
+
+  const [play] = useSound(Kerching, {volume: 0.4})
+    play();
 
 const text = "Money in your hat"
 
@@ -462,6 +467,8 @@ const text = "Money in your hat"
     }
   ]
   
+  
+
   
 
   if(jobsFilteredByDate.length === 0){

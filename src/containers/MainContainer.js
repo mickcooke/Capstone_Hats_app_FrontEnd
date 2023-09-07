@@ -10,7 +10,7 @@ import Request from "../helpers/request.js";
 import JobDetailContainer from "./JobDetailContainer.js";
 import SettingsContainer from "./SettingsContainer.js";
 import ClientUpdateFormContainer from "./ClientUpdateFormContainer.js";
-import ClientFormContainer from "./CientFormContainer.js";
+import ClientFormContainer from "./ClientFormContainer.js";
 import JobFormContainer from "./JobFormContainer.js";
 import JobUpdateFormContainer from "./JobUpdateFormContainer.js";
 import HatIcons from "../styling_codes/HatIcons.js";
@@ -20,6 +20,8 @@ import HatFormContainer from "./HatFormContainer.js";
 import HatUpdateFormContainer from "./HatUpdateFormContainer.js";
 import ClientDetailContainer from "./ClientDetailContainer.js";
 import LandingContainer from "./LandingContainer.js"
+import AboutContainer from "./AboutContainer.js";
+
 
 const MainContainer = () => {
   const [user, setUser] = useState({});
@@ -233,6 +235,8 @@ const MainContainer = () => {
           <Route path="/settings/*" element={<SettingsContainer />} />
 
           <Route path="/insights/*" element={<InsightsContainer />} />
+
+          <Route path="/about/*" element={<AboutContainer />} />
         </Routes>
 
         <NavBar />

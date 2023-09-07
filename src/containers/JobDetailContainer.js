@@ -12,7 +12,7 @@ const JobDetailContainer = ({ jobs }) => {
 
   const foundJob = jobs.find((job) => job.id == jobId["*"]);
 
-  const text = `${foundJob.client.hat.name} > ${foundJob.client.firstName} > ${foundJob.name}`;
+  const text = `${foundJob.client.hat.name} > ${foundJob.client.firstName} ${foundJob.client.lastName} > ${foundJob.name}`;
 
   return (
     <>
