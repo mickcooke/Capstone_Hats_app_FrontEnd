@@ -30,16 +30,7 @@ const JobDetail = ({ job, onUpdate }) => {
       <p className="job-detail-text"> Notes: {job.notes}</p>
 
       {job.active ? "" : <p>Not Started</p>}
-
-      <p className="job-started-text">
-                <b>Started:</b> {job.started.slice(0, 10)}
-              </p>
-      {completed() ? 
-    <p className="job-started-text">
-    <b>Ended:</b> {job.ended.slice(0, 10)} </p>
-    :
-    ""
-    }
+            
 
       {job.completed ? (
         <div className="completed-job-card">
