@@ -28,7 +28,7 @@ console.log(clientId["*"])
       <li key={index}>
         <div>
           <JobCard job={job} clientCardColours={clientCardColours} hatIcons={hatIcons}/>
-          <Timer job={job}/>
+          
         </div>
       </li>
     );

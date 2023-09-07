@@ -1,6 +1,8 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
 import Timer from './Timer';
+import './JobDetail.css'
+
 
 
 const JobDetail = ({job}) => {
@@ -9,11 +11,17 @@ const JobDetail = ({job}) => {
 
 
   return (
-    <div>
-        <p>{job.name}</p>
-        <p>{job.description}</p>
-        <p>{job.notes}</p>
-        <Timer job={job}/>
+    <div className='card'>
+        {/* <img src="" */}
+        <p>Job: {job.name}</p>
+        <p> Description: {job.description}</p>
+        <p>Notes: {job.notes}</p>
+        {job.active ? <p>Active</p> : <p>Not Active</p> }
+        {job.completed ? <p>Completed</p> : <p>Not Completed</p> }
+        {job.paid ? <p>Paid</p> : <p>Not Paid</p> }
+        <div className='timer'>
+          <Timer job={job}/>
+        </div>
     </div>
   )
 }
