@@ -28,3 +28,26 @@
 .stopwatch-buttons button:last-child {
     background-color: red;
 }
+
+
+
+.hat{
+    width: 80px;
+}
+
+.spinning{
+    animation-name: hat-spin;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: linear;
+}
+
+@keyframes hat-spin{
+    from {
+        transform: rotate(0)
+    }
+    to {
+       transform: rotate(360deg)
+    }
+}

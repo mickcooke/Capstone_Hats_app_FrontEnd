@@ -3,7 +3,7 @@ import JobDetail from "../components/JobDetail";
 import Header from "../components/Header";
 import { useParams } from 'react-router-dom';
 
-const JobDetailContainer = ({ jobs }) => {
+const JobDetailContainer = ({ jobs, onUpdate }) => {
   const jobId = useParams();
 
   if (jobs.length === 0) {
@@ -17,7 +17,7 @@ const JobDetailContainer = ({ jobs }) => {
   return (
     <>
     <Header text={text}/>
-      <JobDetail job={foundJob} />
+      <JobDetail job={foundJob} onUpdate={onUpdate}/>
     </>
   )
 };

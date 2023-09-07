@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import Header from '../components/Header'
 import JobUpdateForm from '../components/JobUpdateForm'
 
-const JobUpdateFormContainer = ({jobs, handleDelete}) => {
+const JobUpdateFormContainer = ({jobs, handleDelete, onUpdate}) => {
 
 const jobId = useParams();
 
@@ -24,7 +24,7 @@ if(!foundJob){
   return (
     <>
     <Header text={text}/>
-    <JobUpdateForm job={foundJob} handleDelete={handleDelete}/>
+    <JobUpdateForm job={foundJob} handleDelete={handleDelete} onUpdate={onUpdate}/>
     </>
   )
 }

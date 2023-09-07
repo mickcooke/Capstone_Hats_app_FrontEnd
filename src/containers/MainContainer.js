@@ -65,6 +65,14 @@ const MainContainer = () => {
   //   )
   // }
 
+  const findHatById = (id) => {
+    return hats.find((hat) => {
+      return hat.id === parseInt(id)
+    })
+    
+  }
+
+
   const findJobById = (id) => {
     return jobs.find((job) => {
       return job.id === parseInt(id)
@@ -119,6 +127,34 @@ const MainContainer = () => {
     const url = "http://localhost:8080/api/hats/" + id;
     request.update(url, hat).then(() => {
       window.location = '/hats'
+    });
+    
+  }
+
+  const handleUpdateClient = (client, id) => {
+    const request = new Request();
+    const url = "http://localhost:8080/api/clients/" + id;
+    request.update(url, client).then(() => {
+      window.location = `/clients/${client.hat.id}` 
+    });
+    
+  }
+
+  const handleUpdateJob = (job, id, clientId) => {
+    const request = new Request();
+    const url = "http://localhost:8080/api/jobs/" + id;
+    request.update(url, job).then(() => {
+      window.location = `/jobs/${clientId}` 
+    });
+    
+  }
+
+  const handleUpdateTimer = (job, id, clientId) => {
+    const request = new Request();
+    const url = "http://localhost:8080/api/jobs/" + id;
+    request.update(url, job).then(() => {
+      console.log("update timer has run" + job.timeTaken)
+      // window.location = `/jobs/${clientId}` 
     });
     
   }
@@ -178,7 +214,7 @@ const MainContainer = () => {
           />
           <Route
             path="/clients/edit/*"
-            element={<ClientUpdateFormContainer clients={clients} />}
+            element={<ClientUpdateFormContainer clients={clients} onUpdate={handleUpdateClient}/>}
           />
           <Route
             path="/clients/new/*"
@@ -212,12 +248,13 @@ const MainContainer = () => {
                 jobs={jobs}
                 clients={clients}
                 handleDelete={handleDeleteJob}
+                onUpdate={handleUpdateJob}
               />
             }
           />
           <Route
             path="/jobs/detail/*"
-            element={<JobDetailContainer jobs={jobs} />}
+            element={<JobDetailContainer jobs={jobs} onUpdate={handleUpdateTimer}/>}
           />
           <Route
             path="/jobs/new/*"

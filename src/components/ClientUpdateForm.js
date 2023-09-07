@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-const UpdateClientForm = ({client}) => {
+const UpdateClientForm = ({client, onUpdate, handleDelete}) => {
 
-  const [newClient, setNewClient] = useState({
+  const [updatedClient, setUpdatedClient] = useState({
     firstName: client.firstName,
     lastName: client.lastName,
     emailAddress: client.email,
@@ -11,13 +11,27 @@ const UpdateClientForm = ({client}) => {
     postcode: client.postcode,
     country: client.country,
     hourlyRate: client.hourlyRate,
+    id: client.id,
+    hat: client.hat
   })
+
+  let clientId = client.id
 
   const handleChange = (event) => {
     const propertyName = event.target.name;
-        const copyClient = {...newClient}
+        const copyClient = {...updatedClient}
         copyClient[propertyName] = event.target.value
-        setNewClient(copyClient)
+        setUpdatedClient(copyClient)
+        console.log(copyClient)
+  }
+
+  // const onDelete = () => {
+  //  handleDelete(client.id)
+  // }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    onUpdate(updatedClient, clientId)
   }
 
   if (!client) {
@@ -26,7 +40,7 @@ const UpdateClientForm = ({client}) => {
 
   return (
     <>
-    <form> 
+    <form onSubmit={handleSubmit}> 
         First Name: <input type="text" defaultValue={client.firstName} name="firstName" onChange={ handleChange }/>
 
         Last Name: <input type="text" defaultValue={client.lastName} name="lastName" onChange={ handleChange } />

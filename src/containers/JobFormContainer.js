@@ -3,7 +3,7 @@ import JobForm from '../components/JobForm'
 import Header from '../components/Header'
 import { useParams } from 'react-router-dom'
 
-const JobFormContainer = ({onCreate, clients}) => {
+const JobFormContainer = ({onCreate, clients, onUpdate}) => {
 const clientIdObject = useParams()
 
 
