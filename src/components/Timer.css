@@ -33,6 +33,8 @@
 
 .hat{
     width: 80px;
+    margin: auto;
+    display: flex;
 }
 
 .spinning{

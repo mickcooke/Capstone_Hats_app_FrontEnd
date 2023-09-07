@@ -3,7 +3,7 @@ import './LandingContainer.css'
 
 const LandingContainer = () => {
   return (
-    <div>
+    <div className='background'>
         <img src={require(`../assets/images/hat1.png`)} className="falling hat1" alt="hat"/>
         <img src={require(`../assets/images/hat2.png`)} className="falling hat2" alt="hat"/>
         <img src={require(`../assets/images/hat3.png`)} className="falling hat3" alt="hat"/>

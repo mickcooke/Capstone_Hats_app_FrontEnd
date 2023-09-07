@@ -78,7 +78,7 @@ const UpdateJobForm = ({job, handleDelete, onUpdate}) => {
         
     Paid: <input type="checkbox" name="paid" defaultChecked={job.paid} onChange={handleCheckbox} />
     
-      </div>
+    
     <div className='buttons'>
     <button  type="submit">Save</button>
       <button onClick = {() => {

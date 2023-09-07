@@ -150,9 +150,9 @@ const Timer = ({job, onUpdate}) => {
         }}>
           {isRunning ? "Stop" : "Start"}
         </button>
-        <button className="stopwatch-button" onClick={reset}>
+        {/* <button className="stopwatch-button" onClick={reset}>
           Mark as complete
-        </button>
+        </button> */}
       </div>
     </div>
   );
