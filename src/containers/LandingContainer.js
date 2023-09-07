@@ -1,7 +1,13 @@
 import React from 'react'
 import './LandingContainer.css'
+import useSound from 'use-sound';
+import HatsTheme from '../assets/sounds/HatsTheme.mp3'
 
 const LandingContainer = () => {
+
+  const [play] = useSound(HatsTheme);
+  play();
+
   return (
     <div className='background'>
         <img src={require(`../assets/images/hat1.png`)} className="falling hat1" alt="hat"/>

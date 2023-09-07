@@ -1,5 +1,7 @@
 import React from 'react'
 import About1 from '../components/about1.js'
+import About2 from '../components/about2.js'
+import About3 from '../components/about3.js'
 import Header from '../components/Header.js'
 import {
     BrowserRouter as Router,
@@ -18,8 +20,8 @@ const AboutContainer = () => {
 
     <Routes>
       <Route path="/" element={<About1/>} />
-      {/* <Route path="/new" element={<HatForm />} />
-      <Route path="/edit/:id" element={<HatUpdateForm hats={hats}/>} /> */}
+      <Route path="/2" element={<About2/>} />
+      <Route path="/3" element={<About3/>} />
     </Routes>
     </>
   )

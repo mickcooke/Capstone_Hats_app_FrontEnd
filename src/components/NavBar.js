@@ -21,7 +21,8 @@ const NavBar = () => {
           </div>
 
           <div>
-            <a href="/settings"><h2><i style={{color: "#ffffff"}}class="fa-solid fa-circle-info"></i></h2></a>
+            <a href="/about"><h2><i style={{color: "#ffffff"}}class="fa-solid fa-circle-info"></i></h2></a>
+
           </div>
         </div>
       </div>

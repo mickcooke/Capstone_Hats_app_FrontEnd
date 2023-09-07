@@ -15,6 +15,38 @@ body {
   
 }
 
+.about-container {
+  width: 90%;
+  margin: auto;
+  /* border: solid black; */
+}
+
+.justify {
+  text-align: justify;
+  font-size: 1.2em;
+}
+.set-up {
+  font-size: 1.5em;
+}
+
+.diagram-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+
+}
+
+.hats-diagram {
+  width: 70%;
+}
+
+.clients-diagram {
+  width: 60%;
+}
+
+
 /* .Header {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5em;
