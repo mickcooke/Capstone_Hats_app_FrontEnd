@@ -77,6 +77,8 @@ const JobCard = ({ job, hatIcons, clientCardColours }) => {
 
   const runningTime = convertSecondsToHMS(Math.trunc(job.timeTaken));
 
+  const amountEarned = (job.client.hourlyRate * (job.timeTaken/3600)).toFixed(2)
+
   return (
     <>
       <div className="hat-card-wrap">
@@ -94,9 +96,13 @@ const JobCard = ({ job, hatIcons, clientCardColours }) => {
               <p className="job-description-text">
                 <b>{job.description} </b>
               </p>
-              <p className="job-started-text">
+              {/* <p className="job-started-text"> */}
                 {/* <b>Started:</b> {job.started.slice(0, 10)} */}
-              </p>
+              {/* </p> */}
+
+              <p className="job-name-text">£{amountEarned} </p>
+
+
               {ongoing() ? 
                
                 <div className="ongoing-job-card">

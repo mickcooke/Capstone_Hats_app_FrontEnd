@@ -17,7 +17,10 @@ const JobDetail = ({ job, onUpdate }) => {
   };
 
 
-  const amountEarned = Math.floor((job.client.hourlyRate * (job.timeTaken/3600))*100)/100
+  // const amountEarned = Math.floor((job.client.hourlyRate * (job.timeTaken/3600) + Number.EPSILON)*100)/100
+
+  const amountEarned = (job.client.hourlyRate * (job.timeTaken/3600)).toFixed(2)
+
 
   return (
 
@@ -27,7 +30,7 @@ const JobDetail = ({ job, onUpdate }) => {
         <b>{job.name}</b>
       </p>
       <p className="job-detail-text">{job.description}</p>
-      <p className="job-detail-text"> Notes: {job.notes}</p>
+      <p className="job-detail-text"> {job.notes}</p>
 
       {job.active ? "" : <p>Not Started</p>}
             

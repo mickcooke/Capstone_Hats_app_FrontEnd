@@ -20,9 +20,9 @@ const UpdateHatForm = ({ hat, handleDelete, user, onUpdate }) => {
     setUpdatedHat(copyHat);
   };
 
-  const onDelete = () => {
-    handleDelete(hat.id);
-  };
+  // const onDelete = () => {
+  //   handleDelete(hat.id);
+  // };
 
 
 
@@ -44,6 +44,28 @@ const UpdateHatForm = ({ hat, handleDelete, user, onUpdate }) => {
             name="name"
             onChange={handleChange}
           />
+
+<div>
+        <p>Pick your hat icon:</p>
+        <img src={require(`../assets/images/hat1.png`)} className="hat-image" alt="hat"/>
+        <input type="radio" name="iconName" value="hat1" onChange={handleChange}/>
+        </div>
+
+        <div>
+        <img src={require(`../assets/images/hat2.png`)} className="hat-image" alt="hat"/>
+        <input type="radio" name="iconName" value="hat2" onChange={handleChange}/>
+        </div>
+
+        <div>
+        <img src={require(`../assets/images/hat3.png`)} className="hat-image" alt="hat"/>
+        <input type="radio" name="iconName" value="hat3" onChange={handleChange}/>
+        </div>
+
+        <div>
+        <img src={require(`../assets/images/hat4.png`)} className="hat-image" alt="hat"/>
+        <input type="radio" name="iconName" value="hat4" onChange={handleChange}/>
+        </div>
+
           <div className="button"><button type="submit">Save</button></div>
         </form>
       </div>

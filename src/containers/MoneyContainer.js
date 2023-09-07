@@ -171,7 +171,7 @@ const text = "Money in your hat"
     },
     {
       "id": 3,
-    "name": "Driving to Harrods",
+    "name": "Installing a new kitchen sink",
     "description": "",
     "notes": "Remember champagne!",
     "started": "2023-07-28T09:30:00",
@@ -189,7 +189,7 @@ const text = "Money in your hat"
         "address2": "Seattle",
         "postcode": "98101",
         "country": "USA",
-        "hourlyRate": 55,
+        "hourlyRate": 255,
         "hat": {
           "id": 5,
           "name": "Roofing Contractor",
@@ -647,7 +647,7 @@ const text = "Money in your hat"
     "postcode": "10002",
     "country": "USA",
     "notes": "Repeat customer",
-    "hourlyRate": 80,
+    "hourlyRate": 280,
     "hat": {
     "id": 2,
     "name": "Driver",
@@ -803,7 +803,7 @@ const text = "Money in your hat"
     "postcode": "90001",
     "country": "USA",
     "notes": "Frequent customer",
-    "hourlyRate": 55,
+    "hourlyRate": 5,
     "hat": {
     "id": 1,
     "name": "Plumber",
@@ -931,7 +931,7 @@ let owedAndPaidChart = {
   subheader: "You are owed",
   subheaderValue: `£${totalOwed}`,
   footer: "You have been paid",
-  footerValue: `£${totalPaid}`,
+  footerValue: `£${totalPaid.toFixed(2)}`,
   colors: ["#ff5c5c","#85ff8d"]
 }
 
