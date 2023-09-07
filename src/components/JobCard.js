@@ -23,29 +23,33 @@ const JobCard = ({ job, hatIcons, clientCardColours }) => {
     box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.5);
   `;
 
-  const ActiveJobCardStyle = styled(JobCardStyle)`
-    border: solid #ff0303;
-  `;
-
   const url = `/jobs/detail/${job.id}`;
   const editUrl = `/jobs/edit/${job.id}`;
 
-  const hatIconIndex = job.client.hat.id - 1;
-  const hatCode = hatIcons[hatIconIndex];
+  // const hatIconIndex = job.client.hat.id - 1;
+  // const hatCode = hatIcons[hatIconIndex];
 
   const active = () => {
     return job.active === true;
   };
 
   const unpaid = () => {
-    return job.paid === false;
+    return job.completed === true && job.paid === false;
+  };
+
+  const gotTime = () => {
+    return job.timeTaken > 0;
+  };
+
+  const completed = () => {
+    return job.completed !== true;
   };
 
   return (
     <>
       <div className="hat-card-wrap">
         <Link to={url}>
-          <ActiveJobCardStyle>
+          <JobCardStyle>
             <div className="card-image-box">
               <img
                 src={require(`../assets/images/${job.client.hat.iconName}.png`)}
@@ -59,11 +63,30 @@ const JobCard = ({ job, hatIcons, clientCardColours }) => {
                 <b>{job.description} </b>
               </p>
               <p className="job-started-text">
-                <b>Started:</b> {job.started}</p>
-              <p className="job-started-text">{job.ended} </p>
-              <p className="job-active-text">ACTIVE</p>
+                <b>Started:</b> {job.started.slice(0, 10)}
+              </p>
+              {completed ? (
+                <p className="job-started-text">{job.ended} </p>
+              ) : (
+                  <p></p>
+              )}
+
+              {gotTime() ? (
+                <p className="job-started-text">{job.timeTaken}m </p>
+              ) : (
+                <p></p>
+              )}
+              {/* {active() ? <p className="job-active-text">ACTIVE</p>
+              : <p></p>} */}
+              {unpaid() ? (
+                <div className="unpaid-job-card">
+                  <p className="ongoing-job-text">UNPAID</p>
+                </div>
+              ) : (
+                <p></p>
+              )}
             </div>
-          </ActiveJobCardStyle>
+          </JobCardStyle>
         </Link>
         <Link to={editUrl}>
           <div className="card-edit-button">edit</div>

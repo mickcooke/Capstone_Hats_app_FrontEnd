@@ -38,8 +38,8 @@ const ClientCard = ({ client, hatIcons, clientCardColours }) => {
   let numberOfOngoingJobs = 0;
   let numberOfUnpaidJobs = 0;
 
-  const hatIconIndex = client.hat.id - 1;
-  const hatCode = hatIcons[hatIconIndex];
+  // const hatIconIndex = client.hat.id - 1;
+  // const hatCode = hatIcons[hatIconIndex];
 
   const calculateOngoingJobs = () => {
     const allClientJobs = client.jobs;
