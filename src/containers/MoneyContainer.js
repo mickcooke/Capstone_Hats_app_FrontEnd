@@ -22,12 +22,12 @@ const text = "Money in your hat"
 
  const dummyJobs = [
     {
-      "id": 1,
-      "name": "Unblocking sink",
-      "description": "Getting the shite out",
-      "notes": "Lots of shite",
-      "started": "2021-02-15T10:15:00",
-      "ended": "2023-09-15T11:15:00",
+       "id": 1,
+    "name": "Fixing a leaky tap",
+    "description": "Repairing a dripping tap",
+    "notes": "Mixer tap",
+    "started": "2023-08-23T11:30:00",
+    "ended": "2023-08-23T12:00:00",
       "timeTaken": 120,
       "completed": false,
       "paid": false,
@@ -59,12 +59,12 @@ const text = "Money in your hat"
       }
     },
     {
-      "id": 2,
-      "name": "Fixing Leaky Faucet",
-      "description": "Repairing a dripping faucet",
-      "notes": "Requires replacement parts",
-      "started": "2022-05-20T14:30:00",
-      "ended": "2023-09-20T16:00:00",
+      "id": 6,
+    "name": "Medical checkup",
+    "description": "Routine health examination",
+    "notes": "Not looking good..",
+    "started": "2023-09-03T09:30:00",
+    "ended": "2023-09-03T09:50:00",
       "timeTaken": 120,
       "completed": true,
       "paid": false,
@@ -77,10 +77,10 @@ const text = "Money in your hat"
         "address2": "Glasgow",
         "postcode": "G44 3AZ",
         "country": "UK",
-        "hourlyRate": 20,
+        "hourlyRate": 60,
         "hat": {
           "id": 1,
-          "name": "Plumber",
+          "name": "Doctor",
           "iconName": "hat1",
           "user": {
             "id": 1,
@@ -96,11 +96,11 @@ const text = "Money in your hat"
       }
     },
     {
-      "id": 3,
-      "name": "Installing Ceiling Fan",
-      "description": "Mounting and wiring a ceiling fan",
-      "notes": "Customer provided fan",
-      "started": "2023-03-10T09:00:00",
+      "id": 7,
+    "name": "Emergency medical assistance",
+    "description": "Urgent medical care",
+    "notes": "Emergency services",
+    "started": "2023-09-06T16:45:00",
       "ended": "2023-09-10T11:00:00",
       "timeTaken":60,
       "completed": true,
@@ -117,7 +117,7 @@ const text = "Money in your hat"
         "hourlyRate": 50,
         "hat": {
           "id": 3,
-          "name": "Electrician",
+          "name": "Doctor",
           "iconName": "hat3",
           "user": {
             "id": 3,
@@ -133,12 +133,12 @@ const text = "Money in your hat"
       }
     },
     {
-      "id": 4,
-      "name": "Painting Living Room",
-      "description": "Interior painting of the living room",
-      "notes": "Color: Light Blue",
-      "started": "2022-11-05T13:00:00",
-      "ended": "2022-11-05T16:30:00",
+     "id": 5,
+    "name": "Restaurant reservation",
+    "description": "Driving to a fancy dinner",
+    "notes": "",
+    "started": "2023-11-05T19:15:00",
+    "ended": "2023-11-05T23:15:00",
       "timeTaken": 90,
       "completed": true,
       "paid": false,
@@ -151,10 +151,10 @@ const text = "Money in your hat"
         "address2": "Miami",
         "postcode": "33101",
         "country": "USA",
-        "hourlyRate": 45,
+        "hourlyRate": 120,
         "hat": {
           "id": 4,
-          "name": "Painter",
+          "name": "Driver",
           "iconName": "hat4",
           "user": {
             "id": 4,
@@ -170,15 +170,16 @@ const text = "Money in your hat"
       }
     },
     {
-      "id": 5,
-      "name": "Repairing Roof Leak",
-      "description": "Fixing a leak in the roof",
-      "notes": "Emergency repair",
-      "started": "2022-08-15T08:00:00",
-      "ended": "2022-09-15T10:45:00",
-      "timeTaken": 40,
-      "completed": true,
-      "paid": true,
+      "id": 3,
+    "name": "Driving to Harrods",
+    "description": "",
+    "notes": "Remember champagne!",
+    "started": "2023-07-28T09:30:00",
+    "ended": "2023-07-28T13:30:00",
+    "timeTaken": 4,
+    "active": true,
+    "completed": false,
+    "paid": true,
       "client": {
         "id": 5,
         "firstName": "Jennifer",
@@ -467,6 +468,399 @@ const text = "Money in your hat"
     }
   ]
   
+
+  const dummyJobs2 = [
+    {
+    "id": 1,
+    "name": "Fixing a leaky tap",
+    "description": "Repairing a dripping tap",
+    "notes": "Mixer tap",
+    "started": "2023-08-23T11:30:00",
+    "ended": "2023-08-23T12:00:00",
+    "timeTaken": 180,
+    "active": true,
+    "completed": true,
+    "paid": false,
+    "client": {
+    "id": 3,
+    "firstName": "Emma",
+    "lastName": "Johnson",
+    "emailAddress": "emma@example.com",
+    "address1": "123 Oak Avenue",
+    "address2": "New York",
+    "postcode": "10001",
+    "country": "USA",
+    "notes": "Regular patron",
+    "hourlyRate": 65,
+    "hat": {
+    "id": 1,
+    "name": "Plumber",
+    "iconName": "hat1",
+    "user": {
+    "id": 1,
+    "firstName": "Mario",
+    "lastName": "Bro",
+    "emailAddress": "email@asfas.com",
+    "address1": "address 1",
+    "address2": "address line 2",
+    "postcode": "g68 3BB",
+    "country": "Scotland"
+    }
+    }
+    }
+    },
+    {
+    "id": 6,
+    "name": "Medical checkup",
+    "description": "Routine health examination",
+    "notes": "Not looking good..",
+    "started": "2023-09-03T09:30:00",
+    "ended": "2023-09-03T09:50:00",
+    "timeTaken": 120,
+    "active": true,
+    "completed": true,
+    "paid": true,
+    "client": {
+    "id": 5,
+    "firstName": "Liam",
+    "lastName": "Harris",
+    "emailAddress": "liam@example.com",
+    "address1": "555 Oak Avenue",
+    "address2": "Chicago",
+    "postcode": "60604",
+    "country": "USA",
+    "notes": "Nightlife enthusiast",
+    "hourlyRate": 60,
+    "hat": {
+    "id": 3,
+    "name": "Doctor",
+    "iconName": "hat3",
+    "user": {
+    "id": 1,
+    "firstName": "Mario",
+    "lastName": "Bro",
+    "emailAddress": "email@asfas.com",
+    "address1": "address 1",
+    "address2": "address line 2",
+    "postcode": "g68 3BB",
+    "country": "Scotland"
+    }
+    }
+    }
+    },
+    {
+    "id": 7,
+    "name": "Emergency medical assistance",
+    "description": "Urgent medical care",
+    "notes": "Emergency services",
+    "started": "2023-09-06T16:45:00",
+    "ended": null,
+    "timeTaken": 360,
+    "active": true,
+    "completed": false,
+    "paid": false,
+    "client": {
+    "id": 5,
+    "firstName": "Liam",
+    "lastName": "Harris",
+    "emailAddress": "liam@example.com",
+    "address1": "555 Oak Avenue",
+    "address2": "Chicago",
+    "postcode": "60604",
+    "country": "USA",
+    "notes": "Nightlife enthusiast",
+    "hourlyRate": 60,
+    "hat": {
+    "id": 3,
+    "name": "Doctor",
+    "iconName": "hat3",
+    "user": {
+    "id": 1,
+    "firstName": "Mario",
+    "lastName": "Bro",
+    "emailAddress": "email@asfas.com",
+    "address1": "address 1",
+    "address2": "address line 2",
+    "postcode": "g68 3BB",
+    "country": "Scotland"
+    }
+    }
+    }
+    },
+    {
+    "id": 5,
+    "name": "Restaurant reservation",
+    "description": "Driving to a fancy dinner",
+    "notes": "",
+    "started": "2023-11-05T19:15:00",
+    "ended": "2023-11-05T23:15:00",
+    "timeTaken": 1440,
+    "active": true,
+    "completed": true,
+    "paid": false,
+    "client": {
+    "id": 1,
+    "firstName": "Princess",
+    "lastName": "Peach",
+    "emailAddress": "princess@peach.com",
+    "address1": "Big Castle",
+    "address2": "Mushroom Kingdom",
+    "postcode": "SM32",
+    "country": "Marioland",
+    "notes": "Regal attitude",
+    "hourlyRate": 120,
+    "hat": {
+    "id": 2,
+    "name": "Driver",
+    "iconName": "hat2",
+    "user": {
+    "id": 1,
+    "firstName": "Mario",
+    "lastName": "Bro",
+    "emailAddress": "email@asfas.com",
+    "address1": "address 1",
+    "address2": "address line 2",
+    "postcode": "g68 3BB",
+    "country": "Scotland"
+    }
+    }
+    }
+    },
+    {
+    "id": 3,
+    "name": "Driving to Harrods",
+    "description": "",
+    "notes": "Remember champagne!",
+    "started": "2023-07-28T09:30:00",
+    "ended": "2023-07-28T13:30:00",
+    "timeTaken": 4,
+    "active": true,
+    "completed": false,
+    "paid": true,
+    "client": {
+    "id": 4,
+    "firstName": "Ella",
+    "lastName": "Davis",
+    "emailAddress": "ella@example.com",
+    "address1": "555 Cedar Lane",
+    "address2": "New York",
+    "postcode": "10002",
+    "country": "USA",
+    "notes": "Repeat customer",
+    "hourlyRate": 80,
+    "hat": {
+    "id": 2,
+    "name": "Driver",
+    "iconName": "hat2",
+    "user": {
+    "id": 1,
+    "firstName": "Mario",
+    "lastName": "Bro",
+    "emailAddress": "email@asfas.com",
+    "address1": "address 1",
+    "address2": "address line 2",
+    "postcode": "g68 3BB",
+    "country": "Scotland"
+    }
+    }
+    }
+    },
+    {
+    "id": 8,
+    "name": "Lift to the shops",
+    "description": "The ones by shell beach",
+    "notes": "Remember petrol",
+    "started": null,
+    "ended": null,
+    "timeTaken": null,
+    "active": null,
+    "completed": null,
+    "paid": null,
+    "client": {
+    "id": 1,
+    "firstName": "Princess",
+    "lastName": "Peach",
+    "emailAddress": "princess@peach.com",
+    "address1": "Big Castle",
+    "address2": "Mushroom Kingdom",
+    "postcode": "SM32",
+    "country": "Marioland",
+    "notes": "Regal attitude",
+    "hourlyRate": 120,
+    "hat": {
+    "id": 2,
+    "name": "Driver",
+    "iconName": "hat2",
+    "user": {
+    "id": 1,
+    "firstName": "Mario",
+    "lastName": "Bro",
+    "emailAddress": "email@asfas.com",
+    "address1": "address 1",
+    "address2": "address line 2",
+    "postcode": "g68 3BB",
+    "country": "Scotland"
+    }
+    }
+    }
+    },
+    {
+    "id": 9,
+    "name": "sdf",
+    "description": "sdfsd",
+    "notes": "sdfsdf",
+    "started": null,
+    "ended": null,
+    "timeTaken": null,
+    "active": null,
+    "completed": null,
+    "paid": null,
+    "client": {
+    "id": 5,
+    "firstName": "Liam",
+    "lastName": "Harris",
+    "emailAddress": "liam@example.com",
+    "address1": "555 Oak Avenue",
+    "address2": "Chicago",
+    "postcode": "60604",
+    "country": "USA",
+    "notes": "Nightlife enthusiast",
+    "hourlyRate": 60,
+    "hat": {
+    "id": 3,
+    "name": "Doctor",
+    "iconName": "hat3",
+    "user": {
+    "id": 1,
+    "firstName": "Mario",
+    "lastName": "Bro",
+    "emailAddress": "email@asfas.com",
+    "address1": "address 1",
+    "address2": "address line 2",
+    "postcode": "g68 3BB",
+    "country": "Scotland"
+    }
+    }
+    }
+    },
+    {
+    "id": 4,
+    "name": "Installing a new kitchen sink",
+    "description": "Upgrading kitchen plumbing",
+    "notes": "Kitchen renovation",
+    "started": "2023-10-05T15:30:00",
+    "ended": "2023-10-05T16:30:00",
+    "timeTaken": 3605,
+    "active": true,
+    "completed": true,
+    "paid": true,
+    "client": {
+    "id": 2,
+    "firstName": "David",
+    "lastName": "Wilson",
+    "emailAddress": "david@example.com",
+    "address1": "14 Elm Street",
+    "address2": "Los Angeles",
+    "postcode": "90001",
+    "country": "USA",
+    "notes": "Frequent customer",
+    "hourlyRate": 55,
+    "hat": {
+    "id": 1,
+    "name": "Plumber",
+    "iconName": "hat1",
+    "user": {
+    "id": 1,
+    "firstName": "Mario",
+    "lastName": "Bro",
+    "emailAddress": "email@asfas.com",
+    "address1": "address 1",
+    "address2": "address line 2",
+    "postcode": "g68 3BB",
+    "country": "Scotland"
+    }
+    }
+    }
+    },
+    {
+    "id": 10,
+    "name": "sdf",
+    "description": "dsf",
+    "notes": "sdsdf",
+    "started": null,
+    "ended": null,
+    "timeTaken": 13,
+    "active": null,
+    "completed": null,
+    "paid": null,
+    "client": {
+    "id": 2,
+    "firstName": "David",
+    "lastName": "Wilson",
+    "emailAddress": "david@example.com",
+    "address1": "14 Elm Street",
+    "address2": "Los Angeles",
+    "postcode": "90001",
+    "country": "USA",
+    "notes": "Frequent customer",
+    "hourlyRate": 55,
+    "hat": {
+    "id": 1,
+    "name": "Plumber",
+    "iconName": "hat1",
+    "user": {
+    "id": 1,
+    "firstName": "Mario",
+    "lastName": "Bro",
+    "emailAddress": "email@asfas.com",
+    "address1": "address 1",
+    "address2": "address line 2",
+    "postcode": "g68 3BB",
+    "country": "Scotland"
+    }
+    }
+    }
+    },
+    {
+    "id": 2,
+    "name": "Replacing a damaged pipe",
+    "description": "Fixing a burst pipe",
+    "notes": "Pipe replacement",
+    "started": "2023-09-07T10:00:00",
+    "ended": null,
+    "timeTaken": 4514,
+    "active": true,
+    "completed": false,
+    "paid": false,
+    "client": {
+    "id": 2,
+    "firstName": "David",
+    "lastName": "Wilson",
+    "emailAddress": "david@example.com",
+    "address1": "14 Elm Street",
+    "address2": "Los Angeles",
+    "postcode": "90001",
+    "country": "USA",
+    "notes": "Frequent customer",
+    "hourlyRate": 55,
+    "hat": {
+    "id": 1,
+    "name": "Plumber",
+    "iconName": "hat1",
+    "user": {
+    "id": 1,
+    "firstName": "Mario",
+    "lastName": "Bro",
+    "emailAddress": "email@asfas.com",
+    "address1": "address 1",
+    "address2": "address line 2",
+    "postcode": "g68 3BB",
+    "country": "Scotland"
+    }
+    }
+    }
+    }
+    ]
   
 
   
@@ -516,6 +910,7 @@ setFilterView("all")
   // owed an paid chart loops
   let totalEarned = 0
   let totalPaid = 0
+  
  
   jobsFilteredByDate.forEach((job) =>{
 totalEarned += Math.floor(((job.timeTaken / 60) * job.client.hourlyRate)*100)/100
@@ -524,6 +919,7 @@ if(job.paid){
   }
 })
 
+let totalEarnedNew = Math.floor((totalEarned)*100)/100
 let totalOwed = Math.floor((totalEarned - totalPaid)*100)/100
 
 // Total income chart properties
@@ -531,7 +927,7 @@ let owedAndPaidChart = {
   data: [totalOwed, totalPaid],
   labels: ["Unpaid", "Paid"],
   header: "You have earned",
-  headerValue: `£${totalEarned}`,
+  headerValue: `£${totalEarnedNew}`,
   subheader: "You are owed",
   subheaderValue: `£${totalOwed}`,
   footer: "You have been paid",
@@ -559,7 +955,7 @@ let lowestPaidHat = Object.keys(totalEarnedByHat).reduce(function(a, b){ return 
 let totalByHatChart = {
   data: totalByHatData,
   labels: Object.keys(totalEarnedByHat),
-  header: "Your highest paying hat this month was:",
+  header: "Your highest paying hat was:",
   headerValue: highestPaidHat,
   subheader: "It earned you",
   subheaderValue: `£${totalEarnedByHat[highestPaidHat]}`,
@@ -589,7 +985,7 @@ let lowestPayingClient = Object.keys(totalEarnedByClient).reduce(function(a, b){
 let totalByClientChart = {
   data: totalByClientData,
   labels: Object.keys(totalEarnedByClient),
-  header: "Your highest paying client this month was:",
+  header: "Your highest paying client was:",
   headerValue: highestPayingClient,
   subheader: "They payed you:",
   subheaderValue: `£${totalEarnedByClient[highestPayingClient]}`,
@@ -615,7 +1011,7 @@ const lowestPayingJob = jobsFilteredByDate.reduce(
 let totalByJobChart = {
   data: jobsFilteredByDate.map(job => (job.timeTaken / 60) * job.client.hourlyRate),
   labels: jobsFilteredByDate.map(a => a.name),
-  header: "Your highest paying job this month was:",
+  header: "Your highest paying job was:",
   headerValue: `${highestPayingJob.name}`,
   subheader: "It earned you:",
   subheaderValue: `£${highestPayingJobEarnings}`,

@@ -16,6 +16,9 @@ const JobDetail = ({ job, onUpdate }) => {
     return job.completed === true;
   };
 
+
+  const amountEarned = Math.floor((job.client.hourlyRate * (job.timeTaken/3600))*100)/100
+
   return (
 
     <div className="card">
@@ -27,16 +30,7 @@ const JobDetail = ({ job, onUpdate }) => {
       <p className="job-detail-text"> Notes: {job.notes}</p>
 
       {job.active ? "" : <p>Not Started</p>}
-
-      <p className="job-started-text">
-                <b>Started:</b> {job.started.slice(0, 10)}
-              </p>
-      {completed() ? 
-    <p className="job-started-text">
-    <b>Ended:</b> {job.ended.slice(0, 10)} </p>
-    :
-    ""
-    }
+            
 
       {job.completed ? (
         <div className="completed-job-card">
@@ -60,7 +54,7 @@ const JobDetail = ({ job, onUpdate }) => {
           <p className="job-detail-paid-text">PAID</p>
         </div>
       )}
-  <p>Amount earned: £{job.client.hourlyRate * (job.timeTaken/3600)}</p>
+  <p>Amount earned: £{amountEarned}</p>
       <div className="timer">
         <Timer job={job} onUpdate={onUpdate} />
       </div>

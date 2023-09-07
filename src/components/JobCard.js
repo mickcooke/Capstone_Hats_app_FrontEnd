@@ -95,7 +95,7 @@ const JobCard = ({ job, hatIcons, clientCardColours }) => {
                 <b>{job.description} </b>
               </p>
               <p className="job-started-text">
-                <b>Started:</b> {job.started.slice(0, 10)}
+                {/* <b>Started:</b> {job.started.slice(0, 10)} */}
               </p>
               {ongoing() ? 
                
