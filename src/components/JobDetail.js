@@ -17,6 +17,7 @@ const JobDetail = ({ job, onUpdate }) => {
   };
 
   return (
+
     <div className="card">
       {/* <img src="" */}
       <p className="job-detail-name">
@@ -25,7 +26,7 @@ const JobDetail = ({ job, onUpdate }) => {
       <p className="job-detail-text">{job.description}</p>
       <p className="job-detail-text"> Notes: {job.notes}</p>
 
-      {job.active ? <p></p> : <p>Not Started</p>}
+      {job.active ? "" : <p>Not Started</p>}
 
       <p className="job-started-text">
                 <b>Started:</b> {job.started.slice(0, 10)}
@@ -34,7 +35,7 @@ const JobDetail = ({ job, onUpdate }) => {
     <p className="job-started-text">
     <b>Ended:</b> {job.ended.slice(0, 10)} </p>
     :
-    <p></p> 
+    ""
     }
 
       {job.completed ? (
@@ -44,6 +45,7 @@ const JobDetail = ({ job, onUpdate }) => {
       ) : (
         <div className="completed-job-card">
           <p className="completed-job-text">ONGOING</p>
+
         </div>
       )}
       <br/>
@@ -58,7 +60,7 @@ const JobDetail = ({ job, onUpdate }) => {
           <p className="job-detail-paid-text">PAID</p>
         </div>
       )}
-
+  <p>Amount earned: £{job.client.hourlyRate * (job.timeTaken/3600)}</p>
       <div className="timer">
         <Timer job={job} onUpdate={onUpdate} />
       </div>
