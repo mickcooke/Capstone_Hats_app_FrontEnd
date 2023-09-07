@@ -56,9 +56,9 @@ const JobForm = ({ clientId, onCreate, foundClient }) => {
         name="notes"
         onChange={handleChange}
       />
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
+      {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateTimePicker label="Start Date" onChange={handleChange} />
-      </LocalizationProvider>
+      </LocalizationProvider> */}
       {/* <input type="text" placeholder="Ended" name="Ended" onChange={ handleChange }/>
 
         Active: <input type="checkbox" placeholder="Active" name="Active" />

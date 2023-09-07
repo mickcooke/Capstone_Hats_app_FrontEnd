@@ -8,6 +8,17 @@ const Timer = ({job}) => {
 
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
+  const [updatedJob, setUpdatedJob] = useState({
+    name: job.name,
+    description: job.description,
+    notes: job.notes,
+    started: job.started,
+    ended: job.ended,
+    timeTaken: job.timeTaken,
+    active: job.active,
+    completed: job.completed,
+    paid: job.paid
+  })
 
   const saveStartTime = () => {
     const now = new Date();
@@ -25,7 +36,10 @@ const Timer = ({job}) => {
   const calculateTotalTime = (start, end) => {
     if (start && end) {
       const timeDifference = (end - start) / 60000; // Convert milliseconds to minutes
-      job.timeTaken = timeDifference
+      // job.timeTaken = timeDifference + job.timeTaken
+      const copyJob = {...updatedJob}
+      copyJob.timeTaken = timeDifference + job.timeTaken
+      setUpdatedJob(copyJob)
       console.log(`Total time difference (minutes): ${timeDifference}`);
       console.log(job)
     }
@@ -76,12 +90,13 @@ const Timer = ({job}) => {
           startAndStop();
           saveStartTime();
           saveEndTime();
+          reset();
         }}>
           {isRunning ? "Stop" : "Start"}
         </button>
-        <button className="stopwatch-button" onClick={reset}>
+        {/* <button className="stopwatch-button" onClick={reset}>
           Reset
-        </button>
+        </button> */}
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import { useParams }  from 'react-router-dom'
 import ClientUpdateForm from '../components/ClientUpdateForm'
 
-const ClientUpdateFormContainer = ({clients}) => {
+const ClientUpdateFormContainer = ({clients, onUpdate, handleDelete}) => {
 
     const clientId = useParams();
 
@@ -23,7 +23,7 @@ if(!foundClient){
   return (
     <>
     <Header text={text}/>
-    <ClientUpdateForm client={foundClient}/>
+    <ClientUpdateForm client={foundClient} onUpdate={onUpdate} handleDelete={handleDelete}/>
     </>
   )
 }

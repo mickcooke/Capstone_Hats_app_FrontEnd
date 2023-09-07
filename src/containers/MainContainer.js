@@ -65,6 +65,14 @@ const MainContainer = () => {
   //   )
   // }
 
+  const findHatById = (id) => {
+    return hats.find((hat) => {
+      return hat.id === parseInt(id)
+    })
+    
+  }
+
+
   const findJobById = (id) => {
     return jobs.find((job) => {
       return job.id === parseInt(id)
@@ -123,6 +131,16 @@ const MainContainer = () => {
     
   }
 
+  const handleUpdateClient = (client, id) => {
+    const request = new Request();
+    const url = "http://localhost:8080/api/clients/" + id;
+    request.update(url, client).then(() => {
+      window.location = `/clients/${client.hat.id}` 
+    });
+    
+  }
+
+
 
   return (
     <Router>
@@ -178,7 +196,7 @@ const MainContainer = () => {
           />
           <Route
             path="/clients/edit/*"
-            element={<ClientUpdateFormContainer clients={clients} />}
+            element={<ClientUpdateFormContainer clients={clients} onUpdate={handleUpdateClient}/>}
           />
           <Route
             path="/clients/new/*"
