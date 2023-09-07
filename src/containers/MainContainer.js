@@ -140,6 +140,24 @@ const MainContainer = () => {
     
   }
 
+  const handleUpdateJob = (job, id, clientId) => {
+    const request = new Request();
+    const url = "http://localhost:8080/api/jobs/" + id;
+    request.update(url, job).then(() => {
+      window.location = `/jobs/${clientId}` 
+    });
+    
+  }
+
+  const handleUpdateTimer = (job, id, clientId) => {
+    const request = new Request();
+    const url = "http://localhost:8080/api/jobs/" + id;
+    request.update(url, job).then(() => {
+      console.log("update timer has run" + job.timeTaken)
+      // window.location = `/jobs/${clientId}` 
+    });
+    
+  }
 
 
   return (
@@ -230,12 +248,13 @@ const MainContainer = () => {
                 jobs={jobs}
                 clients={clients}
                 handleDelete={handleDeleteJob}
+                onUpdate={handleUpdateJob}
               />
             }
           />
           <Route
             path="/jobs/detail/*"
-            element={<JobDetailContainer jobs={jobs} />}
+            element={<JobDetailContainer jobs={jobs} onUpdate={handleUpdateTimer}/>}
           />
           <Route
             path="/jobs/new/*"

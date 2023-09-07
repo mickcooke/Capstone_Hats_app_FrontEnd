@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./Timer.css";
 
 
-const Timer = ({job}) => {
+const Timer = ({job, onUpdate}) => {
   // state to store time
   const [time, setTime] = useState(0);
 
-  const [startTime, setStartTime] = useState(null);
+  const [startTime, setStartTime] = useState(0);
   const [endTime, setEndTime] = useState(null);
   const [updatedJob, setUpdatedJob] = useState({
     name: job.name,
@@ -17,13 +17,21 @@ const Timer = ({job}) => {
     timeTaken: job.timeTaken,
     active: job.active,
     completed: job.completed,
-    paid: job.paid
+    paid: job.paid,
+    id: job.id,
+    client: job.client
   })
+
+  useEffect(() => {
+    setUpdatedJob(job)
+  },[])
 
   const saveStartTime = () => {
     const now = new Date();
     setStartTime(now);
     console.log(now);
+    // console.log(job.client)
+    
   };
 
   const saveEndTime = () => {
@@ -31,16 +39,27 @@ const Timer = ({job}) => {
     setEndTime(now);
     console.log(now);
     calculateTotalTime(startTime, now);
+    
+    console.log("this is meant to post it now")
   };
 
-  const calculateTotalTime = (start, end) => {
+  const calculateTotalTime =  (start, end) => {
     if (start && end) {
-      const timeDifference = (end - start) / 60000; // Convert milliseconds to minutes
+      // const timeDifference = (end - start) / 60000; // Convert milliseconds to minutes
+
+
+      const timeDifference = (end - start) / (60000 / 60); // Convert milliseconds to seconds
+
       // job.timeTaken = timeDifference + job.timeTaken
       const copyJob = {...updatedJob}
-      copyJob.timeTaken = timeDifference + job.timeTaken
+      copyJob.timeTaken += timeDifference 
+      console.log("time difference (seconds):  " + timeDifference + updatedJob.timeTaken)
       setUpdatedJob(copyJob)
-      console.log(`Total time difference (minutes): ${timeDifference}`);
+      let clientId = job.client.id
+      let jobId = job.id
+      console.log("updated job " + updatedJob.timeTaken)
+      onUpdate(copyJob, jobId, clientId)
+      // console.log(`Total time difference (minutes): ${timeDifference}`);
       console.log(job)
     }
   };
@@ -77,26 +96,35 @@ const Timer = ({job}) => {
   // Method to reset timer back to 0
   const reset = () => {
     setTime(0);
+    setStartTime(0);
   };
   return (
     <div className="stopwatch-container">
+      <p>{updatedJob.timeTaken}</p>
       <p className="stopwatch-time">
-        {hours}:{minutes.toString().padStart(2, "0")}:
-        {seconds.toString().padStart(2, "0")}
+        {/* {hours}:{minutes.toString().padStart(2, "0")}:
+        {seconds.toString().padStart(2, "0")} */}
         {/* {milliseconds.toString().padStart(2, "0")} */}
       </p>
+
+      <img src={require(`../assets/images/hat1.png`)} className={!isRunning ?"hat":"hat spinning"}alt="hat"/>
       <div className="stopwatch-buttons">
-        <button className="stopwatch-button" onClick={() => {
+        <button className="stopwatch-button" 
+        
+        onClick={() => {
+          if(isRunning){
           startAndStop();
-          saveStartTime();
           saveEndTime();
-          reset();
+          reset();}else{
+            startAndStop();
+            saveStartTime();
+          }
         }}>
           {isRunning ? "Stop" : "Start"}
         </button>
-        {/* <button className="stopwatch-button" onClick={reset}>
-          Reset
-        </button> */}
+        <button className="stopwatch-button" onClick={reset}>
+          Mark as complete
+        </button>
       </div>
     </div>
   );

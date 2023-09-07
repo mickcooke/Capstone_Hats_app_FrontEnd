@@ -5,7 +5,7 @@ import './JobDetail.css'
 
 
 
-const JobDetail = ({job}) => {
+const JobDetail = ({job, onUpdate}) => {
 
 
 
@@ -19,9 +19,9 @@ const JobDetail = ({job}) => {
         {job.active ? <p>Active</p> : <p>Not Active</p> }
         {job.completed ? <p>Completed</p> : <p>Not Completed</p> }
         {job.paid ? <p>Paid</p> : <p>Not Paid</p> }
-        <p>Time taken: {job.timeTaken}</p>
+        {/* <p>Time taken: {job.timeTaken}</p> */}
         <div className='timer'>
-          <Timer job={job}/>
+          <Timer job={job} onUpdate={onUpdate}/>
         </div>
     </div>
   )
