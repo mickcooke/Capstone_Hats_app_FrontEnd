@@ -13,15 +13,15 @@ const NavBar = () => {
       <div className="Nav-bar">
         <div className="Nav-container">
           <div>
-            <a href="/hats"><i style={{color: "#ffffff"}} class="fa-brands fa-redhat"></i></a>
+            <a href="/hats"><h2><i style={{color: "#ffffff"}} class="fa-brands fa-redhat"></i></h2></a>
           </div>
 
           <div>
-            <a href="/money/total"><i style={{color: "#ffffff"}} class="fa fa-sack-dollar" aria-hidden="true"></i></a>
+            <a href="/money/total"><h2><i style={{color: "#ffffff"}} class="fa fa-sack-dollar" aria-hidden="true"></i></h2></a>
           </div>
 
           <div>
-            <a href="/settings"><i style={{color: "#ffffff"}}class="fa fa-cog" aria-hidden="true"></i></a>
+            <a href="/settings"><h2><i style={{color: "#ffffff"}}class="fa fa-cog" aria-hidden="true"></i></h2></a>
           </div>
         </div>
       </div>

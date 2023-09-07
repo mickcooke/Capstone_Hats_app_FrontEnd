@@ -47,7 +47,7 @@ const JobCard = ({ job, hatIcons, clientCardColours }) => {
           <ActiveJobCardStyle>
             <div className="card-image-box">
               <img
-                src={require(`../assets/images/${hatCode}`)}
+                src={require(`../assets/images/${job.client.hat.iconName}.png`)}
                 className="job-hat-image"
                 alt="hat"
               />

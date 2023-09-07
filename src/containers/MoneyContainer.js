@@ -461,12 +461,17 @@ const text = "Money in your hat"
       }
     }
   ]
+  
+  
 
   if(jobsFilteredByDate.length === 0){
     return(
       <p>Loading...</p>
+      
     )
   }
+
+  
 
   function filterByMonth(){
     let jobsThisMonth = []
@@ -612,11 +617,7 @@ let totalByJobChart = {
   colors: ["#93E0E4","#30CCD6","#4291ff"]
 }
 
-if(jobsFilteredByDate.length === 0){
-  return(
-    <p>Loading...</p>
-  )
-}
+
 
   return (
     <>
