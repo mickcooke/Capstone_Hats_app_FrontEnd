@@ -128,7 +128,8 @@ const Timer = ({job, onUpdate}) => {
   };
   return (
     <div className="stopwatch-container">
-      <p>Time taken: {runningTime}</p>
+      <p className="job-detail-time"><b>Time taken:</b></p>
+      <p> {runningTime}</p>
       <p className="stopwatch-time">
         {/* {hours}:{minutes.toString().padStart(2, "0")}:
         {seconds.toString().padStart(2, "0")} */}

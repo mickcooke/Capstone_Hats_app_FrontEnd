@@ -38,6 +38,17 @@ body {
   /* border: solid black; */
 }
 
+.Job-card-container {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  row-gap: 12px;
+  padding: 2px;
+  margin-bottom: 50px;
+  /* border: solid black; */
+}
+
 .ongoingJobs-container {
   width:80%;
   margin: auto;
@@ -190,16 +201,75 @@ body {
   position: relative;
 }
 
+.completed-job-card {
+  width: 100px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 9px;
+  background-color: #05DC1B;
+  margin: auto;
+  margin-top: 0px;
+  position: relative;
+}
+
+.ongoing-job-card {
+  width: 100px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 9px;
+  background-color: #05DC1B;
+  margin: auto;
+  margin-top: -6px;
+  position: relative;
+}
+
 .ongoing-job-text {
   font-size: 0.8em;
   font-weight: regular;
   color: black;
 }
 
+.completed-job-text {
+  font-size: 0.8em;
+  font-weight: regular;
+  color: black;
+  margin-top: 0px;
+}
+
+
+
+.running-time-text {
+  font-size: 0.8em;
+  font-weight: regular;
+  color: black;
+  margin-top: 0px;
+}
+
 .job-detail-paid-text {
   font-weight: regular;
   color: black;
   margin: 0px;
+}
+
+.job-detail-name {
+  font-size: 1.3em;
+  font-weight: regular;
+  color: black;
+  margin-top: 0px;
+}
+
+.job-detail-text {
+  font-size: 1em;
+  font-weight: regular;
+  color: black;
+  margin-top: -5px;
+}
+
+.job-detail-time {
+  font-size: 1.2em;
+  font-weight: regular;
+  color: black;
+  margin-top: 15px;
 }
 
 /* .content {
