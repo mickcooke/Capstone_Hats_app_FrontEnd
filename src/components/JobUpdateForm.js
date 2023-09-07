@@ -29,6 +29,14 @@ const UpdateJobForm = ({job, handleDelete, onUpdate}) => {
           setUpdatedJob(copyJob)
     }
 
+    const handleCheckbox = (event) => {
+      const propertyName = event.target.name;
+          const copyJob = {...updatedJob}
+          copyJob[propertyName] = event.target.checked
+          setUpdatedJob(copyJob)
+    }
+
+
     const onDelete = () => {
       handleDelete(job.id)
     }
@@ -38,6 +46,7 @@ const UpdateJobForm = ({job, handleDelete, onUpdate}) => {
       let clientId = job.client.id
       onUpdate(updatedJob, jobId, clientId)
     }
+
 
 
   return (
@@ -57,11 +66,11 @@ const UpdateJobForm = ({job, handleDelete, onUpdate}) => {
           <DateTimePicker label="End Date" onChange={ handleChange } />
     </LocalizationProvider> */}
 
-    Active: <input type="checkbox" placeholder="Active" name="Active" defaultValue={job.active}/>
+    Active: <input type="checkbox" placeholder="Active" name="active" defaultChecked={job.active} onChange={handleCheckbox} />
         
-    Completed: <input type="checkbox" name="Completed" />
+    Completed: <input type="checkbox" name="completed" defaultChecked={job.completed} onChange={handleCheckbox}/>
         
-    Paid: <input type="checkbox" name="Paid" />
+    Paid: <input type="checkbox" name="paid" defaultChecked={job.paid} onChange={handleCheckbox} />
     
     <button type="submit">Save</button>
   </form>

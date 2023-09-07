@@ -1,5 +1,6 @@
 import React from "react";
 import OngoingJob from "./OngoingJob";
+import "./OngoingJobsList.css"
 
 const OngoingJobsList = ({ jobs }) => {
   if (jobs.length === 0) {
@@ -28,7 +29,7 @@ const OngoingJobsList = ({ jobs }) => {
   return (
     <>
       <div className="ongoingJobs-container">
-        <p><b>All Ongoing Jobs</b></p>
+        <h3 className="ongoingJobs-header">All Ongoing Jobs</h3>
         <hr></hr>
         
         {ongoingJobElements}

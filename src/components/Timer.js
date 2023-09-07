@@ -107,7 +107,7 @@ const Timer = ({job, onUpdate}) => {
         {/* {milliseconds.toString().padStart(2, "0")} */}
       </p>
 
-      <img src={require(`../assets/images/hat1.png`)} className={!isRunning ?"hat":"hat spinning"}alt="hat"/>
+      <img src={require(`../assets/images/${job.client.hat.iconName}.png`)} className={!isRunning ?"hat":"hat spinning"}alt="hat"/>
       <div className="stopwatch-buttons">
         <button className="stopwatch-button" 
         

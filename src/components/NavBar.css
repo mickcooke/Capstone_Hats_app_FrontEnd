@@ -1,5 +1,5 @@
 footer{
-    background: #145365;
+      background: #145365;
       position: fixed;
       bottom: 0;
       left: 0;
@@ -30,6 +30,7 @@ p{
   }
 
   .Nav-bar {
+    
     display: flex;
     justify-content: space-around;
     margin: auto;
