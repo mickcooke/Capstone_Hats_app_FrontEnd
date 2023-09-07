@@ -149,7 +149,7 @@ const Timer = ({job, onUpdate}) => {
             saveStartTime();
           }
         }}>
-          {isRunning ? "Stop" : "Start"}
+          {isRunning ? "Stop Timer" : "Start Timer"}
         </button>
         {/* <button className="stopwatch-button" onClick={reset}>
           Mark as complete
