@@ -44,7 +44,7 @@ console.log(clientId["*"])
         />
       </Link>
     </div>
-    <div className="Item-container">{jobElements}</div>
+    <div className="Job-card-container">{jobElements}</div>
   </>
 
 

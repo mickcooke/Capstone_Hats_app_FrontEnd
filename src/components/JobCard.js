@@ -12,7 +12,7 @@ const JobCard = ({ job, hatIcons, clientCardColours }) => {
 
   const JobCardStyle = styled.div`
     width: 300px;
-    height: 100px;
+    height: 120px;
     padding: 10px;
     margin-top: -10px;
     margin-left: -10px;
@@ -36,6 +36,11 @@ const JobCard = ({ job, hatIcons, clientCardColours }) => {
   const unpaid = () => {
     return job.completed === true && job.paid === false;
   };
+
+  const ongoing = () => {
+    return job.active === true && job.completed === false;
+  }
+
 
   const gotTime = () => {
     return job.timeTaken > 0;
@@ -92,28 +97,28 @@ const JobCard = ({ job, hatIcons, clientCardColours }) => {
               <p className="job-started-text">
                 <b>Started:</b> {job.started.slice(0, 10)}
               </p>
-              {completed() ? (
-                <p className="job-started-text">
-                  <b>Ended:</b> {job.ended.slice(0, 10)}
-                </p>
-              ) : (
-                <p></p>
-              )}
-
-              {gotTime() ? (
-                <p className="job-started-text">{runningTime} </p>
-              ) : (
-                <p></p>
-              )}
-              {/* {active() ? <p className="job-active-text">ACTIVE</p>
-              : <p></p>} */}
-              {unpaid() ? (
-                <div className="unpaid-job-card">
+              {ongoing() ? 
+               
+                <div className="ongoing-job-card">
+          <p className="completed-job-text">ONGOING</p>
+        </div>
+        : unpaid() ?
+        <div className="unpaid-job-card">
                   <p className="ongoing-job-text">UNPAID</p>
                 </div>
+                : <div className="paid-job-card">
+                <p className="job-detail-paid-text">PAID</p>
+              </div>
+
+              }
+
+              {gotTime() ? (
+                <p className="running-time-text">{runningTime} </p>
               ) : (
                 <p></p>
               )}
+             
+        
             </div>
           </JobCardStyle>
         </Link>
