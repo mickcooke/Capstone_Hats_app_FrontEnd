@@ -107,7 +107,7 @@ body {
 }
 
 .job-name-text {
-  font-size: 1.2em;
+  font-size: 1.0em;
   font-weight: bold;
   color: black;
   margin-top: 0px;
@@ -116,7 +116,7 @@ body {
 .job-description-text {
   font-size: 0.8em;
   color: black;
-  margin-top: -20px;
+  margin-top: -15px;
 }
 
 .job-started-text {

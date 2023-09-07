@@ -11,6 +11,10 @@ const JobDetail = ({job, onUpdate}) => {
     return job.completed === true && job.paid === false;
   };
 
+  const ongoing = () => {
+    return job.completed === false;
+  }
+
 
   return (
     <div className='card'>
@@ -19,7 +23,7 @@ const JobDetail = ({job, onUpdate}) => {
         <p> Description: {job.description}</p>
         <p>Notes: {job.notes}</p>
 
-        {job.active ? <p>Active</p> : <p>Not Active</p> }
+        {job.active ? <p></p> : <p>Not Started</p> }
         {job.completed ? <p>Completed</p> : <p>Ongoing</p> }
     
 
@@ -31,7 +35,9 @@ const JobDetail = ({job, onUpdate}) => {
                 </p>
               </div>
               )
-            : <div className="paid-job-card">
+            : ongoing()? <p></p>
+            :
+            <div className="paid-job-card">
             <p className="job-detail-paid-text">
                PAID
             </p>
