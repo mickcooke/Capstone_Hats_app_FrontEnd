@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 
 const JobFormContainer = ({onCreate, clients}) => {
 const clientIdObject = useParams()
-const text = "Add new job"
+
 
 
 
@@ -24,10 +24,13 @@ const findClientById = (clientId) => {
 }
 const foundClient = findClientById(clientId)
 
+const foundHat = foundClient.hat.name
+const text = `Add New ${foundHat} Job`
 
   return (
     <div>
       <Header text={text}/>
+      <p>Job form container</p>
       <JobForm onCreate={onCreate} foundClient={foundClient}/>
     </div>
   )

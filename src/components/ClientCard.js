@@ -20,9 +20,18 @@ const ClientCard = ({ client, hatIcons, clientCardColours }) => {
     background-color: ${clientCardColourCode};
     display: grid;
     grid-template-columns: 30% 70%;
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.5);
   `;
 
-  const url = `/jobs/${client.id}`;
+  const getUrl = () => {
+    if (client.jobs.length === 0) {
+      return `/jobs/new/${client.id}`;
+    } else {
+      return `/jobs/${client.id}`;
+    }
+  };
+
+  const url = getUrl();
   const editUrl = `/clients/edit/${client.id}`;
   const detailsUrl = `/clients/detail/${client.id}`;
 

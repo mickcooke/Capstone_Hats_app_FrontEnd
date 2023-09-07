@@ -13,6 +13,7 @@ import ClientForm from "../components/ClientForm.js";
 
 const ClientContainer = ({ clients, clientCardColours, hatIcons }) => {
   const hatId = useParams();
+  const hatIdString = hatId["*"];
 
   const newClientText = "Add a client";
   
@@ -25,7 +26,7 @@ const ClientContainer = ({ clients, clientCardColours, hatIcons }) => {
     );
 
 
-    const hatIdString = hatId["*"];
+   
 
 
   const filteredClients = clients.filter(

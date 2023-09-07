@@ -3,9 +3,9 @@ import ClientForm from '../components/ClientForm'
 import Header from '../components/Header'
 import { useParams } from 'react-router-dom'
 
-const CientFormContainer = ({hats, clients, onCreate}) => {
+const ClientFormContainer = ({hats, clients, onCreate}) => {
     const  hatIdObject = useParams()
-    const text = "Add New Client"
+    
 
 
     
@@ -26,12 +26,14 @@ const CientFormContainer = ({hats, clients, onCreate}) => {
   }
   const foundHat = findHatById(hatId)
 
+  const text = `Add New ${foundHat.name} Client`
   return (
     <div>
         <Header text={text}/>
+        <p>Client Form Container</p>
         <ClientForm hats={hats} clients={clients} onCreate={onCreate} foundHat={foundHat} />
     </div>
   )
 }
 
-export default CientFormContainer
+export default ClientFormContainer;
