@@ -987,7 +987,7 @@ let totalByClientChart = {
   labels: Object.keys(totalEarnedByClient),
   header: "Your highest paying client was:",
   headerValue: highestPayingClient,
-  subheader: "They payed you:",
+  subheader: "They paid you:",
   subheaderValue: `£${totalEarnedByClient[highestPayingClient]}`,
   footer: "Your lowest paying client was:",
   footerValue: `${lowestPayingClient}`,
