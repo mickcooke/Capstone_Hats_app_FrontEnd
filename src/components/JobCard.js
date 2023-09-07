@@ -17,7 +17,7 @@ const JobCard = ({ job, hatIcons, clientCardColours }) => {
     margin-top: -10px;
     margin-left: -10px;
     border-radius: 10px;
-    background-color: ${clientCardColourCode};
+    background-color: #8cd7ff;
     display: grid;
     grid-template-columns: 30% 70%;
     box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.5);
@@ -42,8 +42,35 @@ const JobCard = ({ job, hatIcons, clientCardColours }) => {
   };
 
   const completed = () => {
-    return job.completed !== true;
+    return job.completed === true;
   };
+
+  const convertSecondsToHMS = (seconds) => {
+    if (isNaN(seconds) || seconds < 0) {
+      return null;
+    }
+    const hours = Math.floor(seconds / 3600);
+    const remainingSeconds = seconds % 3600;
+    const minutes = Math.floor(remainingSeconds / 60);
+    const remainingSecondsFinal = remainingSeconds % 60;
+    const hoursText =
+      hours > 0 ? hours + " hr" + (hours === 1 ? "" : "s") : "";
+    const minutesText =
+      minutes > 0 ? minutes + " min" + (minutes === 1 ? "" : "s") : "";
+    const secondsText =
+      remainingSecondsFinal +
+      " sec" +
+      (remainingSecondsFinal === 1 ? "" : "s");
+    const timeArray = [hoursText, minutesText, secondsText].filter(
+      (text) => text !== ""
+    );
+    if (timeArray.length === 0) {
+      return "0 seconds";
+    }
+    return timeArray.join(", ");
+  };
+
+  const runningTime = convertSecondsToHMS(Math.trunc(job.timeTaken));
 
   return (
     <>
@@ -65,14 +92,16 @@ const JobCard = ({ job, hatIcons, clientCardColours }) => {
               <p className="job-started-text">
                 <b>Started:</b> {job.started.slice(0, 10)}
               </p>
-              {completed ? (
-                <p className="job-started-text">{job.ended} </p>
+              {completed() ? (
+                <p className="job-started-text">
+                  <b>Ended:</b> {job.ended.slice(0, 10)}
+                </p>
               ) : (
-                  <p></p>
+                <p></p>
               )}
 
               {gotTime() ? (
-                <p className="job-started-text">{job.timeTaken}m </p>
+                <p className="job-started-text">{runningTime} </p>
               ) : (
                 <p></p>
               )}

@@ -64,6 +64,8 @@ const Timer = ({job, onUpdate}) => {
     }
   };
 
+   
+
   // state to check stopwatch running or not
   const [isRunning, setIsRunning] = useState(false);
 
@@ -89,6 +91,32 @@ const Timer = ({job, onUpdate}) => {
   // const milliseconds = time % 100;
 
   // Method to start and stop timer
+
+  const convertSecondsToHMS = (seconds) => {
+    if (isNaN(seconds) || seconds < 0) {
+      return null;
+    }
+    const hours = Math.floor(seconds / 3600);
+    const remainingSeconds = seconds % 3600;
+    const minutes = Math.floor(remainingSeconds / 60);
+    const remainingSecondsFinal = remainingSeconds % 60;
+    const hoursText = hours > 0 ? hours + " hr" + (hours === 1 ? "" : "s") : "";
+    const minutesText = minutes > 0 ? minutes + " min" + (minutes === 1 ? "" : "s") : "";
+    const secondsText = remainingSecondsFinal + " sec" + (remainingSecondsFinal === 1 ? "" : "s");
+    const timeArray = [hoursText, minutesText, secondsText].filter((text) => text !== "");
+    if (timeArray.length === 0) {
+      return "0 seconds";
+    }
+    return timeArray.join(", ");
+  }
+  
+  const runningTime = convertSecondsToHMS(Math.trunc(updatedJob.timeTaken))
+  
+  
+  
+  
+
+
   const startAndStop = () => {
     setIsRunning(!isRunning);
   };
@@ -100,14 +128,14 @@ const Timer = ({job, onUpdate}) => {
   };
   return (
     <div className="stopwatch-container">
-      <p>{updatedJob.timeTaken}</p>
+      <p>Time taken: {runningTime}</p>
       <p className="stopwatch-time">
         {/* {hours}:{minutes.toString().padStart(2, "0")}:
         {seconds.toString().padStart(2, "0")} */}
         {/* {milliseconds.toString().padStart(2, "0")} */}
       </p>
 
-      <img src={require(`../assets/images/hat1.png`)} className={!isRunning ?"hat":"hat spinning"}alt="hat"/>
+      <img src={require(`../assets/images/${job.client.hat.iconName}.png`)} className={!isRunning ?"hat":"hat spinning"}alt="hat"/>
       <div className="stopwatch-buttons">
         <button className="stopwatch-button" 
         
