@@ -1,0 +1,58 @@
+.falling{
+    width: 200px;
+    position: fixed;
+    left: 0;
+    animation-name: side-scroll;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    
+}
+
+.hat1{
+    top: 500px;
+    margin-left: -100px;
+}
+.hat2{
+    top: 200px;
+    margin-left: -100px;
+}
+.hat3{
+    top: 200px;
+}
+
+.hat4{
+    top: 100px;
+    
+}
+
+.hat5{
+    top: 100px;
+    margin-left: 100px;
+    
+}
+.hat6{
+    top: 400px;
+    margin-left: 100px;
+   
+}
+.hat{
+    top: 400px;
+}
+ 
+.hat8{
+    top: 600px;
+    margin-left: -100px;
+}
+
+@keyframes side-scroll{
+    from {
+        left: -500px;
+        transform: rotate(0)
+    }
+    to {
+       left: 500px;
+       transform: rotate(360deg)
+    }
+}

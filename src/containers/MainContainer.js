@@ -19,7 +19,9 @@ import ClientCardColours from "../styling_codes/ClientCardColours.js";
 import HatFormContainer from "./HatFormContainer.js";
 import HatUpdateFormContainer from "./HatUpdateFormContainer.js";
 import ClientDetailContainer from "./ClientDetailContainer.js";
+import LandingContainer from "./LandingContainer.js"
 import AboutContainer from "./AboutContainer.js";
+
 
 const MainContainer = () => {
   const [user, setUser] = useState({});
@@ -126,6 +128,13 @@ const MainContainer = () => {
     <Router>
       <>
         <Routes>
+        <Route
+            path="/"
+            element={
+              <LandingContainer
+              />
+            }
+          />
           <Route
             path="/hats/*"
             element={
@@ -221,7 +230,7 @@ const MainContainer = () => {
             }
           />
 
-          <Route path="/money/*" element={<MoneyContainer />} />
+          <Route path="/money/*" element={<MoneyContainer jobs={jobs} />} />
 
           <Route path="/settings/*" element={<SettingsContainer />} />
 

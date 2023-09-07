@@ -88,7 +88,7 @@ const ClientCard = ({ client, hatIcons, clientCardColours }) => {
           <ClientCardStyle>
             <div className="card-image-box">
               <img
-                src={require(`../assets/images/${hatCode}`)}
+                src={require(`../assets/images/${client.hat.iconName}.png`)}
                 className="hat-image"
                 alt="hat"
               />

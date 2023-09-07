@@ -102,7 +102,7 @@ const HatCard = ({ hat, hatIcons, hatCardColours }) => {
           <HatCardStyle>
             <div className="card-image-box">
               <img
-                src={require(`../assets/images/${hatCode}`)}
+                src={require(`../assets/images/${hat.iconName}.png`)}
                 className="hat-image"
                 alt="hat"
               />
