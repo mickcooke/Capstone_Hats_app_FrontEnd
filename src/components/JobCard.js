@@ -17,7 +17,7 @@ const JobCard = ({ job, hatIcons, clientCardColours }) => {
     margin-top: -10px;
     margin-left: -10px;
     border-radius: 10px;
-    background-color: ${clientCardColourCode};
+    background-color: #8cd7ff;
     display: grid;
     grid-template-columns: 30% 70%;
     box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.5);

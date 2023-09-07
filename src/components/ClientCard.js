@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import './ClientCard.css'
 
 const ClientCard = ({ client, hatIcons, clientCardColours }) => {
   if (!client) {
@@ -17,7 +18,7 @@ const ClientCard = ({ client, hatIcons, clientCardColours }) => {
     margin-top: -10px;
     margin-left: -10px;
     border-radius: 10px;
-    background-color: ${clientCardColourCode};
+    background-color: #ffe48c;
     display: grid;
     grid-template-columns: 30% 70%;
     box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.5);
