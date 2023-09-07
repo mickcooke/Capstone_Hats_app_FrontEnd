@@ -20,6 +20,7 @@ const HatCard = ({ hat, hatIcons, hatCardColours }) => {
     background-color: ${hatCardColourCode};
     display: grid;
     grid-template-columns: 30% 70%;
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.5);
   `;
 
   const getUrl = () => {
