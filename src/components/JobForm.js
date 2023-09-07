@@ -13,9 +13,9 @@ const JobForm = ({ clientId, onCreate, foundClient }) => {
     notes: "",
     started: "",
     ended: "",
-    active: "",
-    completed: "",
-    paid: "",
+    active: true,
+    completed: false,
+    paid: false,
     client: foundClient
   });
 
