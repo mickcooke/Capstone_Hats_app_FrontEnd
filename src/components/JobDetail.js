@@ -7,7 +7,9 @@ import './JobDetail.css'
 
 const JobDetail = ({job}) => {
 
-
+  const unpaid = () => {
+    return job.completed === true && job.paid === false;
+  };
 
 
   return (
@@ -16,9 +18,18 @@ const JobDetail = ({job}) => {
         <p>Job: {job.name}</p>
         <p> Description: {job.description}</p>
         <p>Notes: {job.notes}</p>
-        {job.active ? <p>Active</p> : <p>Not Active</p> }
-        {job.completed ? <p>Completed</p> : <p>Not Completed</p> }
-        {job.paid ? <p>Paid</p> : <p>Not Paid</p> }
+        {unpaid() ? (
+                <div className="unpaid-job-card">
+                <p className="job-detail-paid-text">
+                   UNPAID
+                </p>
+              </div>
+              )
+            : <div className="paid-job-card">
+            <p className="job-detail-paid-text">
+               PAID
+            </p>
+          </div>}
         <div className='timer'>
           <Timer job={job}/>
         </div>

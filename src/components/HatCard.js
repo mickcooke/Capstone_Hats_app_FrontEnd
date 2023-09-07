@@ -32,14 +32,14 @@ const HatCard = ({ hat, hatIcons, hatCardColours }) => {
   };
 
   const url = getUrl();
-  const newClientFormUrl = `/clients/new/${hat.id}`;
+  // const newClientFormUrl = `/clients/new/${hat.id}`;
   const editUrl = `/hats/edit/${hat.id}`;
 
   let numberOfOngoingJobs = 0;
   let numberOfUnpaidJobs = 0;
 
-  const hatIconIndex = hat.id - 1;
-  const hatCode = hatIcons[hatIconIndex];
+  // const hatIconIndex = hat.id - 1;
+  // const hatCode = hatIcons[hatIconIndex];
 
   const calculateOngoingJobs = () => {
     const clients = hat.clients;
