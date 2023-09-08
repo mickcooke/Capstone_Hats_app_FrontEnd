@@ -9,7 +9,7 @@ const ClientDetail = ({client}) => {
 
 
   return (
-    <div>
+    <div className='client-detail-card '>
         <p>{client.firstName} {client.lastName}</p>
         <p>{client.emailAddress}</p>
         <p>{client.address1}</p>

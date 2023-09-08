@@ -330,4 +330,18 @@ body {
   margin-top: -25px;
 }
 
+.client-detail-card {
+  /* width: 300px;
+  height: 100px; */
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.5);
+  /* background-color: #c6c4ff; */
+
+}
+
 
