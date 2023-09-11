@@ -15,7 +15,7 @@ const MoneyContainer = ({jobs}) => {
     setJobsFilteredByDate(dummyJobs)
   },[])
 
-  const [play] = useSound(Kerching, {volume: 0.4})
+  const [play] = useSound(Kerching, {volume: 0.5})
     play();
 
 const text = "Money in your hat"
@@ -192,7 +192,7 @@ const text = "Money in your hat"
         "hourlyRate": 255,
         "hat": {
           "id": 5,
-          "name": "Roofing Contractor",
+          "name": "Driver",
           "iconName": "hat5",
           "user": {
             "id": 5,
@@ -266,7 +266,7 @@ const text = "Money in your hat"
         "hourlyRate": 30,
         "hat": {
           "id": 7,
-          "name": "Landscaper",
+          "name": "Driver",
           "iconName": "hat7",
           "user": {
             "id": 7,
@@ -414,7 +414,7 @@ const text = "Money in your hat"
         "hourlyRate": 40,
         "hat": {
           "id": 11,
-          "name": "Landscaper",
+          "name": "Driver",
           "iconName": "hat11",
           "user": {
             "id": 11,
