@@ -12,7 +12,7 @@ const JobCard = ({ job, hatIcons, clientCardColours }) => {
 
   const JobCardStyle = styled.div`
     width: 300px;
-    height: 120px;
+    height: 150px;
     padding: 10px;
     margin-top: -10px;
     margin-left: -10px;
@@ -39,8 +39,15 @@ const JobCard = ({ job, hatIcons, clientCardColours }) => {
 
   const ongoing = () => {
     return job.active === true && job.completed === false;
-  }
+  };
 
+  const hasStarted = () => {
+    return job.started !== "" && job.started !== null;
+  };
+
+  const hasEnded = () => {
+    return job.ended !== "" && job.ended !== null;
+  };
 
   const gotTime = () => {
     return job.timeTaken > 0;
@@ -58,14 +65,11 @@ const JobCard = ({ job, hatIcons, clientCardColours }) => {
     const remainingSeconds = seconds % 3600;
     const minutes = Math.floor(remainingSeconds / 60);
     const remainingSecondsFinal = remainingSeconds % 60;
-    const hoursText =
-      hours > 0 ? hours + " hr" + (hours === 1 ? "" : "s") : "";
+    const hoursText = hours > 0 ? hours + " hr" + (hours === 1 ? "" : "s") : "";
     const minutesText =
       minutes > 0 ? minutes + " min" + (minutes === 1 ? "" : "s") : "";
     const secondsText =
-      remainingSecondsFinal +
-      " sec" +
-      (remainingSecondsFinal === 1 ? "" : "s");
+      remainingSecondsFinal + " sec" + (remainingSecondsFinal === 1 ? "" : "s");
     const timeArray = [hoursText, minutesText, secondsText].filter(
       (text) => text !== ""
     );
@@ -76,6 +80,10 @@ const JobCard = ({ job, hatIcons, clientCardColours }) => {
   };
 
   const runningTime = convertSecondsToHMS(Math.trunc(job.timeTaken));
+
+  const amountEarned = (job.client.hourlyRate * (job.timeTaken / 3600)).toFixed(
+    2
+  );
 
   return (
     <>
@@ -94,31 +102,43 @@ const JobCard = ({ job, hatIcons, clientCardColours }) => {
               <p className="job-description-text">
                 <b>{job.description} </b>
               </p>
-              <p className="job-started-text">
-                {/* <b>Started:</b> {job.started.slice(0, 10)} */}
-              </p>
-              {ongoing() ? 
-               
+              {hasStarted() ? (
+                <p className="job-started-text">
+                  <b>Started:</b> {job.started.slice(0, 10)}{" "}
+                </p>
+              ) : (
+                ""
+              )}
+
+              {hasEnded() ? (
+                <p className="job-started-text">
+                  <b>Ended:</b> {job.ended.slice(0, 10)}{" "}
+                </p>
+              ) : (
+                ""
+              )}
+
+              <p className="job-name-text">£{amountEarned} </p>
+
+              {ongoing() ? (
                 <div className="ongoing-job-card">
-          <p className="completed-job-text">ONGOING</p>
-        </div>
-        : unpaid() ?
-        <div className="unpaid-job-card">
+                  <p className="completed-job-text">ONGOING</p>
+                </div>
+              ) : unpaid() ? (
+                <div className="unpaid-job-card">
                   <p className="ongoing-job-text">UNPAID</p>
                 </div>
-                : <div className="paid-job-card">
-                <p className="job-detail-paid-text">PAID</p>
-              </div>
-
-              }
+              ) : (
+                <div className="paid-job-card">
+                  <p className="job-detail-paid-text">PAID</p>
+                </div>
+              )}
 
               {gotTime() ? (
                 <p className="running-time-text">{runningTime} </p>
               ) : (
                 <p></p>
               )}
-             
-        
             </div>
           </JobCardStyle>
         </Link>

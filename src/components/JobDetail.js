@@ -16,8 +16,19 @@ const JobDetail = ({ job, onUpdate }) => {
     return job.completed === true;
   };
 
+  const hasStarted = () => {
+    return job.started !== "" && job.started !== null;
+  };
 
-  const amountEarned = Math.floor((job.client.hourlyRate * (job.timeTaken/3600))*100)/100
+  const hasEnded = () => {
+    return job.ended !== "" && job.ended !== null;
+  };
+
+
+  // const amountEarned = Math.floor((job.client.hourlyRate * (job.timeTaken/3600) + Number.EPSILON)*100)/100
+
+  const amountEarned = (job.client.hourlyRate * (job.timeTaken/3600)).toFixed(2)
+
 
   return (
 
@@ -27,7 +38,23 @@ const JobDetail = ({ job, onUpdate }) => {
         <b>{job.name}</b>
       </p>
       <p className="job-detail-text">{job.description}</p>
-      <p className="job-detail-text"> Notes: {job.notes}</p>
+      <p className="job-detail-text"> {job.notes}</p>
+
+      {hasStarted() ? (
+                <p className="job-started-text">
+                  <b>Started:</b> {job.started.slice(0, 10)}{" "}
+                </p>
+              ) : (
+                ""
+              )}
+
+              {hasEnded() ? (
+                <p className="job-started-text">
+                  <b>Ended:</b> {job.ended.slice(0, 10)}{" "}
+                </p>
+              ) : (
+                ""
+              )}
 
       {job.active ? "" : <p>Not Started</p>}
             
