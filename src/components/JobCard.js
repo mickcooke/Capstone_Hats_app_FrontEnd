@@ -53,6 +53,24 @@ const JobCard = ({ job, hatIcons, clientCardColours }) => {
     return job.timeTaken > 0;
   };
 
+
+
+  const year = (dateTime) => {
+    return dateTime.slice(0, 4);
+  }
+
+  const month = (dateTime) => {
+    return dateTime.slice(5,7);
+  } 
+
+  const day = (dateTime) => {
+    return dateTime.slice(8,10);
+  }
+
+  const time = (dateTime) => {
+    return dateTime.slice(11,16)
+  }
+
   const completed = () => {
     return job.completed === true;
   };
@@ -103,16 +121,18 @@ const JobCard = ({ job, hatIcons, clientCardColours }) => {
                 <b>{job.description} </b>
               </p>
               {hasStarted() ? (
+                <>
                 <p className="job-started-text">
-                  <b>Started:</b> {job.started.slice(0, 10)}{" "}
+                  <b>Started:</b> {day(job.started)}{"-"}{month(job.started)}{"-"}{year(job.started)}{" at "}{time(job.started)}
                 </p>
+                </>
               ) : (
                 ""
               )}
 
               {hasEnded() ? (
                 <p className="job-started-text">
-                  <b>Ended:</b> {job.ended.slice(0, 10)}{" "}
+                  <b>Ended:</b> {day(job.ended)}{"-"}{month(job.ended)}{"-"}{year(job.ended)}{" at "}{time(job.ended)}
                 </p>
               ) : (
                 ""
