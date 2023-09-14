@@ -1039,7 +1039,7 @@ let totalByJobChart = {
       <Route path="/incomebyjob" element={<MoneyEarnedChart chartProperties={totalByJobChart}/>}/>
     </Routes>
 
-    <div className='links-container'>
+    <div className='insights-links-container'>
       <button className={filterView == "all" ? "active" : "not-active"} onClick={getAllJobs}>All time</button>
       <button className={filterView == "month" ? "active" : "not-active"} onClick={filterByMonth}>This Month</button>
       <button className={filterView == "year" ? "active" : "not-active"} onClick={filterByYear}>This Year</button>

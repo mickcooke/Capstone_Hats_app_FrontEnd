@@ -112,13 +112,13 @@ const MainContainer = () => {
     });
   };
 
-  const handleDeleteJob = (id) => {
+  const handleDeleteJob = (id) => { 
     const selectedJob = findJobById(id)
-    const clientId = selectedJob.client.id
+    const hatId = selectedJob.client.hat.id
     const request = new Request();
     const url = "http://localhost:8080/api/jobs/" + id;
     request.delete(url).then(() => {
-      window.location = `/jobs/${clientId}`
+      window.location = `/clients/${hatId}`
     });
   };
 
