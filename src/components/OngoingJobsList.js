@@ -16,6 +16,10 @@ const OngoingJobsList = ({ jobs }) => {
 
   const ongoingJobs = getOngoingJobs();
 
+  const areOngoingJobs = () => {
+    return ongoingJobs.length > 0;
+  }
+
   const ongoingJobElements = ongoingJobs.map((job, index) => {
     return (
       <div key={index}>
@@ -29,7 +33,10 @@ const OngoingJobsList = ({ jobs }) => {
   return (
     <>
       <div className="ongoingJobs-container">
-        <h3 className="ongoingJobs-header">All Ongoing Jobs</h3>
+        {areOngoingJobs()? <h3 className="ongoingJobs-header">All Ongoing Jobs</h3>
+        : 
+        <h3 className="ongoingJobs-header">No Ongoing Jobs</h3>}
+        
         <hr></hr>
         
         {ongoingJobElements}
