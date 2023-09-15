@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import './ClientCard.css'
+import "./ClientCard.css";
 
 const ClientCard = ({ client, hatIcons, clientCardColours }) => {
   if (!client) {
@@ -38,9 +38,8 @@ const ClientCard = ({ client, hatIcons, clientCardColours }) => {
 
   let numberOfOngoingJobs = 0;
   let numberOfUnpaidJobs = 0;
+  let unpaidAmount = 0;
 
-  // const hatIconIndex = client.hat.id - 1;
-  // const hatCode = hatIcons[hatIconIndex];
 
   const calculateOngoingJobs = () => {
     const allClientJobs = client.jobs;
@@ -65,6 +64,18 @@ const ClientCard = ({ client, hatIcons, clientCardColours }) => {
   };
 
   calculateUnpaidJobs();
+
+  const calculateUnpaidAmount = () => {
+    const allClientJobs = client.jobs;
+
+    for (const job of allClientJobs) {
+      if (job.completed === true && job.paid === false) {
+        unpaidAmount += (client.hourlyRate * (job.timeTaken / 3600)).toFixed(2);
+      }
+    }
+  };
+
+  calculateUnpaidAmount();
 
   const noOngoingJobs = () => {
     return numberOfOngoingJobs === 0;
@@ -118,15 +129,23 @@ const ClientCard = ({ client, hatIcons, clientCardColours }) => {
               {noUnpaidJobs() ? (
                 <p></p>
               ) : unpaidJob() ? (
-                <div className="unpaid-job-card">
-                  <p className="ongoing-job-text">
-                    {numberOfUnpaidJobs} unpaid job
+                <>
+                  <div className="unpaid-job-card">
+                    <p className="ongoing-job-text">
+                      {numberOfUnpaidJobs} unpaid job
+                    </p>
+                  </div>
+                  <p className="owed-text">
+                    £{parseFloat(unpaidAmount).toFixed(2)} owed
                   </p>
-                </div>
+                </>
               ) : (
                 <div className="unpaid-job-card">
                   <p className="ongoing-job-text">
                     {numberOfUnpaidJobs} unpaid jobs
+                  </p>
+                  <p className="owed-text">
+                    £{parseFloat(unpaidAmount).toFixed(2)} owed
                   </p>
                 </div>
               )}
@@ -144,14 +163,7 @@ const ClientCard = ({ client, hatIcons, clientCardColours }) => {
       </div>
     </>
 
-    // <div>
-    //   <Link to={url}>
-    //     <p>{client.firstName}</p>
-    //   </Link>
-    //   <Link to={editUrl}>
-    //     <p>Edit Client</p>
-    //   </Link>
-    // </div>
+
   );
 };
 
