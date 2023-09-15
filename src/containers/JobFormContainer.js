@@ -30,7 +30,6 @@ const text = `Add New ${foundHat} Job`
   return (
     <div>
       <Header text={text}/>
-      <p>Job form container</p>
       <JobForm onCreate={onCreate} foundClient={foundClient}/>
     </div>
   )

@@ -4,7 +4,7 @@ import "./OngoingJobsList.css"
 
 const OngoingJobsList = ({ jobs }) => {
   if (jobs.length === 0) {
-    return <p>Loading...</p>;
+    return <p>No ongoing jobs</p>;
   }
 
   const getOngoingJobs = () => {
