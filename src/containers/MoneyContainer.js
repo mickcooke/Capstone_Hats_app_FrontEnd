@@ -957,7 +957,7 @@ let totalByHatChart = {
   labels: Object.keys(totalEarnedByHat),
   header: "Your highest paying hat was:",
   headerValue: highestPaidHat,
-  subheader: "It earned you",
+  subheader: "It earned you:",
   subheaderValue: `£${totalEarnedByHat[highestPaidHat]}`,
   footer: "Your lowest paying hat was:",
   footerValue: `${lowestPaidHat}`,
@@ -1027,10 +1027,10 @@ let totalByJobChart = {
     <Header text={text}/>
 <div className='money'>
     <div className='insights-links-container'>
-      <NavLink activeStyle className="insights-link" to="/money/total">Owed and paid</NavLink>
-      <NavLink activeStyle  className="insights-link" to="/money/incomebyhat">Income by hat</NavLink>
-      <NavLink activeStyle className="insights-link" to="/money/incomebyclient">Income by client</NavLink>
-      <NavLink activeStyle className="insights-link" to="/money/incomebyjob">Income by job</NavLink>
+      <NavLink activeStyle className="insights-link" to="/money/total">Owed and Paid</NavLink>
+      <NavLink activeStyle  className="insights-link" to="/money/incomebyhat">Income by Hat</NavLink>
+      <NavLink activeStyle className="insights-link" to="/money/incomebyclient">Income by Client</NavLink>
+      <NavLink activeStyle className="insights-link" to="/money/incomebyjob">Income by Job</NavLink>
     </div>
     <Routes>
       <Route path="/total" element={<MoneyEarnedChart chartProperties={owedAndPaidChart}/>}/>
@@ -1040,7 +1040,7 @@ let totalByJobChart = {
     </Routes>
 
     <div className='insights-links-container'>
-      <button className={filterView == "all" ? "active" : "not-active"} onClick={getAllJobs}>All time</button>
+      <button className={filterView == "all" ? "active" : "not-active"} onClick={getAllJobs}>All Time</button>
       <button className={filterView == "month" ? "active" : "not-active"} onClick={filterByMonth}>This Month</button>
       <button className={filterView == "year" ? "active" : "not-active"} onClick={filterByYear}>This Year</button>
     </div>
