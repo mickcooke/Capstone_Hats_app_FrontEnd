@@ -6,7 +6,7 @@ const UpdateClientForm = ({client, onUpdate, handleDelete}) => {
   const [updatedClient, setUpdatedClient] = useState({
     firstName: client.firstName,
     lastName: client.lastName,
-    emailAddress: client.email,
+    emailAddress: client.emailAddress,
     address1: client.address1,
     address2: client.address2,
     postcode: client.postcode,

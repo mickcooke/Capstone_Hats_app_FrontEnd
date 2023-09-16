@@ -26,28 +26,27 @@ const JobDetail = ({ job, onUpdate }) => {
 
   const year = (dateTime) => {
     return dateTime.slice(0, 4);
-  }
+  };
 
   const month = (dateTime) => {
-    return dateTime.slice(5,7);
-  } 
+    return dateTime.slice(5, 7);
+  };
 
   const day = (dateTime) => {
-    return dateTime.slice(8,10);
-  }
+    return dateTime.slice(8, 10);
+  };
 
   const time = (dateTime) => {
-    return dateTime.slice(11,16)
-  }
-
+    return dateTime.slice(11, 16);
+  };
 
   // const amountEarned = Math.floor((job.client.hourlyRate * (job.timeTaken/3600) + Number.EPSILON)*100)/100
 
-  const amountEarned = (job.client.hourlyRate * (job.timeTaken/3600)).toFixed(2)
-
+  const amountEarned = (job.client.hourlyRate * (job.timeTaken / 3600)).toFixed(
+    2
+  );
 
   return (
-
     <div className="card">
       {/* <img src="" */}
       <p className="job-detail-name">
@@ -57,25 +56,36 @@ const JobDetail = ({ job, onUpdate }) => {
       <p className="job-detail-text"> {job.notes}</p>
 
       {hasStarted() ? (
-                <>
-                <p className="job-started-text">
-                  <b>Started:</b> {day(job.started)}{"-"}{month(job.started)}{"-"}{year(job.started)}{" at "}{time(job.started)}
-                </p>
-                </>
-              ) : (
-                ""
-              )}
+        <>
+          <p className="job-started-text">
+            <b>Started:</b> {day(job.started)}
+            {"-"}
+            {month(job.started)}
+            {"-"}
+            {year(job.started)}
+            {" at "}
+            {time(job.started)}
+          </p>
+        </>
+      ) : (
+        ""
+      )}
 
-              {hasEnded() ? (
-                <p className="job-started-text">
-                  <b>Ended:</b> {day(job.ended)}{"-"}{month(job.ended)}{"-"}{year(job.ended)}{" at "}{time(job.ended)}
-                </p>
-              ) : (
-                ""
-              )}
+      {hasEnded() ? (
+        <p className="job-started-text">
+          <b>Ended:</b> {day(job.ended)}
+          {"-"}
+          {month(job.ended)}
+          {"-"}
+          {year(job.ended)}
+          {" at "}
+          {time(job.ended)}
+        </p>
+      ) : (
+        ""
+      )}
 
       {job.active ? "" : <p>Not Started</p>}
-            
 
       {job.completed ? (
         <div className="completed-job-card">
@@ -84,10 +94,9 @@ const JobDetail = ({ job, onUpdate }) => {
       ) : (
         <div className="completed-job-card">
           <p className="completed-job-text">ONGOING</p>
-
         </div>
       )}
-      <br/>
+      <br />
       {unpaid() ? (
         <div className="unpaid-job-card">
           <p className="job-detail-paid-text">UNPAID</p>
@@ -99,7 +108,7 @@ const JobDetail = ({ job, onUpdate }) => {
           <p className="job-detail-paid-text">PAID</p>
         </div>
       )}
-  <p>Amount earned: £{amountEarned}</p>
+      <p className="amount-earned">Amount earned: £{amountEarned}</p>
       <div className="timer">
         <Timer job={job} onUpdate={onUpdate} />
       </div>

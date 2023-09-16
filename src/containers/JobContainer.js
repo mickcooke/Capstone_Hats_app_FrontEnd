@@ -9,7 +9,6 @@ const JobContainer = ({ jobs, clientCardColours, hatIcons }) => {
   const clientId = useParams();
 
   const newJobText = "Add a Job";
-  const filteredJobs = jobs.filter((job) => job.client.id == clientId["*"]);
   const clientIdString = clientId["*"];
 
   if (jobs.length === 0) {
@@ -21,9 +20,12 @@ const JobContainer = ({ jobs, clientCardColours, hatIcons }) => {
     );
   }
 
-  const text = `${filteredJobs[0].client.hat.name} > ${filteredJobs[0].client.firstName} ${filteredJobs[0].client.lastName} > Jobs`;
 
- 
+  const filteredJobs = jobs.filter((job) => job.client.id == clientId["*"]);
+  
+
+
+  const text =  `${filteredJobs[0].client.hat.name} > ${filteredJobs[0].client.firstName} ${filteredJobs[0].client.lastName} > Jobs`
 
 
   return (

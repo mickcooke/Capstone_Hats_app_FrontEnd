@@ -104,21 +104,22 @@ const MainContainer = () => {
     });
   };
 
-  const handleDeleteHat = (id) => {
-    const request = new Request();
-    const url = "http://localhost:8080/api/hats/" + id;
-    request.delete(url).then(() => {
-      // window.location = '/hats'
-    });
-  };
+  // const handleDeleteHat = (id) => {
+  //   const request = new Request();
+  //   const url = "http://localhost:8080/api/hats/" + id;
+  //   request.delete(url).then(() => {
+  //     // window.location = '/hats'
+  //   });
+  // };
 
-  const handleDeleteJob = (id) => {
+  const handleDeleteJob = (id) => { 
     const selectedJob = findJobById(id)
-    const clientId = selectedJob.client.id
+    const hatId = selectedJob.client.hat.id
     const request = new Request();
     const url = "http://localhost:8080/api/jobs/" + id;
     request.delete(url).then(() => {
-      window.location = `/jobs/${clientId}`
+      window.location = `/clients/${hatId}`
+      // window.location = '/hats';
     });
   };
 
@@ -190,7 +191,6 @@ const MainContainer = () => {
             element={
               <HatUpdateFormContainer
                 hats={hats}
-                handleDelete={handleDeleteHat}
                 user={user}
                 onUpdate={handleUpdateHat}
               />

@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import { useParams }  from 'react-router-dom'
 import HatUpdateForm from '../components/HatUpdateForm'
 
-const HatUpdateFormContainer = ({hats, handleDelete, user, onUpdate}) => {
+const HatUpdateFormContainer = ({hats, user, onUpdate}) => {
 
     const hatId = useParams();
 
@@ -23,7 +23,7 @@ if(!foundHat){
   return (
     <>
     <Header text={text}/>
-    <HatUpdateForm hat={foundHat} handleDelete={handleDelete} user={user} onUpdate={onUpdate}/>
+    <HatUpdateForm hat={foundHat} user={user} onUpdate={onUpdate}/>
     </>
   )
 }

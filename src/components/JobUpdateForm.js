@@ -14,6 +14,7 @@ const UpdateJobForm = ({job, handleDelete, onUpdate}) => {
       notes: job.notes,
       started: job.started,
       ended: job.ended,
+      timeTaken: job.timeTaken,
       active: job.active,
       completed: job.completed,
       paid: job.paid,
@@ -39,7 +40,7 @@ const UpdateJobForm = ({job, handleDelete, onUpdate}) => {
 
 
     const onDelete = () => {
-      handleDelete(job.id)
+      handleDelete(job.id);
     }
 
     const handleSubmit = (event) => {
@@ -72,20 +73,21 @@ const UpdateJobForm = ({job, handleDelete, onUpdate}) => {
 
   
 
-    Active: <input type="checkbox" placeholder="Active" name="active" defaultChecked={job.active} onChange={handleCheckbox} />
+    <span>Active: <input type="checkbox" placeholder="Active" name="active" defaultChecked={job.active} onChange={handleCheckbox} /></span>
         
-    Completed: <input type="checkbox" name="completed" defaultChecked={job.completed} onChange={handleCheckbox}/>
+    <span>Completed: <input type="checkbox" name="completed" defaultChecked={job.completed} onChange={handleCheckbox}/></span>
         
-    Paid: <input type="checkbox" name="paid" defaultChecked={job.paid} onChange={handleCheckbox} />
+    <span>Paid: <input type="checkbox" name="paid" defaultChecked={job.paid} onChange={handleCheckbox} /></span>
     
     <div className='buttons'>
     <button  type="submit">Save</button>
-      <button onClick = {() => {
-         onDelete();
-       }}>Delete Job</button>
-  </div>
+    </div>
+    </form>
 
-  </form>
+      <button onClick = {onDelete}>Delete Job</button>
+ 
+
+ 
 
 
  
