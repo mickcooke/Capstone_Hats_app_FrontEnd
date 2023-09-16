@@ -83,9 +83,9 @@ const UpdateJobForm = ({job, handleDelete, onUpdate}) => {
     <button  type="submit">Save</button>
     </div>
     </form>
-
+<div className='App'>
       <button onClick = {onDelete}>Delete Job</button>
- 
+      </div>
 
  
 
