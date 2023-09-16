@@ -926,11 +926,11 @@ let totalOwed = Math.floor((totalEarned - totalPaid)*100)/100
 let owedAndPaidChart = {
   data: [totalOwed, totalPaid],
   labels: ["Unpaid", "Paid"],
-  header: "You have earned",
+  header: "You have earned:",
   headerValue: `£${totalEarnedNew}`,
-  subheader: "You are owed",
+  subheader: "You are owed:",
   subheaderValue: `£${totalOwed}`,
-  footer: "You have been paid",
+  footer: "You have been paid:",
   footerValue: `£${totalPaid.toFixed(2)}`,
   colors: ["#ff5c5c","#85ff8d"]
 }
