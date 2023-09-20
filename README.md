@@ -30,10 +30,8 @@ Capstone project for Codeclan, planned and developed over 12 days by [@ablaney88
 
 ## Demo
 
-<div align="center">
+[Hats Demo](https://www.youtube.com/watch?v=mRAXR4tXDKM&ab_channel=MickCooke)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mRAXR4tXDKM?si=nDqEyoKYPRn-XHwa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
 
 ## Installation
 
