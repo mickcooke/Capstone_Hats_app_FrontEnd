@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Hats
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full stack application designed for users that are freelance/self-employed who have mutiple professions. The app allows users to set up multiple hats(professions) and add seperate clients and jobs, users are also able to track earnings which can be filtered and displayed using a graph.
 
-## Available Scripts
+Capstone project for Codeclan, planned and developed over 12 days by [@ablaney88](https://github.com/ablaney88), [@mickcooke](https://github.com/mickcooke), [@UhOhSpiders](https://github.com/UhOhSpiders).
 
-In the project directory, you can run:
+<div align="center">
 
-### `npm start`
+![](https://i.imgur.com/DTs3mPw.png)
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Create multiple hats(professions)
+* Add, edit and delete clients and jobs associate with each hat
+* Assign an hourly rate to be charged to a client on a job to job basis
+* Track how long a job takes to complete
+* All earning data is tracked and displayed by a graph giving the user the ability to compare hats earnings
+* Graph is responsive and can be filtered to display different types of data
 
-### `npm test`
+### Screenshots
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<div align="center">
+  
+![](https://i.imgur.com/Ye2wYAR.png)
 
-### `npm run build`
+![](https://i.imgur.com/ZD4A3Yf.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![](https://i.imgur.com/Udv21K5.png)
+</div>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The back end of the application was create using java which can be found [here](https://github.com/mickcooke/Capstone_Hats_app):
+```
+Open with IntelliJ, open the terminal and type "createdb hats_application"
+Go to src > main > java > HatsapplicationApplication and click run.
+```
+For the front end of the application:
+```
+npm install
+npm start
+```
