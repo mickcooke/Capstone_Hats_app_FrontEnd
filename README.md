@@ -20,9 +20,10 @@ Capstone project for Codeclan, planned and developed over 12 days by [@ablaney88
 
 ### Screenshots
 
+
+
 <div align="center">
-  
-![](https://i.imgur.com/Ye2wYAR.png)
+
 
 ![](https://i.imgur.com/ZD4A3Yf.png)
 
@@ -31,11 +32,14 @@ Capstone project for Codeclan, planned and developed over 12 days by [@ablaney88
 
 ### Installation
 
+
 The back end of the application was create using java which can be found [here](https://github.com/mickcooke/Capstone_Hats_app):
 ```
-Open with IntelliJ, open the terminal and type "createdb hats_application"
+Open with IntelliJ
+Open the terminal and type "createdb hats_application"
 Go to src > main > java > HatsapplicationApplication and click run.
 ```
+
 For the front end of the application:
 ```
 npm install
