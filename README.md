@@ -18,9 +18,7 @@ Capstone project for Codeclan, planned and developed over 12 days by [@ablaney88
 * All earning data is tracked and displayed by a graph giving the user the ability to compare hats earnings
 * Graph is responsive and can be filtered to display different types of data
 
-### Screenshots
-
-
+## Screenshots
 
 <div align="center">
 
@@ -30,8 +28,7 @@ Capstone project for Codeclan, planned and developed over 12 days by [@ablaney88
 ![](https://i.imgur.com/Udv21K5.png)
 </div>
 
-### Installation
-
+## Installation
 
 The back end of the application was create using java which can be found [here](https://github.com/mickcooke/Capstone_Hats_app):
 ```
